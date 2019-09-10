@@ -2,6 +2,12 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import Router from 'vue-router'
+// 解决传参时数据丢失报错的问题
+const originalPush = Router.prototype.push
+Router.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+}
 // 引入element-ui组件
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
