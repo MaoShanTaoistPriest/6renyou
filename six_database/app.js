@@ -14,12 +14,16 @@ var pool = mysql.createPool({
   database: 'six', //连接后要使用的数据库
   connectionLimit: 15 //设置连接池的大小
 });
-// 4.创建web服务器，监听8088端口
+// 4.创建web服务器，监听5050端口
 var server = express();
 server.listen(5050);
 // 5.跨域处理
 server.use(cors({
+<<<<<<< HEAD
   origin: ["http://127.0.0.1:8088", "http://localhost:8088","http://127.0.0.1:8089", "http://localhost:8089"],
+=======
+  origin: ["http://127.0.0.1:8088", "http://localhost:8088", "http://127.0.0.1:8089", "http://localhost:8089"],
+>>>>>>> 86f5cb9aeb5e2682da7c91cc60bfa522d4cf14c7
   credentials: true
 }))
 // 配置session，一定要在所有的请求之前

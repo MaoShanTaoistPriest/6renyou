@@ -75,6 +75,13 @@ INSERT INTO six_header_destination VALUES(null,'亚洲',"泰国,新加坡,越南
 INSERT INTO six_header_destination VALUES(null,'大洋洲',"澳大利亚,新西兰");
 INSERT INTO six_header_destination VALUES(null,'海岛',"巴厘岛,普吉岛,苏梅岛,马尔代夫,斐济,毛里求斯,塞舌尔,塞班岛,大溪地,关岛");
 INSERT INTO six_header_destination VALUES(null,'中国台湾',"台湾");
+INSERT INTO six_header_destination VALUES(null,'美洲','美国,加拿大,阿根廷,巴西,智利,秘鲁,古巴,墨西哥,南极,玻利维亚,厄尔瓜多');
+INSERT INTO six_header_destination VALUES(null,'中东 非洲','阿布扎比,迪拜,以色列,南非,埃及,摩洛哥,肯尼亚,纳米比亚,坦桑尼亚');
+INSERT INTO six_header_destination VALUES(null,'欧洲','英国,法国,瑞士,荷兰,德国,希腊,意大利,西班牙,葡萄牙,捷克,奥地利,匈牙利,挪威,丹麦,芬兰,冰岛,瑞典,俄罗斯');
+INSERT INTO six_header_destination VALUES(null,'亚洲','泰国,新加坡,越南,日本,柬埔寨,斯里兰卡,缅甸,伊朗,印度,土耳其,尼泊尔,马来西亚,老挝');
+INSERT INTO six_header_destination VALUES(null,'大洋洲','澳大利亚,新西兰');
+INSERT INTO six_header_destination VALUES(null,'海岛','巴厘岛,普吉岛,苏梅岛,马尔代夫,斐济,毛里求斯,塞舌尔,塞班岛,大溪地,关岛');
+INSERT INTO six_header_destination VALUES(null,'中国台湾','台湾');
 #尾部的热门推荐的数据表插入
 INSERT INTO six_footer_recommended VALUES(null,'美国定制旅游');
 INSERT INTO six_footer_recommended VALUES(null,'法国定制旅游');
@@ -127,6 +134,9 @@ INSERT INTO six_index_hotPlaceName VALUES(null,'澳新 中东非洲','斐济');
 INSERT INTO six_index_hotPlaceName VALUES(null,'澳新 中东非洲','肯尼亚');
 INSERT INTO six_index_hotPlaceName VALUES(null,'澳新 中东非洲','毛里求斯');
 INSERT INTO six_index_hotPlaceName VALUES(null,'澳新 中东非洲','迪拜');
+INSERT INTO six_index_hotPlaceName VALUES(null,'亚洲','台湾,泰国,不丹,新加坡,巴厘岛,日本');
+INSERT INTO six_index_hotPlaceName VALUES(null,'欧洲 美洲','法国,意大利,英国,瑞士,奥地利,德国,美国,塞班岛,加拿大,古巴,墨西哥,西班牙');
+INSERT INTO six_index_hotPlaceName VALUES(null,'澳新 中东非洲','新西兰,澳大利亚,斐济,肯尼亚,毛里求斯,迪拜');
 #主页的热门推荐的图片的数据表插入
 INSERT INTO six_index_hotPlaceImg VALUES(null,'迪拜','img/index/hot_dubai.jpg');
 INSERT INTO six_index_hotPlaceImg VALUES(null,'马尔代夫','img/index/hot_maldives.jpg');
@@ -160,4 +170,5 @@ INSERT INTO six_index_consultant VALUES(null,'img/index/Mino.jpg','Mino','旅行
 INSERT INTO six_index_consultant VALUES(null,'img/index/XiaoHan.jpg','小寒','旅行顾问','台湾','从事台湾定制游7年，每次踏上这片土地就像是再来一场爱人的约会！我能够完美结合您的意愿为您和家人定制完美的出行计划！');
 INSERT INTO six_index_consultant VALUES(null,'img/index/WangMiaoMiao.jpg','王苗苗','旅行顾问','欧洲','从最初的济州岛再到游历欧洲各国，一路上看美丽的风景，品尝美味，让身心彻底放松，感受不一样的风土人情，从次便欲罢不能。');
 INSERT INTO six_index_consultant VALUES(null,'img/index/HeMiao.jpg','何淼','旅行顾问','日本','我的人生目标就是：踏遍日本的每一寸土地，带上你，一起看春天华粉的樱花，夏天绚烂的烟火，秋天热烈的红叶，冬天松软的粉雪。');
+INSERT INTO six_index_consultant VALUES(null,'img/index/JingJing.jpg','晶晶','旅行顾问','欧洲','因为一直在路上，生活才充满阳光。厌倦了每天的重复生活，想逃开，想放下，世界阔大，那让我们即刻出发吧。');
 INSERT INTO six_index_consultant VALUES(null,'img/index/JingJing.jpg','晶晶','旅行顾问','欧洲','因为一直在路上，生活才充满阳光。厌倦了每天的重复生活，想逃开，想放下，世界阔大，那让我们即刻出发吧。');
