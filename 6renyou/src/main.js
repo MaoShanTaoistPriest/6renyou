@@ -26,6 +26,10 @@ Vue.prototype.$imgUrl = "http://127.0.0.1:5050/"
 Vue.prototype.axios = axios
 Vue.config.productionTip = false
 
+// 引入顶部导航条全局组件
+import Myheader from "./components/Myheader"
+Vue.component("myheader", Myheader);
+
 new Vue({
   router,
   store,

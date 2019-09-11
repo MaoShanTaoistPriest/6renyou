@@ -3,6 +3,15 @@ DROP DATABASE IF EXISTS six;
 CREATE DATABASE six CHARSET=UTF8;
 USE six;
 
+<<<<<<< HEAD
+=======
+CREATE TABLE six_header_destination(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  area VARCHAR(50),
+  placrName VARCHAR(50)
+);
+
+>>>>>>> 4bce7ec66f971e17116d0d0d5486d193565a8a8d
 CREATE TABLE six_index_banner(
   id INT PRIMARY KEY AUTO_INCREMENT,
   img VARCHAR(100)
