@@ -3,7 +3,7 @@
        <div class="header-in">
            <div class="header-wp">
                <div class="h-logo">
-                    <a href="" title="6人游旅行网" style="background:url(img/logo.png) no-repeat"></a>
+                    <a href="" title="6人游旅行网" style="background:url(img/index/logo.png) no-repeat"></a>
                </div>
                <div class="h-nav-box">
                     <ul class="h-nav-list">
@@ -33,13 +33,13 @@
                     </ul>
                </div>
                <div class="h-right clearfix">
-                   <div class="h-reg left" style="background:url(img/reg.png) no-repeat">
+                   <div class="h-reg left" style="background:url(img/header/reg.png) no-repeat">
                         <a href="" target="_blank">注册</a>
                    </div>
-                   <div class="h-login left" style="background:url(img/login.png) no-repeat">
+                   <div class="h-login left" style="background:url(img/header/login.png) no-repeat">
                        <a href="" target="_blank">登录</a>
                    </div>
-                   <div class="h-tel left" style="background:url(img/phone.png) no-repeat">
+                   <div class="h-tel left" style="background:url(img/header/phone.png) no-repeat">
                        400-010-6003
                    </div>
                </div>
