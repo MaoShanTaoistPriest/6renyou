@@ -12,7 +12,7 @@ var pool = mysql.createPool({
   user: 'root',
   password: '',
   database: 'six', //连接后要使用的数据库
-  connectionLimit: 20 //设置连接池的大小
+  connectionLimit: 15 //设置连接池的大小
 });
 // 4.创建web服务器，监听8088端口
 var server = express();
