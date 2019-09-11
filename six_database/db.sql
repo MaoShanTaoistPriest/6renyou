@@ -31,7 +31,7 @@ CREATE TABLE six_index_hotPlaceName(
   area VARCHAR(50),
   placeName VARCHAR(50)
 );
-#主页的热门推荐的图片数据表搭建
+#主页的热门推荐的图片数据库搭建
 CREATE TABLE six_index_hotPlaceImg(
   id INT PRIMARY KEY AUTO_INCREMENT,
   placeName VARCHAR(50),
@@ -102,7 +102,7 @@ INSERT INTO six_index_concept VALUES(null,'parent','img/index/icon_parent_nor.pn
 INSERT INTO six_index_concept VALUES(null,'children','img/index/icon_children_nor.png','img/index/icon_children_hov.png');
 INSERT INTO six_index_concept VALUES(null,'friend','img/index/icon_friend_nor.png','img/index/icon_friend_hov.png');
 INSERT INTO six_index_concept VALUES(null,'user','img/index/icon_user_nor.png','img/index/icon_user_hov.png');
-#主页的热门推荐的地名的数据表插入
+#主页的热门推荐的地名的数据库插入
 INSERT INTO six_index_hotPlaceName VALUES(null,'亚洲','台湾,泰国,不丹,新加坡,巴厘岛,日本');
 INSERT INTO six_index_hotPlaceName VALUES(null,'欧洲 美洲','法国,意大利,英国,瑞士,奥地利,德国,美国,塞班岛,加拿大,古巴,墨西哥,西班牙');
 INSERT INTO six_index_hotPlaceName VALUES(null,'澳新 中东非洲','新西兰,澳大利亚,斐济,肯尼亚,毛里求斯,迪拜');
