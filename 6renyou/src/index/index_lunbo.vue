@@ -1,7 +1,7 @@
 <template>
     <div class="index_carousel">
         <el-carousel height="200px"  :autoplay="false">
-            <el-carousel-item v-for="item in lists" :key="item.id">
+            <el-carousel-item v-for="item in listsBanner" :key="item.id">
                 <img :src="imgurl+item.img" alt="">
                 <div class="index_banner">
                     <div>{{banner_innser[item.id-1]}}</div>
@@ -13,46 +13,13 @@
             <div class="concept-wrap">
                 <div class="index-topic-list">
                     <ul class="topic-list">
-                        <li class="topic-list-item">
+                        <li class="topic-list-item" v-for="items in listsConcept" :key="items.id">
                             <a href="">
-                                <i class="icon-topic-1"></i>
+                                <i class="icon-topic-1" :style="'background:url'+'('+imgurl+items.normal+')'"></i>
                                 <span class="topic-link1">
                                     <span>
-                                        陪父母<br>
-                                        <span>To Parent</span>
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="topic-list-item">
-                            <a href="">
-                                <i class="icon-topic-2"></i>
-                                <span class="topic-link1">
-                                    <span>
-                                        带孩子<br>
-                                        <span>With Children</span>
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="topic-list-item">
-                            <a href="">
-                                <i class="icon-topic-3"></i>
-                                <span class="topic-link1">
-                                    <span>
-                                        和朋友<br>
-                                        <span>With Friends</span>
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="topic-list-item">
-                            <a href="">
-                                <i class="icon-topic-4"></i>
-                                <span class="topic-link1">
-                                    <span>
-                                        客户评价<br>
-                                        <span>User Rating</span>
+                                        {{concept[items.id-1].top}}<br>
+                                        <span>{{concept[items.id-1].bottom}}</span>
                                     </span>
                                 </span>
                             </a>
@@ -76,18 +43,41 @@
 export default {
     data(){
         return{
-            lists:[],
+            listsBanner:[],
             imgurl:this.$imgUrl,
-            banner_innser:['我在阿德莱德等你','福克斯冰川','让世界看见中国品牌','花园城市，一场奇遇冒险----新加坡']      
+            banner_innser:['我在阿德莱德等你','福克斯冰川','让世界看见中国品牌','花园城市，一场奇遇冒险----新加坡'],
+            listsConcept:[],
+            //陪父母，带孩子，和朋友，客户评价
+            concept:[{
+                top:'陪父母',
+                bottom:'To Parent'
+            },{
+                top:'带孩子',
+                bottom:'With Children'
+            },{
+                top:'和朋友',
+                bottom:'With Friends'
+            },{
+                top:'客户评价',
+                bottom:'User Rating'
+            }
+            ] 
         }
     },methods:{
 
     },created(){
         // 获取轮播图图片
-        var url ="indexBanner";
-        this.axios.get(url).then(res=>{
+        var urlbanner ="indexBanner";
+        this.axios.get(urlbanner).then(res=>{
             if(res.data.code==1){
-                this.lists = res.data.data;
+                this.listsBanner = res.data.data;
+            }
+        })
+        // 获取轮播图下面的图片
+        var urlconcept = "indexConcept";
+        this.axios.get(urlconcept).then(res=>{
+            if(res.data.code==1){
+                this.listsConcept = res.data.data;
             }
         })
     }
@@ -105,7 +95,7 @@ export default {
     display: block;
     width: 265px;
     height: 57px;
-    /* background: url(../assets/canvaous/index-logo.png) no-repeat; */
+    background: url(../../public/img/Index/index-logo.png) no-repeat;
     background-position: 0 -208px !important;
     position: absolute;
     top:27.2rem;
@@ -139,9 +129,9 @@ export default {
     font-family: "microsoft yahei";
     text-align: right;
     border-bottom: 1px solid #FFF;
-    background-position: 0 -599px !important;
+    background-position: 0 -602px !important;
     padding: 0 0 10px 40px;
-    /* background: url(../assets/canvaous/index-logo.png) no-repeat; */
+    background: url(../../public/img/Index/index-logo.png) no-repeat;
  }
 
  .index-concept{
@@ -239,14 +229,14 @@ export default {
     float: left;
     display: block;
     width: 75px;
-    margin-top: -57px;
+    margin-top: -150px;
 }
 .index-concept .concept-wrap dl dt .icon-cp1{
     background-position:0 0;
     display: inline-block;
     width: 75px;
     height: 70px;
-    /* background: url(../assets/canvaous/index-Icon.png) no-repeat; */
+    background: url(../../public/img/Index/index-logo.png) no-repeat;
 }
 .index-concept .concept-wrap dl dd{
     padding-left: 10px;

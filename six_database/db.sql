@@ -45,12 +45,15 @@ CREATE TABLE six_index_hotPlaceImg(
   placeName VARCHAR(50),
   img VARCHAR(100)
 );
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 
 
 #头部的目的地的数据库插入
 =======
+=======
+>>>>>>> d9971c54d8ad0a1644bb38b2d489a4bdd68a51e3
 #主页的旅行顾问的数据表搭建
 CREATE TABLE six_index_consultant(
   id INT PRIMARY KEY AUTO_INCREMENT,
