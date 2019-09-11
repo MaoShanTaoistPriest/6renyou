@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import Router from 'vue-router'
+import Myfooter from '../src/components/Myfooter.vue'
 // 解决传参时数据丢失报错的问题
 const originalPush = Router.prototype.push
 Router.prototype.push = function push(location) {
@@ -29,6 +30,7 @@ Vue.config.productionTip = false
 // 引入顶部导航条全局组件
 import Myheader from "./components/Myheader"
 Vue.component("myheader", Myheader);
+Vue.component("my-footer",Myfooter);
 
 new Vue({
   router,
