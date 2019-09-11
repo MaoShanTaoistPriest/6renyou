@@ -157,7 +157,6 @@ INSERT INTO six_index_hotPlaceName VALUES(null,'澳新 中东非洲','斐济');
 INSERT INTO six_index_hotPlaceName VALUES(null,'澳新 中东非洲','肯尼亚');
 INSERT INTO six_index_hotPlaceName VALUES(null,'澳新 中东非洲','毛里求斯');
 INSERT INTO six_index_hotPlaceName VALUES(null,'澳新 中东非洲','迪拜');
-
 #主页的热门推荐的图片的数据库插入
 INSERT INTO six_index_hotPlaceImg VALUES(null,'迪拜','img/index/hot_dubai.jpg');
 INSERT INTO six_index_hotPlaceImg VALUES(null,'马尔代夫','img/index/hot_maldives.jpg');
