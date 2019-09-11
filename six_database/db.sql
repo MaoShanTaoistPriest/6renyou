@@ -6,7 +6,7 @@ USE six;
 CREATE TABLE six_header_destination(
   id INT PRIMARY KEY AUTO_INCREMENT,
   area VARCHAR(50),
-  placrName VARCHAR(50)
+  placeName VARCHAR(50)
 );
 #主页的轮播图的数据库搭建
 CREATE TABLE six_index_banner(
