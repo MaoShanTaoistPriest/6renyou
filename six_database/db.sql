@@ -37,7 +37,6 @@ CREATE TABLE six_index_hotPlaceImg(
   placeName VARCHAR(50),
   img VARCHAR(100)
 );
-
 #主页的旅行顾问的数据表搭建
 CREATE TABLE six_index_consultant(
   id INT PRIMARY KEY AUTO_INCREMENT,
