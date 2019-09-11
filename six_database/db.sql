@@ -6,7 +6,7 @@ USE six;
 CREATE TABLE six_header_destination(
   id INT PRIMARY KEY AUTO_INCREMENT,
   area VARCHAR(50),
-  placeName VARCHAR(50)
+  placeName VARCHAR(200)
 );
 #尾部的热门推荐的数据表搭建
 CREATE TABLE six_footer_recommended(
@@ -41,10 +41,19 @@ CREATE TABLE six_index_hotPlaceImg(
 CREATE TABLE six_index_consultant(
   id INT PRIMARY KEY AUTO_INCREMENT,
   img VARCHAR(100),
-  CName VARCHAR(50),
+  cName VARCHAR(50),
   position VARCHAR(50),
   area VARCHAR(50),
   introduce VARCHAR(200)
+);
+#客户评价的数据表搭建
+CREATE TABLE six_user_comment(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  img VARCHAR(100),
+  title VARCHAR(50),
+  pName VARCHAR(50),
+  pubDate VARCHAR(50),
+  feeling VARCHAR(200)
 );
 
 
@@ -59,70 +68,13 @@ CREATE TABLE six_index_consultant(
 
 
 #头部的目的地的数据表插入
-INSERT INTO six_header_destination VALUES(null,'美洲','美国');
-INSERT INTO six_header_destination VALUES(null,'美洲','加拿大');
-INSERT INTO six_header_destination VALUES(null,'美洲','阿根廷');
-INSERT INTO six_header_destination VALUES(null,'美洲','巴西');
-INSERT INTO six_header_destination VALUES(null,'美洲','智利');
-INSERT INTO six_header_destination VALUES(null,'美洲','秘鲁');
-INSERT INTO six_header_destination VALUES(null,'美洲','古巴');
-INSERT INTO six_header_destination VALUES(null,'美洲','墨西哥');
-INSERT INTO six_header_destination VALUES(null,'美洲','南极');
-INSERT INTO six_header_destination VALUES(null,'美洲','玻利维亚');
-INSERT INTO six_header_destination VALUES(null,'美洲','厄尔瓜多');
-INSERT INTO six_header_destination VALUES(null,'中东 非洲','阿布扎比');
-INSERT INTO six_header_destination VALUES(null,'中东 非洲','迪拜');
-INSERT INTO six_header_destination VALUES(null,'中东 非洲','以色列');
-INSERT INTO six_header_destination VALUES(null,'中东 非洲','南非');
-INSERT INTO six_header_destination VALUES(null,'中东 非洲','埃及');
-INSERT INTO six_header_destination VALUES(null,'中东 非洲','摩洛哥');
-INSERT INTO six_header_destination VALUES(null,'中东 非洲','肯尼亚');
-INSERT INTO six_header_destination VALUES(null,'中东 非洲','纳米比亚');
-INSERT INTO six_header_destination VALUES(null,'中东 非洲','坦桑尼亚');
-INSERT INTO six_header_destination VALUES(null,'欧洲','英国');
-INSERT INTO six_header_destination VALUES(null,'欧洲','法国');
-INSERT INTO six_header_destination VALUES(null,'欧洲','瑞士');
-INSERT INTO six_header_destination VALUES(null,'欧洲','荷兰');
-INSERT INTO six_header_destination VALUES(null,'欧洲','德国');
-INSERT INTO six_header_destination VALUES(null,'欧洲','希腊');
-INSERT INTO six_header_destination VALUES(null,'欧洲','意大利');
-INSERT INTO six_header_destination VALUES(null,'欧洲','西班牙');
-INSERT INTO six_header_destination VALUES(null,'欧洲','葡萄牙');
-INSERT INTO six_header_destination VALUES(null,'欧洲','捷克');
-INSERT INTO six_header_destination VALUES(null,'欧洲','奥地利');
-INSERT INTO six_header_destination VALUES(null,'欧洲','匈牙利');
-INSERT INTO six_header_destination VALUES(null,'欧洲','挪威');
-INSERT INTO six_header_destination VALUES(null,'欧洲','丹麦');
-INSERT INTO six_header_destination VALUES(null,'欧洲','芬兰');
-INSERT INTO six_header_destination VALUES(null,'欧洲','冰岛');
-INSERT INTO six_header_destination VALUES(null,'欧洲','瑞典');
-INSERT INTO six_header_destination VALUES(null,'欧洲','俄罗斯');
-INSERT INTO six_header_destination VALUES(null,'亚洲','泰国');
-INSERT INTO six_header_destination VALUES(null,'亚洲','新加坡');
-INSERT INTO six_header_destination VALUES(null,'亚洲','越南');
-INSERT INTO six_header_destination VALUES(null,'亚洲','日本');
-INSERT INTO six_header_destination VALUES(null,'亚洲','柬埔寨');
-INSERT INTO six_header_destination VALUES(null,'亚洲','斯里兰卡');
-INSERT INTO six_header_destination VALUES(null,'亚洲','缅甸');
-INSERT INTO six_header_destination VALUES(null,'亚洲','伊朗');
-INSERT INTO six_header_destination VALUES(null,'亚洲','印度');
-INSERT INTO six_header_destination VALUES(null,'亚洲','土耳其');
-INSERT INTO six_header_destination VALUES(null,'亚洲','尼泊尔');
-INSERT INTO six_header_destination VALUES(null,'亚洲','马来西亚');
-INSERT INTO six_header_destination VALUES(null,'亚洲','老挝');
-INSERT INTO six_header_destination VALUES(null,'大洋洲','澳大利亚');
-INSERT INTO six_header_destination VALUES(null,'大洋洲','新西兰');
-INSERT INTO six_header_destination VALUES(null,'海岛','巴厘岛');
-INSERT INTO six_header_destination VALUES(null,'海岛','普吉岛');
-INSERT INTO six_header_destination VALUES(null,'海岛','苏梅岛');
-INSERT INTO six_header_destination VALUES(null,'海岛','马尔代夫');
-INSERT INTO six_header_destination VALUES(null,'海岛','斐济');
-INSERT INTO six_header_destination VALUES(null,'海岛','毛里求斯');
-INSERT INTO six_header_destination VALUES(null,'海岛','塞舌尔');
-INSERT INTO six_header_destination VALUES(null,'海岛','塞班岛');
-INSERT INTO six_header_destination VALUES(null,'海岛','大溪地');
-INSERT INTO six_header_destination VALUES(null,'海岛','关岛');
-INSERT INTO six_header_destination VALUES(null,'中国台湾','台湾');
+INSERT INTO six_header_destination VALUES(null,'美洲',"['美国','加拿大','阿根廷','巴西','智利','秘鲁','古巴','墨西哥','南极','玻利维亚','厄尔瓜多']");
+INSERT INTO six_header_destination VALUES(null,'中东 非洲',"['阿布扎比','迪拜','以色列','南非','埃及','摩洛哥','肯尼亚','纳米比亚','坦桑尼亚']");
+INSERT INTO six_header_destination VALUES(null,'欧洲',"['英国','法国','瑞士','荷兰','德国','希腊','意大利','西班牙','葡萄牙','捷克','奥地利','匈牙利','挪威','丹麦','芬兰','冰岛','瑞典','俄罗斯']");
+INSERT INTO six_header_destination VALUES(null,'亚洲',"['泰国','新加坡','越南','日本','柬埔寨','斯里兰卡','缅甸','伊朗','印度','土耳其','尼泊尔','马来西亚','老挝']");
+INSERT INTO six_header_destination VALUES(null,'大洋洲',"['澳大利亚','新西兰']");
+INSERT INTO six_header_destination VALUES(null,'海岛',"['巴厘岛','普吉岛','苏梅岛','马尔代夫','斐济','毛里求斯','塞舌尔','塞班岛','大溪地','关岛']");
+INSERT INTO six_header_destination VALUES(null,'中国台湾',"['台湾']");
 #尾部的热门推荐的数据表插入
 INSERT INTO six_footer_recommended VALUES(null,'美国定制旅游');
 INSERT INTO six_footer_recommended VALUES(null,'法国定制旅游');
