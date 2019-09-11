@@ -2,24 +2,13 @@ SET NAMES UTF8;
 DROP DATABASE IF EXISTS six;
 CREATE DATABASE six CHARSET=UTF8;
 USE six;
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-=======
-=======
 #头部的目的地的数据库搭建
->>>>>>> edbaa45f21921ca8f5dfeb7c1f9a9e5de5c86390
 CREATE TABLE six_header_destination(
   id INT PRIMARY KEY AUTO_INCREMENT,
   area VARCHAR(50),
   placrName VARCHAR(50)
 );
-<<<<<<< HEAD
-
->>>>>>> 4bce7ec66f971e17116d0d0d5486d193565a8a8d
-=======
 #主页的轮播图的数据库搭建
->>>>>>> edbaa45f21921ca8f5dfeb7c1f9a9e5de5c86390
 CREATE TABLE six_index_banner(
   id INT PRIMARY KEY AUTO_INCREMENT,
   img VARCHAR(100)
