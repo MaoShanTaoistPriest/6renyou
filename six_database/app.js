@@ -73,7 +73,6 @@ server.get("/footerRecommended", (req, res) => {
     }
   })
 });
-//12131
 // index模块的轮播图的图片数据的获取
 server.get("/indexBanner", (req, res) => {
   var sql = "SELECT id,img FROM six_index_banner";
