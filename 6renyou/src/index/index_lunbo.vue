@@ -13,9 +13,9 @@
             <div class="concept-wrap">
                 <div class="index-topic-list">
                     <ul class="topic-list">
-                        <li class="topic-list-item" v-for="items in listsConcept" :key="items.id">
+                        <li class="topic-list-item"  v-for="items in listsConcept" :key="items.id">
                             <a href="">
-                                <i class="icon-topic-1" :style="'background:url'+'('+imgurl+items.normal+')'"></i>
+                                <i class="icon-topic-1" :style="'background:url'+'('+imgurl+items.normal+')'" @mouseenter="changeColor1($event,items.hover)" @mouseleave="changeColor2($event,items.normal)"></i>
                                 <span class="topic-link1">
                                     <span>
                                         {{concept[items.id-1].top}}<br>
@@ -35,6 +35,30 @@
                         个家庭、朋友的选择
                     </dd>
                 </dl>
+            </div>
+        </div>
+        <!-- 当季热门目的地 div 容器-->
+        <div class="index-container-box">
+            <!-- 当季热门目的地 控制位置-->
+            <div class="index-container">
+                <!-- 内部容器  最受欢迎的容器 -->
+                <div class="index-popular-box">
+                    <!-- 左侧 -->
+                    <div class="popular-left">
+                        <h2 class="h1">当季热门目的地</h2>
+                        <p class="p-txt1">旅行顾问推荐好玩儿的地方</p>
+                        <dl class="one-continent">
+                            <dt class="list-name"></dt>
+                            <dd class="dd-list">
+                                <ul class="dest-ul">
+                                    <li></li>
+                                </ul>
+                            </dd>
+                        </dl>
+                    </div>
+                    <!-- 右侧 -->
+                    <div class="popular-right"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -64,7 +88,12 @@ export default {
             ] 
         }
     },methods:{
-
+        changeColor1(e,hover){
+            e.target.style='background:url'+'('+this.imgurl+hover+')';
+        },
+        changeColor2(e,hover){
+            e.target.style='background:url'+'('+this.imgurl+hover+')';
+        }
     },created(){
         // 获取轮播图图片
         var urlbanner ="indexBanner";
@@ -98,7 +127,7 @@ export default {
     background: url(../../public/img/Index/index-logo.png) no-repeat;
     background-position: 0 -208px !important;
     position: absolute;
-    top:27.2rem;
+    top:38.6rem;
     left: 59rem;
     margin-left: -132px;
     z-index: 100;
@@ -140,6 +169,7 @@ export default {
     margin-bottom: 30px;
     width: 100%;
     min-width: 1180px;
+    padding-bottom:20px;
  }
  .index-concept .concept-wrap{
     width: 1180px;
@@ -170,7 +200,8 @@ export default {
     text-align: left;
     cursor: pointer;
     color: #666;
-    margin-top: 14px;  
+    margin-top: 14px; 
+
 }
 .index-concept .concept-wrap .index-topic-list a .icon-topic-1{
     /* background: url(../assets/canvaous/icon_topic_1.png) no-repeat; */
@@ -178,14 +209,18 @@ export default {
     display: inline-block;
     width: 70px;
     height: 75px;
+
 }
+
 .index-concept .concept-wrap .index-topic-list a .icon-topic-2{
     /* background: url(../assets/canvaous/icon_topic_2.png) no-repeat; */
     float: left;
     display: inline-block;
     width: 70px;
     height: 75px;
+  
 }
+
 .index-concept .concept-wrap .index-topic-list a .icon-topic-3{
     /* background: url(../assets/canvaous/icon_topic_3.png) no-repeat; */
     float: left;
@@ -229,21 +264,21 @@ export default {
     float: left;
     display: block;
     width: 75px;
-    margin-top: -150px;
+    margin-top: -78px;
 }
 .index-concept .concept-wrap dl dt .icon-cp1{
     background-position:0 0;
     display: inline-block;
     width: 75px;
     height: 70px;
-    background: url(../../public/img/Index/index-logo.png) no-repeat;
+    background: url(../../public/img/Index/index-Icon.png) no-repeat;
 }
 .index-concept .concept-wrap dl dd{
-    padding-left: 10px;
+    padding-left: 40px;
     width: 160px;
     float: left;
     display: block;
-    margin-top: -55px;
+    margin-top: -72px;
     font-family: "microsoft yahei";
     font-size: 16px;
     color: #a4a4a4;
@@ -257,5 +292,44 @@ export default {
     font-style: italic;
     color: #b7cc03;
     text-align: left;
+}
+/* index 最受欢迎的模块 */
+.index-container-box>.index-container{
+    width: 1180px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+/* 内部内容 */
+.index-container-box>.index-container>.index-popular-box{
+    position: relative;
+    background: #FFF;
+    padding: 30px;
+}
+/* 左侧内容 */
+.index-container-box>.index-container>.index-popular-box>.popular-left{
+    float: left;
+    width: 260px;
+}
+.index-container-box>.index-container>.index-popular-box>.popular-left>.h1{
+    font-size: 28px;
+    font-weight: bold;
+    color: #93c11b;
+    line-height: 30px;
+    padding-bottom: 3px;
+    font-family: "Microsoft YaHei";
+    margin:0;
+}
+.index-container-box>.index-container>.index-popular-box>.popular-left>.p-txt1{
+    font-size: 14px;
+    font-family: "Microsoft YaHei";
+    color: #a8a7a7;
+    line-height: 18px;
+    margin:0;
+}
+/* 右侧内容 */
+.index-container-box>.index-container>.index-popular-box>.popular-right{
+    float: right;
+    width: 852px;
+    overflow: hidden;
 }
 </style>
