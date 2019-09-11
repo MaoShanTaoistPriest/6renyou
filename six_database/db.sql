@@ -13,6 +13,13 @@ CREATE TABLE six_index_banner(
   id INT PRIMARY KEY AUTO_INCREMENT,
   img VARCHAR(100)
 );
+#主页的概念导航条的数据库搭建
+CREATE TABLE six_index_concept(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  concept VARCHAR(100),
+  normal VARCHAR(100),
+  hover VARCHAR(100)
+);
 #主页的热门推荐的数据库搭建
 CREATE TABLE six_index_hot(
   id INT PRIMARY KEY AUTO_INCREMENT,
@@ -89,6 +96,11 @@ INSERT INTO six_index_banner VALUES(null,'img/index/index_banner1.jpg');
 INSERT INTO six_index_banner VALUES(null,'img/index/index_banner2.jpg');
 INSERT INTO six_index_banner VALUES(null,'img/index/index_banner3.jpg');
 INSERT INTO six_index_banner VALUES(null,'img/index/index_banner4.jpg');
+#主页的概念导航条的数据库搭建
+INSERT INTO six_index_concept VALUES(null,'parent','img/index/icon_parent_nor.png','img/index/icon_parent_hov.png');
+INSERT INTO six_index_concept VALUES(null,'children','img/index/icon_children_nor.png','img/index/icon_children_hov.png');
+INSERT INTO six_index_concept VALUES(null,'friend','img/index/icon_friend_nor.png','img/index/icon_friend_hov.png');
+INSERT INTO six_index_concept VALUES(null,'user','img/index/icon_user_nor.png','img/index/icon_user_hov.png');
 #主页的热门推荐的数据库插入
 INSERT INTO six_index_hot VALUES(null,'迪拜','img/index/hot_dubai.jpg');
 INSERT INTO six_index_hot VALUES(null,'马尔代夫','img/index/hot_maldives.jpg');
