@@ -7,8 +7,9 @@
                     <div>{{banner_innser[item.id-1]}}</div>
                 </div>
             </el-carousel-item> 
+            <a href="" class="banner-hlink">帮我定制行程</a>
         </el-carousel>
-        <a href="" class="banner-hlink">帮我定制行程</a>
+        
         <div class="index-concept">
             <div class="concept-wrap">
                 <div class="index-topic-list">
@@ -47,17 +48,21 @@
                     <div class="popular-left">
                         <h2 class="h1">当季热门目的地</h2>
                         <p class="p-txt1">旅行顾问推荐好玩儿的地方</p>
-                        <dl class="one-continent">
-                            <dt class="list-name"></dt>
+                        <dl class="one-continent" v-for="item in indexHotPlaceName" :key="item.id">
+                            <dt class="list-name">{{item.area}}</dt>
                             <dd class="dd-list">
-                                <ul class="dest-ul">
-                                    <li></li>
+                                <ul class="dest-ul" >
+                                    <li v-for="(item,index) of newPlace[item.id-1]" :key="index">
+                                        <a href="">{{item}}</a>
+                                    </li>
                                 </ul>
                             </dd>
                         </dl>
                     </div>
                     <!-- 右侧 -->
                     <div class="popular-right"></div>
+                    <!-- 解决高度坍塌 -->
+                    <div style="height:494px;"></div>
                 </div>
             </div>
         </div>
@@ -84,8 +89,9 @@ export default {
             },{
                 top:'客户评价',
                 bottom:'User Rating'
-            }
-            ] 
+                }
+            ],indexHotPlaceName:[],
+            newPlace:[] 
         }
     },methods:{
         changeColor1(e,hover){
@@ -109,10 +115,22 @@ export default {
                 this.listsConcept = res.data.data;
             }
         })
+        var indexHotPlaceName = "indexHotPlaceName";
+        this.axios.get(indexHotPlaceName).then(res=>{
+            if(res.data.code==1){
+                this.indexHotPlaceName = res.data.data;
+                for(var i=0;i<res.data.data.length;i++){
+                    this.newPlace.push(res.data.data[i].placeName.split(','));
+                }
+            }
+        })
     }
 }
 </script>
 <style>
+.index_carousel{
+    height:1400px;
+}
 /* 490px 为修改原本轮播图高度 */
 .el-carousel__container{
     height:495px !important;
@@ -127,7 +145,7 @@ export default {
     background: url(../../public/img/Index/index-logo.png) no-repeat;
     background-position: 0 -208px !important;
     position: absolute;
-    top:38.6rem;
+    top:27.4rem;
     left: 59rem;
     margin-left: -132px;
     z-index: 100;
@@ -168,7 +186,6 @@ export default {
     border-bottom: 1px solid #eaeaea;
     margin-bottom: 30px;
     width: 100%;
-    min-width: 1180px;
     padding-bottom:20px;
  }
  .index-concept .concept-wrap{
@@ -177,7 +194,18 @@ export default {
     overflow: hidden;
     zoom: 1;
     height: 104px;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
  }
+.index-concept .concept-wrap .index-topic-list{
+    float: left;
+    width: 930px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+   }
   .index-concept .concept-wrap .index-topic-list .topic-list{
     display: flex;
     justify-content: space-between;
@@ -326,10 +354,55 @@ export default {
     line-height: 18px;
     margin:0;
 }
+.index-container-box>.index-container>.index-popular-box>.popular-left>.one-continent{
+        margin-top: 20px !important;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+}
+.index-container-box>.index-container>.index-popular-box>.popular-left>.one-continent>.list-name{
+    font-weight: bold;
+    color: #222;
+    font-size: 17px;
+    line-height: 28px;
+    cursor: default;
+}
+.index-container-box>.index-container>.index-popular-box>.popular-left>.one-continent>.dd-list{
+    font-family: Microsoft Yahei;
+    margin-left:0;
+}
+.index-container-box>.index-container>.index-popular-box>.popular-left>.one-continent>.dd-list>.dest-ul{
+    overflow: hidden;
+    zoom: 1;
+    padding:0;
+    margin:0;
+}
+.index-container-box>.index-container>.index-popular-box>.popular-left>.one-continent>.dd-list>.dest-ul li{
+    color: #737373;
+    width: 80px;
+    margin-right: 4px;
+    float: left;
+    padding: 6px 0;
+    font-size: 13px;
+    line-height: 16px;
+    height: 16px;
+    overflow: hidden;
+    white-space: nowrap;
+    list-style: none !important;
+}
+.index-container-box>.index-container>.index-popular-box>.popular-left>.one-continent>.dd-list>.dest-ul li a{
+    color: #737373;
+    padding: 6px 0;
+    cursor: pointer;
+    text-decoration: none;
+}
 /* 右侧内容 */
 .index-container-box>.index-container>.index-popular-box>.popular-right{
     float: right;
     width: 852px;
     overflow: hidden;
+   
 }
+
 </style>
