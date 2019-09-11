@@ -103,30 +103,9 @@ INSERT INTO six_index_concept VALUES(null,'children','img/index/icon_children_no
 INSERT INTO six_index_concept VALUES(null,'friend','img/index/icon_friend_nor.png','img/index/icon_friend_hov.png');
 INSERT INTO six_index_concept VALUES(null,'user','img/index/icon_user_nor.png','img/index/icon_user_hov.png');
 #主页的热门推荐的地名的数据表插入
-INSERT INTO six_index_hotPlaceName VALUES(null,'亚洲','台湾');
-INSERT INTO six_index_hotPlaceName VALUES(null,'亚洲','泰国');
-INSERT INTO six_index_hotPlaceName VALUES(null,'亚洲','不丹');
-INSERT INTO six_index_hotPlaceName VALUES(null,'亚洲','新加坡');
-INSERT INTO six_index_hotPlaceName VALUES(null,'亚洲','巴厘岛');
-INSERT INTO six_index_hotPlaceName VALUES(null,'亚洲','日本');
-INSERT INTO six_index_hotPlaceName VALUES(null,'欧洲 美洲','法国');
-INSERT INTO six_index_hotPlaceName VALUES(null,'欧洲 美洲','意大利');
-INSERT INTO six_index_hotPlaceName VALUES(null,'欧洲 美洲','英国');
-INSERT INTO six_index_hotPlaceName VALUES(null,'欧洲 美洲','瑞士');
-INSERT INTO six_index_hotPlaceName VALUES(null,'欧洲 美洲','奥地利');
-INSERT INTO six_index_hotPlaceName VALUES(null,'欧洲 美洲','德国');
-INSERT INTO six_index_hotPlaceName VALUES(null,'欧洲 美洲','美国');
-INSERT INTO six_index_hotPlaceName VALUES(null,'欧洲 美洲','塞班岛');
-INSERT INTO six_index_hotPlaceName VALUES(null,'欧洲 美洲','加拿大');
-INSERT INTO six_index_hotPlaceName VALUES(null,'欧洲 美洲','古巴');
-INSERT INTO six_index_hotPlaceName VALUES(null,'欧洲 美洲','墨西哥');
-INSERT INTO six_index_hotPlaceName VALUES(null,'欧洲 美洲','西班牙');
-INSERT INTO six_index_hotPlaceName VALUES(null,'澳新 中东非洲','新西兰');
-INSERT INTO six_index_hotPlaceName VALUES(null,'澳新 中东非洲','澳大利亚');
-INSERT INTO six_index_hotPlaceName VALUES(null,'澳新 中东非洲','斐济');
-INSERT INTO six_index_hotPlaceName VALUES(null,'澳新 中东非洲','肯尼亚');
-INSERT INTO six_index_hotPlaceName VALUES(null,'澳新 中东非洲','毛里求斯');
-INSERT INTO six_index_hotPlaceName VALUES(null,'澳新 中东非洲','迪拜');
+INSERT INTO six_index_hotPlaceName VALUES(null,'亚洲',"['台湾','泰国','不丹','新加坡','巴厘岛','日本']");
+INSERT INTO six_index_hotPlaceName VALUES(null,'欧洲 美洲',"['法国','意大利','英国','瑞士','奥地利','德国','美国','塞班岛','加拿大','古巴','墨西哥','西班牙']");
+INSERT INTO six_index_hotPlaceName VALUES(null,'澳新 中东非洲',"['新西兰','澳大利亚','斐济','肯尼亚','毛里求斯','迪拜']");
 #主页的热门推荐的图片的数据表插入
 INSERT INTO six_index_hotPlaceImg VALUES(null,'迪拜','img/index/hot_dubai.jpg');
 INSERT INTO six_index_hotPlaceImg VALUES(null,'马尔代夫','img/index/hot_maldives.jpg');
