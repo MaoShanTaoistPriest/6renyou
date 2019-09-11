@@ -14,12 +14,12 @@ var pool = mysql.createPool({
   database: 'six', //连接后要使用的数据库
   connectionLimit: 15 //设置连接池的大小
 });
-// 4.创建web服务器，监听8088端口
+// 4.创建web服务器，监听5050端口
 var server = express();
 server.listen(5050);
 // 5.跨域处理
 server.use(cors({
-  origin: ["http://127.0.0.1:8088", "http://localhost:8088"],
+  origin: ["http://127.0.0.1:8088", "http://localhost:8088", "http://127.0.0.1:8089", "http://localhost:8089"],
   credentials: true
 }))
 // 配置session，一定要在所有的请求之前
@@ -73,7 +73,7 @@ server.get("/footerRecommended", (req, res) => {
     }
   })
 });
-//12131
+
 // index模块的轮播图的图片数据的获取
 server.get("/indexBanner", (req, res) => {
   var sql = "SELECT id,img FROM six_index_banner";

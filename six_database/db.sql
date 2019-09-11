@@ -140,3 +140,4 @@ INSERT INTO six_index_consultant VALUES(null,'img/index/XiaoHan.jpg','小寒','�
 INSERT INTO six_index_consultant VALUES(null,'img/index/WangMiaoMiao.jpg','王苗苗','旅行顾问','欧洲','从最初的济州岛再到游历欧洲各国，一路上看美丽的风景，品尝美味，让身心彻底放松，感受不一样的风土人情，从次便欲罢不能。');
 INSERT INTO six_index_consultant VALUES(null,'img/index/HeMiao.jpg','何淼','旅行顾问','日本','我的人生目标就是：踏遍日本的每一寸土地，带上你，一起看春天华粉的樱花，夏天绚烂的烟火，秋天热烈的红叶，冬天松软的粉雪。');
 INSERT INTO six_index_consultant VALUES(null,'img/index/JingJing.jpg','晶晶','旅行顾问','欧洲','因为一直在路上，生活才充满阳光。厌倦了每天的重复生活，想逃开，想放下，世界阔大，那让我们即刻出发吧。');
+
