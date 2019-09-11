@@ -54,6 +54,26 @@ server.get("/headerDestination", (req, res) => {
   })
 });
 
+// footer模块的热门推荐的数据的获取
+server.get("/footerRecommended", (req, res) => {
+  var sql = "SELECT id,placeName FROM six_footer_recommended";
+  pool.query(sql, (err, result) => {
+    if (err) throw err;
+    if (result.length == 0) {
+      res.send({
+        code: "-1",
+        msg: "查询有误"
+      });
+    } else {
+      res.send({
+        code: "1",
+        msg: "查询成功",
+        data: result
+      });
+    }
+  })
+});
+
 // index模块的轮播图的图片数据的获取
 server.get("/indexBanner", (req, res) => {
   var sql = "SELECT id,img FROM six_index_banner";

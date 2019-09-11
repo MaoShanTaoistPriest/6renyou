@@ -8,6 +8,11 @@ CREATE TABLE six_header_destination(
   area VARCHAR(50),
   placeName VARCHAR(50)
 );
+#尾部的热门推荐的数据库搭建
+CREATE TABLE six_footer_recommended(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  placeName VARCHAR(50)
+);
 #主页的轮播图的数据库搭建
 CREATE TABLE six_index_banner(
   id INT PRIMARY KEY AUTO_INCREMENT,
@@ -91,6 +96,23 @@ INSERT INTO six_header_destination VALUES(null,'海岛','塞班岛');
 INSERT INTO six_header_destination VALUES(null,'海岛','大溪地');
 INSERT INTO six_header_destination VALUES(null,'海岛','关岛');
 INSERT INTO six_header_destination VALUES(null,'中国台湾','台湾');
+#尾部的热门推荐的数据库插入
+INSERT INTO six_footer_recommended VALUES(null,'美国定制旅游');
+INSERT INTO six_footer_recommended VALUES(null,'法国定制旅游');
+INSERT INTO six_footer_recommended VALUES(null,'北欧定制旅游');
+INSERT INTO six_footer_recommended VALUES(null,'新西兰定制旅游');
+INSERT INTO six_footer_recommended VALUES(null,'海岛度假别墅');
+INSERT INTO six_footer_recommended VALUES(null,'南极旅游');
+INSERT INTO six_footer_recommended VALUES(null,'瑞士定制旅游');
+INSERT INTO six_footer_recommended VALUES(null,'意大利定制旅游');
+INSERT INTO six_footer_recommended VALUES(null,'马尔代夫定制旅游');
+INSERT INTO six_footer_recommended VALUES(null,'泰国定制旅游');
+INSERT INTO six_footer_recommended VALUES(null,'加拿大定制旅游');
+INSERT INTO six_footer_recommended VALUES(null,'澳洲定制旅游');
+INSERT INTO six_footer_recommended VALUES(null,'印度定制旅游');
+INSERT INTO six_footer_recommended VALUES(null,'马来西亚定制旅游');
+INSERT INTO six_footer_recommended VALUES(null,'缅甸定制旅游');
+INSERT INTO six_footer_recommended VALUES(null,'斯里兰卡定制旅游');
 #主页的轮播图的数据库数据插入
 INSERT INTO six_index_banner VALUES(null,'img/index/index_banner1.jpg');
 INSERT INTO six_index_banner VALUES(null,'img/index/index_banner2.jpg');
