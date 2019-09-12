@@ -19,7 +19,7 @@ var server = express();
 server.listen(5050);
 // 5.跨域处理
 server.use(cors({
-  origin: ["http://127.0.0.1:8088", "http://localhost:8088","http://127.0.0.1:8089", "http://localhost:8089"],
+  origin: ["http://127.0.0.1:8088", "http://localhost:8088", "http://127.0.0.1:8089", "http://localhost:8089"],
   credentials: true
 }))
 // 配置session，一定要在所有的请求之前
@@ -33,6 +33,66 @@ server.use(session({
 }))
 // 配置静态目录
 server.use(express.static("public"));
+
+// login模块的用户的账号密码的验证
+server.get("/userLogin", (req, res) => {
+  var uname = req.query.uname;
+  var upwd = req.query.upwd;
+  var sql = "SELECT id FROM six_user_login WHERE uname = ? AND upwd = md5(?)";
+  pool.query(sql, [uname, upwd], (err, result) => {
+    if (err) throw err;
+    if (result.length == 0) {
+      res.send({
+        code: "-1",
+        msg: "用户名或密码有误"
+      });
+    } else {
+      // 获取当前登录用户的id
+      var uid = result[0].id;
+      req.session.uid = uid;
+      res.send({
+        code: "1",
+        msg: "登陆成功"
+      });
+    }
+  })
+});
+
+// reg模块的用户的账号密码的添加
+server.get("/userReg", (req, res) => {
+  //获取get请求的数据
+  var uname = req.query.uname;
+  var upwd = req.query.upwd;
+  //将数据插入到数据库
+  var sql1 = "SELECT id FROM six_user_login WHERE uname = ?";
+  pool.query(sql1, [uname], (err, result) => {
+    if (err) throw err;
+    if (result.length == 0) {
+      var sql2 = `INSERT INTO six_user_login VALUES(null,'${uname}',md5('${upwd}'))`;
+      pool.query(sql2, function (err, result) {
+        if (err) throw err;
+        // console.log(result);
+        //如果affectedRows大于0，说明添加成功
+        if (result.affectedRows > 0) {
+          res.send({
+            code: "1",
+            msg: '员工添加成功'
+          });
+        } else {
+          res.send({
+            code: "-1",
+            msg: '员工添加失败'
+          });
+        }
+      });
+    } else {
+      res.send({
+        code: "-1",
+        msg: '员工添加失败'
+      });
+    }
+  })
+});
 
 // header模块的目的地的数据的获取
 server.get("/headerDestination", (req, res) => {
@@ -174,4 +234,3 @@ server.get("/indexConsultant", (req, res) => {
     }
   })
 });
-

@@ -2,6 +2,15 @@ SET NAMES UTF8;
 DROP DATABASE IF EXISTS six;
 CREATE DATABASE six CHARSET=UTF8;
 USE six;
+#登录/注册的用户的数据表搭建
+CREATE TABLE six_user_login(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  uname VARCHAR(50),
+  upwd  VARCHAR(32)
+);
+#功能二:添加二条测试数据 
+INSERT INTO six_user_login VALUES(null,'tom',md5('123'));
+INSERT INTO six_user_login VALUES(null,'jerry',md5('123'));
 #头部的目的地的数据表搭建
 CREATE TABLE six_header_destination(
   id INT PRIMARY KEY AUTO_INCREMENT,
