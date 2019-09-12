@@ -12,6 +12,8 @@ import UserComment from './views/UserComment.vue'
 import Villa from './views/Villa.vue'
 // 商务考察的组件的引入
 import Business from './views/Business.vue'
+// 登录注册的组件的引入
+import Login from './views/Login.vue'
 
 Vue.use(Router)
 
@@ -45,6 +47,11 @@ export default new Router({
       path: '/Business',
       name: 'Business',
       component: Business
+    },
+    {
+      path: '/Login',
+      name: 'Login',
+      component: Login
     },
   ]
 })

@@ -1,9 +1,9 @@
 <template>
-    <div class="myheader" style="background:url(img/header-line.png) left top repeat-x">
+    <div class="myheader" style="background:url(img/header/header-line.png) left top repeat-x">
        <div class="header-in">
            <div class="header-wp">
                <div class="h-logo">
-                    <a href="" title="6人游旅行网" style="background:url(img/index/logo.png) no-repeat"></a>
+                    <a href="" title="6人游旅行网" style="background:url(img/header/logo.png) no-repeat"></a>
                </div>
                <div class="h-nav-box">
                     <ul class="h-nav-list">
@@ -53,7 +53,7 @@ export default {
     return {
       list:[],
       placeName:[],
-      arrowImg:"img/arrow1.png"
+      arrowImg:"img/header/arrow1.png"
     };
   },
   created(){
@@ -73,11 +73,11 @@ export default {
     },
     // 点击目的地箭头向上
     changeArrowUp(){
-        this.arrowImg="img/arrow2.png"
+        this.arrowImg="img/header/arrow2.png"
     },
     // 点击目的地箭头向下
     changeArrowDown(){
-        this.arrowImg="img/arrow1.png"
+        this.arrowImg="img/header/arrow1.png"
     }
   }
 };
@@ -100,7 +100,7 @@ ul,li{list-style: none;}
 }
 .myheader .header-in {
   filter: none;
-  background: rgba(7, 4, 4, 0.1);
+  background: rgba(255, 255, 255, 0.8);
   width: 100%;
 }
 .myheader .header-in .header-wp {
