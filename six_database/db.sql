@@ -141,3 +141,15 @@ INSERT INTO six_index_consultant VALUES(null,'img/index/WangMiaoMiao.jpg','王�
 INSERT INTO six_index_consultant VALUES(null,'img/index/HeMiao.jpg','何淼','旅行顾问','日本','我的人生目标就是：踏遍日本的每一寸土地，带上你，一起看春天华粉的樱花，夏天绚烂的烟火，秋天热烈的红叶，冬天松软的粉雪。');
 INSERT INTO six_index_consultant VALUES(null,'img/index/JingJing.jpg','晶晶','旅行顾问','欧洲','因为一直在路上，生活才充满阳光。厌倦了每天的重复生活，想逃开，想放下，世界阔大，那让我们即刻出发吧。');
 INSERT INTO six_index_consultant VALUES(null,'img/index/JingJing.jpg','晶晶','旅行顾问','欧洲','因为一直在路上，生活才充满阳光。厌倦了每天的重复生活，想逃开，想放下，世界阔大，那让我们即刻出发吧。');
+#客户评价的数据表插入
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user1.jpg','巴厘岛休闲度假之旅','王女士','2019年01月','此次行程很满意，舒适度好，接待很好，无论是吃住还是玩都很极致！做到了无缝链接。');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user2.jpg','巴厘岛休闲度假之旅','王女士','2019年01月','此次行程很满意，舒适度好，接待很好，无论是吃住还是玩都很极致！做到了无缝链接。');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user3.jpg','巴厘岛休闲度假之旅','王女士','2019年01月','此次行程很满意，舒适度好，接待很好，无论是吃住还是玩都很极致！做到了无缝链接。');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user4.jpg','巴厘岛休闲度假之旅','王女士','2019年01月','此次行程很满意，舒适度好，接待很好，无论是吃住还是玩都很极致！做到了无缝链接。');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user5.jpg','巴厘岛休闲度假之旅','王女士','2019年01月','此次行程很满意，舒适度好，接待很好，无论是吃住还是玩都很极致！做到了无缝链接。');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user6.jpg','巴厘岛休闲度假之旅','王女士','2019年01月','此次行程很满意，舒适度好，接待很好，无论是吃住还是玩都很极致！做到了无缝链接。');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user7.jpg','巴厘岛休闲度假之旅','王女士','2019年01月','此次行程很满意，舒适度好，接待很好，无论是吃住还是玩都很极致！做到了无缝链接。');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user8.jpg','巴厘岛休闲度假之旅','王女士','2019年01月','此次行程很满意，舒适度好，接待很好，无论是吃住还是玩都很极致！做到了无缝链接。');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user9.jpg','巴厘岛休闲度假之旅','王女士','2019年01月','此次行程很满意，舒适度好，接待很好，无论是吃住还是玩都很极致！做到了无缝链接。');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user10.jpg','巴厘岛休闲度假之旅','王女士','2019年01月','此次行程很满意，舒适度好，接待很好，无论是吃住还是玩都很极致！做到了无缝链接。');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user11.jpg','巴厘岛休闲度假之旅','王女士','2019年01月','此次行程很满意，舒适度好，接待很好，无论是吃住还是玩都很极致！做到了无缝链接。');

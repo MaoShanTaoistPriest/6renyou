@@ -174,3 +174,4 @@ server.get("/indexConsultant", (req, res) => {
     }
   })
 });
+
