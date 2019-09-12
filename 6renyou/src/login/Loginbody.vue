@@ -26,7 +26,7 @@ export default {
     }
 };
 </script>
-<style scoped>
+<style>
 .loginbody {
   width: 100%;
   height: 550px;
@@ -39,13 +39,33 @@ export default {
   position: relative;
 }
 .loginbody .box .login-block {
-  width: 425px;
+  width: 426px;
   height: 410px;
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: 8px;
   position: absolute;
   top: 70px;
   left: 50px;
+}
+/*修改el标签页组价默认样式*/
+.el-tabs .el-tabs__header .el-tabs__item{
+    width:212px;height:60px;
+    line-height:60px;
+    background-color:#ebebeb;
+    color:#333;
+    font-size:20px;
+    text-align: center;
+    border:0;
+    border-top-right-radius:6px;
+}
+.el-tabs .el-tabs__header .el-tabs__item:first-child{
+    border-radius:0;
+    border-top-left-radius:6px;
+}
+.el-tabs .el-tabs__header .el-tabs__item.is-active{
+    border:0;
+    color:#fff;
+    background-color:#3eb166;
 }
 </style>
 
