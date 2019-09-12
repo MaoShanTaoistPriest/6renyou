@@ -140,6 +140,7 @@ export default {
   width: 120px;
   color: #b6b6b6;
   margin-right: 5px;
+  margin-left: 0;
   margin-bottom: 0;
   white-space: nowrap;
   overflow: hidden;
