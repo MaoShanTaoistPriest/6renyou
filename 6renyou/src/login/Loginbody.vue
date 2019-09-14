@@ -226,12 +226,12 @@ export default {
     border:0;
     border-top-right-radius:4px;
 }
-.el-tabs .el-tabs__header .el-tabs__item:first-child{
+.box .login-block .el-tabs .el-tabs__header .el-tabs__item:first-child{
     border-radius:0;
     border-top-left-radius:6px;
 }
 /*标签页选中时的样式*/
-.el-tabs .el-tabs__header .el-tabs__item.is-active{
+.box .login-block .el-tabs .el-tabs__header .el-tabs__item.is-active{
     border:0;
     color:#fff;
     background-color:#3eb166;
