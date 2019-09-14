@@ -222,8 +222,8 @@ export default {
 .loginbody {
   width: 100%;
   height: 550px;
-  background: url(../../public/img/login/bg.jpg) ;
-  /* background-size: 100%; */
+  background: url(../../public/img/login/bg.jpg) no-repeat;
+  background-position: center;
 }
 .loginbody .box {
   width: 1180px;
