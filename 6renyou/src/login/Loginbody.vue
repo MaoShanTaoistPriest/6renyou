@@ -192,7 +192,7 @@ export default {
     }
 };
 </script>
-<style>
+<style scoped>
 /* 添加了active属性的显示 ---用户输入框提示信息效果*/
 .active{display:block !important;}
 .loginbody {
