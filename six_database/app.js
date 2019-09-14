@@ -240,3 +240,105 @@ server.get("/indexConsultant", (req, res) => {
     }
   })
 });
+
+// 客户评价的数据的获取,通过id降序的方式，返回值为数组长度length，用于分页查询组件的总体长度，返回数据为id倒序
+server.get("/userComment", (req, res) => {
+  var sql1 = `SELECT id FROM six_user_comment`;
+  pool.query(sql1, (err, result) => {
+    if (err) throw err;
+    if (result.length == 0) {
+      res.send({
+        code: "-1",
+        msg: "查询有误"
+      });
+    } else {
+      var pno = req.query.pno;
+      var pcount = req.query.pcount;
+      if (!pno) {
+        pno = 1;
+      };
+      if (!pcount) {
+        pcount = 6;
+      };
+      var pnum = result.length;
+      var start = pnum - (pno - 1) * pcount;
+      var sql2 = `SELECT id,img,title,pName,pubDate,feeling FROM six_user_comment WHERE id <= ${start} ORDER BY id DESC limit ${pcount}`;
+      pool.query(sql2, (err, result) => {
+        if (err) throw err;
+        if (result.length == 0) {
+          res.send({
+            code: "-1",
+            msg: "查询有误"
+          });
+        } else {
+          res.send({
+            code: "1",
+            msg: "查询成功",
+            length: pnum,
+            data: result
+          });
+        }
+      })
+    }
+  })
+});
+
+// 商务考察模块的优质资源的数据的获取
+server.get("/businessResources", (req, res) => {
+  var sql = "SELECT id,title,img FROM six_business_resources";
+  pool.query(sql, (err, result) => {
+    if (err) throw err;
+    if (result.length == 0) {
+      res.send({
+        code: "-1",
+        msg: "查询有误"
+      });
+    } else {
+      res.send({
+        code: "1",
+        msg: "查询成功",
+        data: result
+      });
+    }
+  })
+});
+
+// 商务考察模块的考察案例的数据的获取
+server.get("/businessCase", (req, res) => {
+  var sql = "SELECT id,img,title,place FROM six_business_case";
+  pool.query(sql, (err, result) => {
+    if (err) throw err;
+    if (result.length == 0) {
+      res.send({
+        code: "-1",
+        msg: "查询有误"
+      });
+    } else {
+      res.send({
+        code: "1",
+        msg: "查询成功",
+        data: result
+      });
+    }
+  })
+});
+
+// 商务考察模块的合作企业的数据的获取
+server.get("/businessEnterprise", (req, res) => {
+  var sql = "SELECT id,img FROM six_business_enterprise";
+  pool.query(sql, (err, result) => {
+    if (err) throw err;
+    if (result.length == 0) {
+      res.send({
+        code: "-1",
+        msg: "查询有误"
+      });
+    } else {
+      res.send({
+        code: "1",
+        msg: "查询成功",
+        data: result
+      });
+    }
+  })
+});

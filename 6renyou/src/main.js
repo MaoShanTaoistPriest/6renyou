@@ -9,6 +9,10 @@ const originalPush = Router.prototype.push
 Router.prototype.push = function push(location) {
   return originalPush.call(this, location).catch(err => err)
 }
+// post请求必须要引入的模块 
+// 先下载 npm i qs -S
+import qs from 'qs'
+Vue.prototype.qs = qs;
 // 引入element-ui组件
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'

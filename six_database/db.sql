@@ -64,6 +64,26 @@ CREATE TABLE six_user_comment(
   pubDate VARCHAR(50),
   feeling VARCHAR(200)
 );
+#商务考察的优质资源的数据表搭建
+CREATE TABLE six_business_resources(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  title VARCHAR(50),
+  img VARCHAR(100)
+);
+#商务考察的考察案例的数据表搭建
+CREATE TABLE six_business_case(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  img VARCHAR(100),
+  title VARCHAR(50),
+  place VARCHAR(50)
+);
+#商务考察的合作企业的数据表搭建
+CREATE TABLE six_business_enterprise(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  img VARCHAR(100)
+);
+
+
 
 
 
@@ -184,3 +204,32 @@ INSERT INTO six_user_comment VALUES(null,'img/UserComment/user27.jpg','马尔代
 INSERT INTO six_user_comment VALUES(null,'img/UserComment/user28.jpg','曼谷芭提雅6日','马先生','2019年08月','感谢顾问马昭一路上用心安排及服务，期待下次再见');
 INSERT INTO six_user_comment VALUES(null,'img/UserComment/user29.jpg','澳大利亚品质之旅','李先生','2019年08月','这次旅行特别愉快，感谢6人游的精心安排，顾问、地接导游也非常热情周到！');
 INSERT INTO six_user_comment VALUES(null,'img/UserComment/user30.jpg','亲临众神的国度','李女士','2019年08月','从顾问到地接人员都非常周到细心，尽职尽责，沟通交流无障碍，今后还会继续选择6人游出行。');
+#商务考察的优质资源的数据表插入
+INSERT INTO six_business_resources VALUES(null,'创投孵化','img/Business/bs-resource-list1.jpg');
+INSERT INTO six_business_resources VALUES(null,'创新企业','img/Business/bs-resource-list2.jpg');
+INSERT INTO six_business_resources VALUES(null,'金融科技','img/Business/bs-resource-list3.jpg');
+INSERT INTO six_business_resources VALUES(null,'工业4.0','img/Business/bs-resource-list4.jpg');
+INSERT INTO six_business_resources VALUES(null,'家族传承','img/Business/bs-resource-list5.jpg');
+INSERT INTO six_business_resources VALUES(null,'时尚艺术','img/Business/bs-resource-list6.jpg');
+INSERT INTO six_business_resources VALUES(null,'电影节','img/Business/bs-resource-list7.jpg');
+INSERT INTO six_business_resources VALUES(null,'民宿考察','img/Business/bs-resource-list8.jpg');
+#商务考察的考察案例的数据表插入
+INSERT INTO six_business_case VALUES(null,'img/Business/bs-case1.jpg','2018巴菲特股东大会','美国 · 奥马哈');
+INSERT INTO six_business_case VALUES(null,'img/Business/bs-case2.jpg','以色列创新之旅','特拉维夫 耶路撒冷 海法');
+INSERT INTO six_business_case VALUES(null,'img/Business/bs-case3.jpg','美国置业与资产配置高端商旅','洛杉矶 旧金山');
+INSERT INTO six_business_case VALUES(null,'img/Business/bs-case4.jpg','戛纳电影节','法国 · 戛纳');
+INSERT INTO six_business_case VALUES(null,'img/Business/bs-case5.jpg','南法寻香之旅-在普罗旺斯寻找生活的原香','法国 普罗旺斯');
+INSERT INTO six_business_case VALUES(null,'img/Business/bs-case6.jpg','智璞文华江南行','无锡-苏州-乌镇-莫干山-杭州');
+#商务考察的合作企业的数据表插入
+INSERT INTO six_business_enterprise VALUES(null,'img/Business/bs-enterprise1.jpg');
+INSERT INTO six_business_enterprise VALUES(null,'img/Business/bs-enterprise2.jpg');
+INSERT INTO six_business_enterprise VALUES(null,'img/Business/bs-enterprise3.jpg');
+INSERT INTO six_business_enterprise VALUES(null,'img/Business/bs-enterprise4.jpg');
+INSERT INTO six_business_enterprise VALUES(null,'img/Business/bs-enterprise5.jpg');
+INSERT INTO six_business_enterprise VALUES(null,'img/Business/bs-enterprise6.jpg');
+INSERT INTO six_business_enterprise VALUES(null,'img/Business/bs-enterprise7.jpg');
+INSERT INTO six_business_enterprise VALUES(null,'img/Business/bs-enterprise8.jpg');
+INSERT INTO six_business_enterprise VALUES(null,'img/Business/bs-enterprise9.jpg');
+INSERT INTO six_business_enterprise VALUES(null,'img/Business/bs-enterprise10.jpg');
+INSERT INTO six_business_enterprise VALUES(null,'img/Business/bs-enterprise11.jpg');
+INSERT INTO six_business_enterprise VALUES(null,'img/Business/bs-enterprise12.jpg');
