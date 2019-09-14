@@ -173,7 +173,7 @@ export default {
                 var url="/userLogin";
                 var obj={uname:this.uname,upwd:this.upwd};
                 this.axios.post(url,this.qs.stringify(obj)).then(res=>{
-                    // console.log(res);
+                    console.log(res);
                     if(res.data.code==-1){
                         //如果登录失败，用户名或密码不正确的提示信息显示
                         this.tip3=1;
@@ -184,7 +184,7 @@ export default {
                             message: '恭喜您，登录成功',
                             type: 'success'
                         });
-                        this.$router.push("/"); //跳转到首页
+                        // this.$router.push("/"); //跳转到首页
                     }
                 })
             }
@@ -216,7 +216,7 @@ export default {
   left: 20px;
 }
 /*修改el标签页组价默认样式*/
-.el-tabs .el-tabs__header .el-tabs__item{
+.box .login-block .el-tabs .el-tabs__header .el-tabs__item{
     width:229.2px;height:60px;
     line-height:60px;
     background-color:#ebebeb;

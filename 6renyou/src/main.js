@@ -18,10 +18,6 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 // 注册element-ui这个组件
 Vue.use(ElementUI)
-// post请求必须要引入的模块 
-// 先下载 npm i qs -S
-import qs from 'qs'
-Vue.prototype.qs = qs;
 // 引入axios库
 import axios from 'axios'
 // 配置属性发送ajax请求时保存session信息
