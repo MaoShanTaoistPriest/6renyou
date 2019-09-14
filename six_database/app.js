@@ -235,6 +235,26 @@ server.get("/indexConsultant", (req, res) => {
   })
 });
 
+// 客户评价的数据的获取,通过id降序的方式，获取的数据从最后录入的数据开始
+server.get("/userComment", (req, res) => {
+  var sql = "SELECT id,img,title,pName,pubDate,feeling FROM six_user_comment ORDER BY id DESC";
+  pool.query(sql, (err, result) => {
+    if (err) throw err;
+    if (result.length == 0) {
+      res.send({
+        code: "-1",
+        msg: "查询有误"
+      });
+    } else {
+      res.send({
+        code: "1",
+        msg: "查询成功",
+        data: result
+      });
+    }
+  })
+});
+
 // 商务考察模块的优质资源的数据的获取
 server.get("/businessResources", (req, res) => {
   var sql = "SELECT id,title,img FROM six_business_resources";
