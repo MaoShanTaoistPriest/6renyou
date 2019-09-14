@@ -34,10 +34,11 @@
                </div>
                <div class="h-right clearfix">
                    <div class="h-reg left" style="background:url(img/header/reg.png) no-repeat">
-                        <a href="" target="_blank">注册</a>
+                        <router-link to="/login">注册</router-link>
                    </div>
                    <div class="h-login left" style="background:url(img/header/login.png) no-repeat">
-                       <a href="" target="_blank">登录</a>
+                       <router-link to="/login" :style="name!=null?'display:none':'display:block'">登录</router-link>
+                       <a :style="name!=null?'display:block':'display:none'" @click="logout">退出</a>
                    </div>
                    <div class="h-tel left" style="background:url(img/header/phone.png) no-repeat">
                        400-010-6003
@@ -53,13 +54,24 @@ export default {
     return {
       list:[],
       placeName:[],
-      arrowImg:"img/header/arrow1.png"
+      arrowImg:"img/header/arrow1.png",
+      name:"",  //获取客户端的sessionStorage里的用户名
     };
   },
   created(){
-      this.load();
+    //通过sessionStorage获取用户名
+    //用来判断显示是否是登录还是退出
+    this.name = JSON.parse(sessionStorage.getItem("name"));
+
+    this.load();
   },
   methods: {
+    logout(){
+        // 退出登录时，清除sessionStorage里保存的用户名
+      sessionStorage.removeItem("name");
+      sessionStorage.clear();
+      this.name=null;
+    },
     load(){
         var url="headerDestination";
         this.axios.get(url).then(res=>{
@@ -244,6 +256,10 @@ ul,li{list-style: none;}
 }
 .myheader .header-in .header-wp .h-right a:hover{
   color:#72b32a;
+}
+/* 退出按钮 */
+.myheader .header-in .header-wp .h-right .h-login a{
+    cursor: pointer;
 }
 </style>
 
