@@ -4,6 +4,8 @@
 const express = require('express');
 const session = require('express-session');
 const cors = require('cors');
+//引入body-parser中间件
+const bodyParser = require('body-parser');
 const mysql = require('mysql');
 // 3.创建数据库连接池
 var pool = mysql.createPool({
@@ -31,13 +33,17 @@ server.use(session({
   //保存初始化数值  
   saveUninitialized: true
 }))
+//使用body-parser中间件
+server.use(bodyParser.urlencoded({
+  extented: false
+}));
 // 配置静态目录
 server.use(express.static("public"));
 
 // login模块的用户的账号密码的验证
-server.get("/userLogin", (req, res) => {
-  var uname = req.query.uname;
-  var upwd = req.query.upwd;
+server.post("/userLogin", (req, res) => {
+  var uname = req.body.uname;
+  var upwd = req.body.upwd;
   var sql = "SELECT id FROM six_user_login WHERE uname = ? AND upwd = md5(?)";
   pool.query(sql, [uname, upwd], (err, result) => {
     if (err) throw err;
@@ -59,10 +65,10 @@ server.get("/userLogin", (req, res) => {
 });
 
 // reg模块的用户的账号密码的添加
-server.get("/userReg", (req, res) => {
+server.post("/userReg", (req, res) => {
   //获取get请求的数据
-  var uname = req.query.uname;
-  var upwd = req.query.upwd;
+  var uname = req.body.uname;
+  var upwd = req.body.upwd;
   //将数据插入到数据库
   var sql1 = "SELECT id FROM six_user_login WHERE uname = ?";
   pool.query(sql1, [uname], (err, result) => {
