@@ -234,3 +234,63 @@ server.get("/indexConsultant", (req, res) => {
     }
   })
 });
+
+// 商务考察模块的优质资源的数据的获取
+server.get("/businessResources", (req, res) => {
+  var sql = "SELECT id,title,img FROM six_business_resources";
+  pool.query(sql, (err, result) => {
+    if (err) throw err;
+    if (result.length == 0) {
+      res.send({
+        code: "-1",
+        msg: "查询有误"
+      });
+    } else {
+      res.send({
+        code: "1",
+        msg: "查询成功",
+        data: result
+      });
+    }
+  })
+});
+
+// 商务考察模块的考察案例的数据的获取
+server.get("/businessCase", (req, res) => {
+  var sql = "SELECT id,img,title,place FROM six_business_case";
+  pool.query(sql, (err, result) => {
+    if (err) throw err;
+    if (result.length == 0) {
+      res.send({
+        code: "-1",
+        msg: "查询有误"
+      });
+    } else {
+      res.send({
+        code: "1",
+        msg: "查询成功",
+        data: result
+      });
+    }
+  })
+});
+
+// 商务考察模块的合作企业的数据的获取
+server.get("/businessEnterprise", (req, res) => {
+  var sql = "SELECT id,img FROM six_business_enterprise";
+  pool.query(sql, (err, result) => {
+    if (err) throw err;
+    if (result.length == 0) {
+      res.send({
+        code: "-1",
+        msg: "查询有误"
+      });
+    } else {
+      res.send({
+        code: "1",
+        msg: "查询成功",
+        data: result
+      });
+    }
+  })
+});
