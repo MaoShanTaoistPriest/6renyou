@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h1>这是一个用户评价的页面</h1>
+    <myheader></myheader>
+    <my-footer></my-footer>
   </div>
 </template>
 <script>
