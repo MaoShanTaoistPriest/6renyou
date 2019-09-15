@@ -7,16 +7,16 @@
       <!-- 资源列表 -->
       <div class="resource-list">
         <ul>
-          <li class="resource-item" v-for="i of 8" :key=i>
+          <li class="resource-item" v-for="(item,index) of resourceLists" :key=index>
             <a href="javascript:;" target="_blank">
               <div class="res-img scale">
-                <img src="../../public/img/bus/bs-resource-list1.jpg" alt="" class="lazy" style="display:inline;">
+                <img :src="imgUrl+item.img" alt="" class="lazy" style="display:inline;">
               </div>
               <div class="resdiv res1">
                 <i class="res-icon"></i>
                 <span></span>
                 <span class="res-title">
-                  创投孵化
+                  {{item.title}}
                 </span>
               </div>
             </a>
@@ -32,8 +32,21 @@ import mainCount from './main-count'
 export default {
   data(){
     return{
-      title:["优势资源","甄选全球商务资源,满足您的企业需求"]
+      title:["优势资源","甄选全球商务资源,满足您的企业需求"],
+      resourceLists:[],
+      imgUrl:this.$imgUrl
     }
+  },
+  methods:{
+    onload(){
+      this.axios.get('businessResources').then(result=>{
+        // console.log(result.data.data);
+        this.resourceLists=result.data.data;
+      })
+    }
+  },
+  created(){
+    this.onload();
   },
   components:{
     "main-count":mainCount
@@ -49,6 +62,14 @@ ul{
 a{
   cursor: pointer;
 }
+a:hover, a > *:hover {
+  color: #71b32b;
+  text-decoration: underline;
+}
+.resource-list .resource-item a:hover, .resource-list .resource-item a:hover > * {
+    text-decoration: none;
+}
+
 a, a > * {
   color: rgb(65, 15, 15);
   text-decoration: none;
@@ -115,7 +136,11 @@ div.resource-list ul{
 img.lazy {
   background: url("../../public/img/bus/loading.gif")no-repeat center;
 }
-.scale:hover{
+resource-item{
+  transition: All 0.3s ease-in-out;
+}
+
+resource-item a:hover img{
   transform: scale(1.1);
   opacity: 0.90;
 }
@@ -124,6 +149,8 @@ img.lazy {
   opacity: 0.90;
 }
 .scale img {
+  transform: scale(1.1);
+  opacity: 0.90;
   transition: All 0.3s ease-in-out;
 }
 /* 图片上方悬浮的div设置 */

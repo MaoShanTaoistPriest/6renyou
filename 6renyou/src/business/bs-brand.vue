@@ -7,10 +7,11 @@
       <!-- 各企业图标logo引入 -->
       <div class="bs-brand-bd">
         <div class="bs-brand-box">
+            <!-- {{brandLists}} -->
           <ul class="brand-list">
-            <li v-for="i of 12" :key=i>
-              <div class="brand-logo">
-                <img src="../../public/img/bus/bosch.jpg" alt="" class="lazy">
+            <li v-for="(item,index) of brandLists" :key=index>
+              <div class="brand-logo" :class="bottoms[index]">
+                <img :src="imgUrl+item.img" alt="" class="lazy">
               </div>
             </li>
           </ul>
@@ -26,8 +27,24 @@ export default {
   data(){
     return{
       title1:"全球网络",
-      title2:"全球成功企业参访，建立交流和启发灵感"
+      title2:"全球成功企业参访，建立交流和启发灵感",
+      brandLists:[],
+      bottoms:["","","","","","no-right","no-bottom","no-bottom","no-bottom","no-bottom","no-bottom","no-bottom no-right"],
+      imgUrl:this.$imgUrl
     }
+  },
+  methods:{
+    onLoad(){
+      var img;
+      this.axios.get('businessEnterprise',{params:img}).then(result=>{
+        // console.log(result.data.data);
+        this.brandLists=result.data.data;
+        console.log(this.brandLists);
+      });
+    }
+  },
+  created(){
+    this.onLoad();
   },
   components:{
     "main-count":mainCount
@@ -64,6 +81,12 @@ bs-brand-bd {
   height: 90px;
   border-right: 1px solid #e7e7e7;
   border-bottom: 1px solid #e7e7e7;
+}
+.bs-brand-box .brand-list .no-bottom{
+  border-bottom:0 none;
+}
+.bs-brand-box .brand-list .no-right{
+  border-right: 0 none;
 }
 img.lazy {
   background: url("../../public/img/bus/loading.gif") no-repeat center;

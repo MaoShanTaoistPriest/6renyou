@@ -7,16 +7,16 @@
       <div class="bs-case-list">
         <!-- 考察实例单 -->
         <ul id="record_list">
-          <li class="bs-case-item" v-for="i of 6" :key="i">
+          <li class="bs-case-item" v-for="(item,index) of caseLists" :key="index">
             <a href="http://" target="_blank">
             <!-- 图片 -->
             <div class="case-img scale">
-              <img class="lazy" src="http://cdn1.6renyou.cn/sight/2018_5_9_1525863990226385124.jpg@80q"  style="display: inline;">
+              <img class="lazy" :src="imgUrl+item.img"  style="display: inline;">
             </div>
             <!-- 小标题 -->
             <div class="case-bd">
-              <h2 class="case-title">2018巴菲特股东大会</h2>
-              <p class="case-dest">美国·奥马哈</p>
+              <h2 class="case-title">{{item.title}}</h2>
+              <p class="case-dest">{{item.place}}</p>
             </div>
             </a>
           </li>
@@ -31,8 +31,21 @@ import mainCount from './main-count'
 export default {
   data(){
     return{
-      title:["考察案例","企业客户考察实例，涵盖多样化主题"]
+      title:["考察案例","企业客户考察实例，涵盖多样化主题"],
+      caseLists:[],
+      imgUrl:this.$imgUrl
     }
+  },
+  methods:{
+    onLoad(){
+      this.axios.get('businessCase').then(result=>{
+        // console.log(result.data.data);
+        this.caseLists=result.data.data;
+      });
+    }
+  },
+  created(){
+    this.onLoad();
   },
   components:{
     "main-count":mainCount
