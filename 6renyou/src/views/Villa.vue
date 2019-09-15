@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h1>这是一个度假&别墅的网页</h1>
+    <myheader></myheader>
+    <my-footer></my-footer>
   </div>
 </template>
 <script>

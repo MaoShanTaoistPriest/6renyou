@@ -7,8 +7,8 @@
                </div>
                <div class="h-nav-box">
                     <ul class="h-nav-list">
-                        <li class="nav-li"><a href="">首页</a></li>
-                        <li class="nav-li"><a href="">定制行程</a></li>
+                        <li class="nav-li"><router-link to="/">首页</router-link></li>
+                        <li class="nav-li"><router-link to="/OrderTrip">定制行程</router-link></li>
                         <li id="dest"  class="nav-li"  @mouseenter="changeArrowUp" @mouseleave="changeArrowDown">
                             <a href="javascript:;">目的地
                                 <img :src="arrowImg">
@@ -27,9 +27,9 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="nav-li"><a href="">客户评价</a></li>
-                        <li class="nav-li"><a href="">度假&别墅</a></li>
-                        <li class="nav-li"><a href="">商务考察</a></li>
+                        <li class="nav-li"><router-link to="/UserComment">客户评价</router-link></li>
+                        <li class="nav-li"><router-link to="/Villa">度假&别墅</router-link></li>
+                        <li class="nav-li"><router-link to="/Business">商务考察</router-link></li>
                     </ul>
                </div>
                <div class="h-right clearfix">
