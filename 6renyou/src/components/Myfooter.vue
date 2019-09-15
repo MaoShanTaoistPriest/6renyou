@@ -6,7 +6,7 @@
       <div class="links-list">
         <dl class="links-item">
           <dt>大家都在看</dt>
-          <dd v-for="(item,index) of list" :key="index"><a href="javascript:;">{{item}}</a></dd>
+          <dd v-for="(item,index) of lists" :key="index"><a href="javascript:;">{{item}}</a></dd>
         </dl>
       </div>
     </div>
@@ -80,25 +80,40 @@
 export default {
   data(){
     return{
-      list:[
-        "美国定制旅游",
-        "法国定制旅游",
-        "北欧定制旅游",
-        "新西兰定制旅游",
-        "海岛度假别墅",
-        "南极旅游",
-        "瑞士定制旅游",
-        "意大利定制旅游",
-        "马尔代夫定制旅游",
-        "泰国定制旅游",
-        "加拿大定制旅游",
-        "澳洲定制旅游",
-        "印度定制旅游",
-        "马来西亚定制旅游",
-        "缅甸定制旅游",
-        "斯里兰卡定制旅游"
-        ],
+      // list:[
+      //   "美国定制旅游",
+      //   "法国定制旅游",
+      //   "北欧定制旅游",
+      //   "新西兰定制旅游",
+      //   "海岛度假别墅",
+      //   "南极旅游",
+      //   "瑞士定制旅游",
+      //   "意大利定制旅游",
+      //   "马尔代夫定制旅游",
+      //   "泰国定制旅游",
+      //   "加拿大定制旅游",
+      //   "澳洲定制旅游",
+      //   "印度定制旅游",
+      //   "马来西亚定制旅游",
+      //   "缅甸定制旅游",
+      //   "斯里兰卡定制旅游"
+      //   ],
+        lists:[]
     }
+  },
+  methods:{
+    onLoad(){
+      var placeName;
+      this.axios.get('footerRecommended',{params:placeName}).then(result=>{
+        var placeLists=result.data.data;
+        for(var item of placeLists){
+          this.lists.push(item.placeName);
+        }
+      });
+    }
+  },
+  created(){
+    this.onLoad();
   }
 }
 </script>
