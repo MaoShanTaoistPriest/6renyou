@@ -2,6 +2,15 @@ SET NAMES UTF8;
 DROP DATABASE IF EXISTS six;
 CREATE DATABASE six CHARSET=UTF8;
 USE six;
+#登录/注册的用户的数据表搭建
+CREATE TABLE six_user_login(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  uname VARCHAR(50),
+  upwd  VARCHAR(32)
+);
+#功能二:添加二条测试数据 
+INSERT INTO six_user_login VALUES(null,'tom',md5('123'));
+INSERT INTO six_user_login VALUES(null,'jerry',md5('123'));
 #头部的目的地的数据表搭建
 CREATE TABLE six_header_destination(
   id INT PRIMARY KEY AUTO_INCREMENT,
@@ -55,6 +64,26 @@ CREATE TABLE six_user_comment(
   pubDate VARCHAR(50),
   feeling VARCHAR(200)
 );
+#商务考察的优质资源的数据表搭建
+CREATE TABLE six_business_resources(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  title VARCHAR(50),
+  img VARCHAR(100)
+);
+#商务考察的考察案例的数据表搭建
+CREATE TABLE six_business_case(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  img VARCHAR(100),
+  title VARCHAR(50),
+  place VARCHAR(50)
+);
+#商务考察的合作企业的数据表搭建
+CREATE TABLE six_business_enterprise(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  img VARCHAR(100)
+);
+
+
 
 
 
@@ -141,3 +170,66 @@ INSERT INTO six_index_consultant VALUES(null,'img/index/WangMiaoMiao.jpg','王�
 INSERT INTO six_index_consultant VALUES(null,'img/index/HeMiao.jpg','何淼','旅行顾问','日本','我的人生目标就是：踏遍日本的每一寸土地，带上你，一起看春天华粉的樱花，夏天绚烂的烟火，秋天热烈的红叶，冬天松软的粉雪。');
 INSERT INTO six_index_consultant VALUES(null,'img/index/JingJing.jpg','晶晶','旅行顾问','欧洲','因为一直在路上，生活才充满阳光。厌倦了每天的重复生活，想逃开，想放下，世界阔大，那让我们即刻出发吧。');
 INSERT INTO six_index_consultant VALUES(null,'img/index/JingJing.jpg','晶晶','旅行顾问','欧洲','因为一直在路上，生活才充满阳光。厌倦了每天的重复生活，想逃开，想放下，世界阔大，那让我们即刻出发吧。');
+#客户评价的数据表插入
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user1.jpg','巴厘岛休闲度假之旅','王女士','2019年01月','此次行程很满意，舒适度好，接待很好，无论是吃住还是玩都很极致！做到了无缝链接。');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user2.jpg','吹着海风轻轻的走向你台湾之旅','付先生','2019年01月','非常棒的小众游体验，小寒帮我安排的很好，台湾接待的陈瑞华同样也很棒，全家都很满意，以后出游继续找6人游！');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user3.jpg','北海道撩猴team','项女士','2019年01月','感谢司兼导平平，旅行顾问安安，让我们开开心心出门去，平平安安回家来，也感谢“6人游”所有工作人员，祝越来越好');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user4.jpg','柬埔寨7日游','陈女士','2019年01月','非常满意，顾问小陈心很细，本来还想说忘了提醒选座位的事，结果小陈不声不响都给值机了，还按我上次的喜好来的');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user5.jpg','以色列约旦8晚11天圣地之约','李女士','2019年02月','感谢张青的专业服务，临近过年，地接导游临时取消，张青一直联系接洽，最后接待导游很不错，让我们有了一个安全有趣的经历。');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user6.jpg','尽享奢华迪拜休闲亲子7日之旅','李女士','2019年02月','
+整个行程安排比较合理舒适，顾问考虑很全面，导游也比较周到。');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user7.jpg','新西兰南北岛13日之旅','王女士','2019年02月','非常满意！刘娜计划行程时非常认真负责，尊重客户意见并能提出合理建议。地接社服务也很好，派出的司机都很让人满意！基督城那个花园酒店也不错，特别赞这次的导游，安排的几个都很不错！');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user8.jpg','台湾本土文化和当代艺术的美妙平衡','潘女士','2019年03月','6人游的服务真的很棒，点赞！');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user9.jpg','畅游迪拜奢华神秘7日之旅','张女士','2019年03月','感谢六人行顾问张青，感谢地陪胡姐，此次迪拜之行我们玩的很开心。境外游还会选择六人行！');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user10.jpg','品味锡兰 袅袅茶香 情迷印度洋','徐女士','2019年03月','本次行程安排的都不错，就是起的有点早；导游特别热情，和我们讲了很多兰卡的历史，风俗挺有趣的一个人');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user11.jpg','盆景上的贵州10日探秘','李女士','2019年03月','
+非常好的一次旅行！');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user12.jpg','神秘泸沽湖6日之旅','吴女士','2019年03月','很好');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user13.jpg','普吉岛曼谷风光的完美结合','金女士','2019年03月','感觉很好，地陪很专业');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user14.jpg','巴厘岛7日休闲度假','王女士','2019年03月','这次的地接是我遇到最好的地接，挑不出一点儿毛病，旅行体验非常好。感谢六人游。');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user15.jpg','斯里兰卡6日游 品味锡兰 袅袅茶香','卢先生','2019年04月','一如既往的服务和品质，赞');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user16.jpg','日本京都4日赏樱之旅','江女士','2019年04月','下一步的旅游还会选择六人游产品，希望能更好！');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user17.jpg','一次走进巴厘人生活的旅行','廖女士','2019年04月','这次巴厘岛之旅非常开心，感谢团友们和六人游后勤保障部的所有工作人员，特别感谢顾问小陈和地陪安娜水，小陈工作认真负责，非常有耐心，安娜水很热情很尽职，让我们度过一个愉快的假期。');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user18.jpg','普吉岛7日悠闲度假','徐女士','2019年05月','我们全家对本次的旅行非常满意，全程跟踪服务，关键时刻温馨提示，顾问大娇服务热情，监督员对突发事件解决的及时到位，目的地的接待的也很好，态度和蔼，可亲，司机师傅安全意识很强，服务态度很好。');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user19.jpg','东欧巴尔干7国16天花样度假之旅','胡女士','2019年05月','
+这趟旅行奇遇不断惊喜不断，最后圆满收官！还有神秘礼物，感谢为我们行程操碎心的胡团长东媛美美、全陪小猴子&波兰王导、波黑Wu导&谢谢六人游此行难忘');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user20.jpg','西西里岛+阿玛菲海岸+罗马度假','王女士','2019年06月','旅行圆满的结束了，非常的愉快、开心，首先要感谢杜娟小朋友为我们安排了非常独特和精致的旅游行程，所到之处无不感受到意大利西西里岛的美丽和迷人。更要感谢我们的郑导，郑导亲善和蔼，热情友好。');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user21.jpg','摩洛哥轻奢之旅','杨女士','2019年06月','参加的12天奢华小团摩洛哥旅行，线路设计非常棒，全程酒店都很美，有网红酒店也有当地特色酒店，吃的方面也会根据团友的要求进行调整，最牛的是学做塔吉锅的安排团友硬是做出一顿饺子大餐，地接王导很棒，拍照非常棒');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user22.jpg','英国11晚13日品味英伦亲子之旅','陈先生','2019年07月','安排的很好！ 很开心！');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user23.jpg','肯尼亚9晚11天野性呼唤','陆小姐','2019年07月','非常满意');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user24.jpg','南非18晚20天动物与自然惊奇之旅','邹女士','2019年07月','全程下来深度了解到纳米比亚这么美，6人游顾问服务非常好，导游很热情友好很专业，继续支持！');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user25.jpg','普吉岛5晚7日亲子悠闲游-邂逅','班女士','2019年08月','本次普吉岛之行特别愉快，老人和小孩都感觉玩的特别舒心，感谢6人游的精心安排，地接导游也非常热情周到！');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user26.jpg','品位锡兰情迷印度洋','张女士','2019年08月','抱着试试的心态第一次选择6人游，真是意外的惊喜，无论是前期和顾问的沟通，还是后期当地地接的服务、以及酒店安排和行程安排，为我们安排了一个非常好的闺蜜游，下次还会继续选择6人游。');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user27.jpg','马尔代夫4晚6日休闲之旅','苏女士','2019年08月','一次完美的旅行体验，出发前还在六人游买了个行李箱，简直不要太好哟，非常期待下一次的行程。');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user28.jpg','曼谷芭提雅6日','马先生','2019年08月','感谢顾问马昭一路上用心安排及服务，期待下次再见');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user29.jpg','澳大利亚品质之旅','李先生','2019年08月','这次旅行特别愉快，感谢6人游的精心安排，顾问、地接导游也非常热情周到！');
+INSERT INTO six_user_comment VALUES(null,'img/UserComment/user30.jpg','亲临众神的国度','李女士','2019年08月','从顾问到地接人员都非常周到细心，尽职尽责，沟通交流无障碍，今后还会继续选择6人游出行。');
+#商务考察的优质资源的数据表插入
+INSERT INTO six_business_resources VALUES(null,'创投孵化','img/Business/bs-resource-list1.jpg');
+INSERT INTO six_business_resources VALUES(null,'创新企业','img/Business/bs-resource-list2.jpg');
+INSERT INTO six_business_resources VALUES(null,'金融科技','img/Business/bs-resource-list3.jpg');
+INSERT INTO six_business_resources VALUES(null,'工业4.0','img/Business/bs-resource-list4.jpg');
+INSERT INTO six_business_resources VALUES(null,'家族传承','img/Business/bs-resource-list5.jpg');
+INSERT INTO six_business_resources VALUES(null,'时尚艺术','img/Business/bs-resource-list6.jpg');
+INSERT INTO six_business_resources VALUES(null,'电影节','img/Business/bs-resource-list7.jpg');
+INSERT INTO six_business_resources VALUES(null,'民宿考察','img/Business/bs-resource-list8.jpg');
+#商务考察的考察案例的数据表插入
+INSERT INTO six_business_case VALUES(null,'img/Business/bs-case1.jpg','2018巴菲特股东大会','美国 · 奥马哈');
+INSERT INTO six_business_case VALUES(null,'img/Business/bs-case2.jpg','以色列创新之旅','特拉维夫 耶路撒冷 海法');
+INSERT INTO six_business_case VALUES(null,'img/Business/bs-case3.jpg','美国置业与资产配置高端商旅','洛杉矶 旧金山');
+INSERT INTO six_business_case VALUES(null,'img/Business/bs-case4.jpg','戛纳电影节','法国 · 戛纳');
+INSERT INTO six_business_case VALUES(null,'img/Business/bs-case5.jpg','南法寻香之旅-在普罗旺斯寻找生活的原香','法国 普罗旺斯');
+INSERT INTO six_business_case VALUES(null,'img/Business/bs-case6.jpg','智璞文华江南行','无锡-苏州-乌镇-莫干山-杭州');
+#商务考察的合作企业的数据表插入
+INSERT INTO six_business_enterprise VALUES(null,'img/Business/bs-enterprise1.jpg');
+INSERT INTO six_business_enterprise VALUES(null,'img/Business/bs-enterprise2.jpg');
+INSERT INTO six_business_enterprise VALUES(null,'img/Business/bs-enterprise3.jpg');
+INSERT INTO six_business_enterprise VALUES(null,'img/Business/bs-enterprise4.jpg');
+INSERT INTO six_business_enterprise VALUES(null,'img/Business/bs-enterprise5.jpg');
+INSERT INTO six_business_enterprise VALUES(null,'img/Business/bs-enterprise6.jpg');
+INSERT INTO six_business_enterprise VALUES(null,'img/Business/bs-enterprise7.jpg');
+INSERT INTO six_business_enterprise VALUES(null,'img/Business/bs-enterprise8.jpg');
+INSERT INTO six_business_enterprise VALUES(null,'img/Business/bs-enterprise9.jpg');
+INSERT INTO six_business_enterprise VALUES(null,'img/Business/bs-enterprise10.jpg');
+INSERT INTO six_business_enterprise VALUES(null,'img/Business/bs-enterprise11.jpg');
+INSERT INTO six_business_enterprise VALUES(null,'img/Business/bs-enterprise12.jpg');
