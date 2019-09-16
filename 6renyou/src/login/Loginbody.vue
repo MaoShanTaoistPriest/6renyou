@@ -184,7 +184,7 @@ export default {
               message: "恭喜您，注册成功",
               type: "success"
             });
-            this.$router.push("/"); //跳转到首页
+            this.activeName="loginPage"; //跳转到登录页
           }
         });
       }
