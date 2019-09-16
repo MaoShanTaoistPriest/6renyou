@@ -137,8 +137,11 @@ img.lazy {
 .resource-item{
   transition: All 0.3s ease-in-out;
 }
-
-
+/* 有遮罩层的放大 */
+.resource-item:hover .scale img{
+  transform: scale(1.1);
+  opacity: 0.90;
+}
 .scale img:hover {
   transform: scale(1.1);
   opacity: 0.90;
