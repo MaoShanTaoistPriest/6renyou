@@ -106,12 +106,14 @@ img.lazy {
     height: auto;
 }
 /* 卡片下的小标题 */
+
 .bs-case-list .bs-case-item .case-bd {
   background: #f5f5f5;
   padding: 20px;
 }
 /* 巴菲特股东大会 */
 .bs-case-list .bs-case-item .case-bd .case-title {
+  font-family: 'Microsoft Yahei';
   font-size: 20px;
   color: #333;
   height: 24px;
@@ -123,6 +125,7 @@ img.lazy {
 }
 /* 美国奥马哈 */
 .bs-case-list .bs-case-item .case-bd .case-dest {
+  font-family: 'Microsoft Yahei';
   font-size: 14px;
   color: #666;
   margin-top: 5px;

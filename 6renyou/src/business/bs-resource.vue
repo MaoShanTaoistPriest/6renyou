@@ -63,10 +63,7 @@ ul{
 a{
   cursor: pointer;
 }
-a:hover, a > *:hover {
-  color: #71b32b;
-  text-decoration: underline;
-}
+
 .resource-list .resource-item a:hover, .resource-list .resource-item a:hover > * {
     text-decoration: none;
 }
@@ -137,21 +134,16 @@ div.resource-list ul{
 img.lazy {
   background: url("../../public/img/bus/loading.gif")no-repeat center;
 }
-resource-item{
+.resource-item{
   transition: All 0.3s ease-in-out;
 }
 
-resource-item a:hover img{
-  transform: scale(1.1);
-  opacity: 0.90;
-}
+
 .scale img:hover {
   transform: scale(1.1);
   opacity: 0.90;
 }
 .scale img {
-  transform: scale(1.1);
-  opacity: 0.90;
   transition: All 0.3s ease-in-out;
 }
 /* 图片上方悬浮的div设置 */
