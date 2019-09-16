@@ -108,7 +108,13 @@
                                     </div>
                                 </div>
                                 <div class="guwen-item-detail">
-                                    
+                                    <div>
+                                        <span></span>
+                                    </div>
+                                    <span></span>
+                                    <div>
+                                        <p></p>
+                                    </div>
                                 </div>
                             </a>
                         </div>
@@ -272,7 +278,7 @@ export default {
     border-bottom: 1px solid #eaeaea;
     margin-bottom: 30px;
     width: 100%;
-    padding-bottom:20px;
+    /* padding-bottom:20px; */
  }
  .index-concept .concept-wrap{
     width: 1180px;
@@ -380,7 +386,7 @@ export default {
     float: left;
     display: block;
     width: 75px;
-    margin-top: -78px;
+    margin-top: -94px;
 }
 .index-concept .concept-wrap dl dt .icon-cp1{
     background-position:0 0;
@@ -394,7 +400,7 @@ export default {
     width: 160px;
     float: left;
     display: block;
-    margin-top: -72px;
+    margin-top: -88px;
     font-family: "microsoft yahei";
     font-size: 16px;
     color: #a4a4a4;
