@@ -528,8 +528,10 @@ export default {
     width: 100%;
     height: 100%;
 }
+/* 图片缩放 */
 .index-container-box>.index-container>.index-popular-box>.popular-right>.popu-list li a img:hover{
-    transform:scale(1.1,1.1);  
+    transform:scale(1.1,1.1);
+    transition:ALL .3s ease-in-out;  
 }
 .index-container-box>.index-container>.index-popular-box>.popular-right>.popu-list li a span{
     display: block;
