@@ -214,7 +214,7 @@ export default {
   }
 };
 </script>
-<style  scoped>
+<style>
 /* 添加了active属性的显示 ---用户输入框提示信息效果*/
 .active {
   display: block !important;
@@ -248,6 +248,7 @@ export default {
   background-color: #ebebeb;
   color: #333;
   font-size: 20px;
+  font-family: "Microsoft Yahei";
   text-align: center;
   border: 0;
   border-top-right-radius: 4px;
@@ -268,61 +269,61 @@ li {
   list-style: none;
   display: block;
 }
-ul li {
+.login-block .el-tabs ul li {
   margin: 30px 0;
 }
 /* 用户名整体 */
-ul li.li_uname {
+.login-block .el-tabs ul li.li_uname {
   margin-top: 50px;
 }
-ul .li_uname div,
-ul .li_uname .el-input,
-ul .li_uname span {
+.login-block .el-tabs ul .li_uname div,
+.login-block .el-tabs ul .li_uname .el-input,
+.login-block .el-tabs ul .li_uname span {
   float: left;
   color: #333;
   font-size: 14px;
   line-height: 40px;
 }
 /* 密码整体 */
-ul .li_upwd div,
-ul .li_upwd .el-input,
-ul .li_upwd span {
+.login-block .el-tabs ul .li_upwd div,
+.login-block .el-tabs ul .li_upwd .el-input,
+.login-block .el-tabs ul .li_upwd span {
   float: left;
   color: #333;
   font-size: 14px;
   line-height: 40px;
 }
 /* 用户名和密码输入框 */
-ul li .el-input {
+.login-block .el-tabs ul li .el-input {
   width: 200px;
 }
 /* 输入框左侧文字 */
-ul li div.text {
+.login-block .el-tabs ul li div.text {
   width: 60px;
   text-align: right;
   padding-right: 20px;
 }
 /* 错误提示  默认隐藏*/
-ul li span.errtip {
+.login-block .el-tabs ul li span.errtip {
   color: red;
   margin-left: 5px;
   display: none;
 }
 /* 用户名或密码不正确提示  默认隐藏 */
-ul li.allerr span.errtip {
+.login-block .el-tabs ul li.allerr span.errtip {
   clear: both;
   margin-left: 76px;
   font-size: 14px;
   display: none;
 }
 /* 登录按钮 */
-ul .li_login {
+.login-block .el-tabs ul .li_login {
   text-align: center;
   margin-left: 80px;
   text-align: center;
   margin-top: 40px;
 }
-ul .li_login #loginbtn {
+.login-block .el-tabs ul .li_login #loginbtn {
   display: block;
   width: 200px;
   line-height: 20px;
