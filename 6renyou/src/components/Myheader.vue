@@ -68,6 +68,8 @@ export default {
   },
   methods: {
     toLogin(loginPage){
+        // 把要跳转的页面保存到sessionStorage里
+        sessionStorage.setItem("page",loginPage);
         // 通过参数跳转到注册页面
         this.$router.push({
             // 通过路由名去找路由
@@ -77,6 +79,8 @@ export default {
         });
     },
     toReg(regPage){
+        // 把要跳转的页面保存到sessionStorage里
+        sessionStorage.setItem("page",regPage);
         // 通过参数跳转到注册页面
         this.$router.push({
             // 通过路由名去找路由
