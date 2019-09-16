@@ -1,7 +1,7 @@
 <template>
     <div class="index_carousel">
-        <el-carousel height="200px"  :autoplay="false">
-            <el-carousel-item v-for="item in listsBanner" :key="item.id">
+        <el-carousel height="200px"   :interval="4000">
+            <el-carousel-item v-for="item in listsBanner" :key="item.id" >
                 <img :src="imgurl+item.img" alt="">
                 <div class="index_banner">
                     <div>{{banner_innser[item.id-1]}}</div>
@@ -92,26 +92,45 @@
             <div class="guwen-wrp">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
-                        <div v-for="(item,index) of [1,2,3,4]" :key="index"  class="swiper-slide">
+                        <div v-for="(item,index) of indexConsultant" :key="index"  class="swiper-slide">
                             <a href="">
                                 <!-- 效果位置 -->
                                 <div class="guwen-item">
                                     <div class="guwen-img">
-                                        <img src="" alt="" class="lazy">
+                                        <img :src="imgurl+item.img" alt="" class="lazy">
                                     </div>
-                                    <p class="guwen-name"></p>
-                                    <p class="guwen-level"></p>
+                                    <p class="guwen-name">{{item.cName}}</p>
+                                    <p class="guwen-level">{{item.position}}</p>
                                     <span class="fg-line"></span>
-                                    <p class="guwen-area"></p>
+                                    <p class="guwen-area">{{item.area}}</p>
                                     <div class="guwen-link">
                                         <span>看看TA的介绍</span>
                                     </div>
                                 </div>
-                                <div class="guwen-item-detail"></div>
+                                <div class="guwen-item-detail">
+                                    <div>
+                                        <span></span>
+                                    </div>
+                                    <span></span>
+                                    <div>
+                                        <p></p>
+                                    </div>
+                                </div>
                             </a>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <!-- 客户评价 -->
+        <div class="index-container">
+            <div class="main-cont-hd">
+                <p class="hd-1">客户评价</p>
+                <p class="hd-2">
+                    <i class="line-l"></i>
+                    <span>来自用户的真实出游评价</span>
+                    <i class="line-r"></i>
+                </p>
             </div>
         </div>
     </div>
@@ -140,7 +159,8 @@ export default {
                 }
             ],indexHotPlaceName:[],
             newPlace:[],
-            listsHotPlaceImg:[] 
+            listsHotPlaceImg:[],
+            indexConsultant:[] 
         }
     },methods:{
         // 鼠标移入移出事件
@@ -183,7 +203,16 @@ export default {
                 this.indexHotPlaceImg = res.data.data;
                 for(var i=0;i<res.data.data.length;i++){
                     this.listsHotPlaceImg = res.data.data;
-                    console.log(res.data.data);
+                }
+            }
+        })
+        var indexConsultant = "indexConsultant";
+        this.axios.get(indexConsultant).then(res=>{
+            if(res.data.code==1){
+                this.indexConsultant = res.data.data;
+                for(var i=0;i<res.data.data.length;i++){
+                    this.indexConsultant = res.data.data.slice(0,4);
+                    console.log(res.data.data.slice(0,4));
                 }
             }
         })
@@ -249,7 +278,7 @@ export default {
     border-bottom: 1px solid #eaeaea;
     margin-bottom: 30px;
     width: 100%;
-    padding-bottom:20px;
+    /* padding-bottom:20px; */
  }
  .index-concept .concept-wrap{
     width: 1180px;
@@ -357,7 +386,7 @@ export default {
     float: left;
     display: block;
     width: 75px;
-    margin-top: -78px;
+    margin-top: -94px;
 }
 .index-concept .concept-wrap dl dt .icon-cp1{
     background-position:0 0;
@@ -371,7 +400,7 @@ export default {
     width: 160px;
     float: left;
     display: block;
-    margin-top: -72px;
+    margin-top: -88px;
     font-family: "microsoft yahei";
     font-size: 16px;
     color: #a4a4a4;
@@ -461,6 +490,9 @@ export default {
     padding: 6px 0;
     cursor: pointer;
     text-decoration: none;
+}
+.index-container-box>.index-container>.index-popular-box>.popular-left>.one-continent>.dd-list>.dest-ul li a:hover{
+    color:#93c11b;
 }
 /* 右侧内容 */
 .index-container-box>.index-container>.index-popular-box>.popular-right{
@@ -575,7 +607,8 @@ export default {
     box-sizing: content-box;
 }
 .guwen-wrp .swiper-container .swiper-wrapper .swiper-slide{
-    width: 260px;
+    width: 257.5px;
+    margin-right: 50px;
     height: 360px;
     text-align: center;
     position: relative;
@@ -618,11 +651,14 @@ export default {
     color: #333;
     padding-top: 20px;
     padding-bottom: 15px;
+    margin:0;
 }
 .guwen-wrp .swiper-container .swiper-wrapper .swiper-slide a .guwen-item .guwen-level{
     font-size: 15px;
     color: #666;
     line-height: 18px;
+    margin:0;
+    padding:0;
 }
 .guwen-wrp .swiper-container .swiper-wrapper .swiper-slide a .guwen-item .fg-line{
     display: inline-block;
@@ -637,6 +673,7 @@ export default {
     line-height: 18px;
     height: 36px;
     padding: 0 15px;
+    margin:0;
 }
 .guwen-wrp .swiper-container .swiper-wrapper .swiper-slide a .guwen-item .guwen-link{
     padding-top: 15px;
@@ -653,4 +690,6 @@ export default {
     -webkit-border-radius: 2px;
     border-radius: 2px;
 }
+/* 客户评价 */
+
 </style>

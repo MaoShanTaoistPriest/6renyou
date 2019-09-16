@@ -5,11 +5,11 @@
       <div class="login-block">
         <!-- 此处套用el标签页组件 -->
         <el-tabs v-model="activeName" type="card">
-          <el-tab-pane label="登录" name="first">
+          <el-tab-pane label="登录" name="loginPage">
             <ul>
               <li class="li_uname">
                 <div class="text">用户名</div>
-                <el-input v-model="uname" placeholder="请输入用户名" autofocus @blur="unameBlur"></el-input>
+                <el-input v-model="uname" placeholder="请输入用户名" autofocus ref="unameInput" @blur="unameBlur"></el-input>
                 <span class="errtip" :class="tip1==1?'active':''">*用户名不能为空</span>
               </li>
               <div style="clear:both;"></div>
@@ -29,11 +29,11 @@
               </li>
             </ul>
           </el-tab-pane>
-          <el-tab-pane label="注册" name="second">
+          <el-tab-pane label="注册" name="regPage">
             <ul>
               <li class="li_uname">
                 <div class="text">用户名</div>
-                <el-input v-model="setUname" placeholder="请设置3~12位字母、数字" @blur="setUnameBlur"></el-input>
+                <el-input v-model="setUname" placeholder="请设置3~12位字母、数字"  ref="setUnameInput" @blur="setUnameBlur"></el-input>
                 <span class="errtip" :class="tip4==1?'active':''">*用户名格式不正确</span>
               </li>
               <div style="clear:both;"></div>
@@ -44,6 +44,7 @@
                   v-model="setUpwd"
                   placeholder="请设置3~12位字母、数字"
                   show-password
+                  ref="setUpwdInput" 
                   @blur="setUpwdBlur"
                 ></el-input>
                 <span class="errtip" :class="tip5==1?'active':''">*密码格式不正确</span>
@@ -56,6 +57,7 @@
                   v-model="confirmUpwd"
                   placeholder="请确认密码"
                   show-password
+                  ref="confirmUpwdInput"
                   @blur="confirmUpwdBlur"
                 ></el-input>
                 <span class="errtip" :class="tip6==1?'active':''">*确认密码不正确</span>
@@ -79,7 +81,7 @@
 export default {
   data() {
     return {
-      activeName: "first", //默认选中登录标签页面
+      activeName: "loginPage", //默认选中登录标签页面
       uname: "",
       upwd: "",
       setUname: "", //注册用户名
@@ -95,6 +97,27 @@ export default {
       name: "" /*获取客户端的sessionStorage里的用户名*/
     };
   },
+  created(){
+      // 获取sessionStorage里保存的跳转页面  
+      var page = sessionStorage.getItem("page");
+      if (this.$route.params.page != undefined) {
+      //如果路由传参给值，就获取路由传参的值
+        this.activeName=this.$route.params.page;
+      } else {
+      // 否则就获取sessionStorage中的值
+        this.activeName=page;
+      }
+  },
+  mounted() {
+      //如果是登录页面，让输入用户名自动获取焦点  
+      //如果是注册页面，让设置用户名自动获取焦点
+      //因为下面两种判断在created里执行报错，所以放在mounted里了    
+      if(this.activeName=="loginPage"){
+          this.$refs.unameInput.focus();
+      }else if(this.activeName=="regPage"){
+          this.$refs.setUnameInput.focus();
+      }
+  },
   methods: {
     // 以下是注册页面的事件
     // 注册用户名失去焦点时
@@ -102,7 +125,10 @@ export default {
       // 创建正则表达式 (3~12位字母、数字)
       var reg = /^[a-z0-9]{3,12}$/i;
       if (reg.test(this.setUname) == false) {
+        // 用户名格式不正确提示信息显示
         this.tip4 = 1;
+        // 用户名输入框自动获得焦点
+        this.$refs.setUnameInput.focus();
       } else {
         this.tip4 = 0;
       }
@@ -112,7 +138,10 @@ export default {
       // 创建正则表达式 (3~12位字母、数字)
       var reg = /^[a-z0-9]{3,12}$/i;
       if (reg.test(this.setUpwd) == false) {
+        // 密码格式不正确提示信息显示
         this.tip5 = 1;
+        // 密码输入框自动获得焦点
+        this.$refs.setUpwdInput.focus();
       } else {
         this.tip5 = 0;
       }
@@ -121,6 +150,8 @@ export default {
     confirmUpwdBlur() {
       if (this.confirmUpwd != this.setUpwd) {
         this.tip6 = 1; //密码重复错误，显示提示信息
+        // 确认密码输入框自动获得焦点
+        this.$refs.confirmUpwdInput.focus();
       } else {
         this.tip6 = 0;
       }
@@ -153,7 +184,7 @@ export default {
               message: "恭喜您，注册成功",
               type: "success"
             });
-            this.$router.push("/"); //跳转到首页
+            this.activeName="loginPage"; //跳转到登录页
           }
         });
       }
@@ -192,6 +223,7 @@ export default {
           if (res.data.code == -1) {
             //如果登录失败，用户名或密码不正确的提示信息显示
             this.tip3 = 1;
+            this.$refs.unameInput.focus();
           } else {
             /*获取客户端的sessionStorage里的用户名*/
             // console.log(res.config.data.split("&")[0].split("=")[1]);
