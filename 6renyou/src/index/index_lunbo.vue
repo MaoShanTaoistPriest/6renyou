@@ -1,7 +1,7 @@
 <template>
     <div class="index_carousel">
-        <el-carousel height="200px"  :autoplay="false">
-            <el-carousel-item v-for="item in listsBanner" :key="item.id">
+        <el-carousel height="200px"   :interval="4000">
+            <el-carousel-item v-for="item in listsBanner" :key="item.id" >
                 <img :src="imgurl+item.img" alt="">
                 <div class="index_banner">
                     <div>{{banner_innser[item.id-1]}}</div>
