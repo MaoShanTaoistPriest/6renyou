@@ -491,6 +491,9 @@ export default {
     cursor: pointer;
     text-decoration: none;
 }
+.index-container-box>.index-container>.index-popular-box>.popular-left>.one-continent>.dd-list>.dest-ul li a:hover{
+    color:#93c11b;
+}
 /* 右侧内容 */
 .index-container-box>.index-container>.index-popular-box>.popular-right{
     float: right;
