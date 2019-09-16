@@ -17,6 +17,7 @@
                         <li class="topic-list-item"  v-for="items in listsConcept" :key="items.id">
                             <a href="">
                                 <i class="icon-topic-1" :style="'background:url'+'('+imgurl+items.normal+')'" @mouseenter="changeColor1($event,items.hover)" @mouseleave="changeColor2($event,items.normal)"></i>
+                                <!-- @mouseenter="changeColor1($event,items.hover)" @mouseleave="changeColor2($event,items.normal)" -->
                                 <span class="topic-link1">
                                     <span>
                                         {{concept[items.id-1].top}}<br>
@@ -92,8 +93,8 @@
             <div class="guwen-wrp">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
-                        <div v-for="(item,index) of indexConsultant" :key="index"  class="swiper-slide">
-                            <a href="">
+                        <div v-for="(item,index) of indexConsultant" :key="index"  class="swiper-slide" >
+                            <a href="" >
                                 <!-- 效果位置 -->
                                 <div class="guwen-item">
                                     <div class="guwen-img">
@@ -107,13 +108,13 @@
                                         <span>看看TA的介绍</span>
                                     </div>
                                 </div>
-                                <div class="guwen-item-detail">
-                                    <div>
-                                        <span></span>
+                                <div class="guwen-item-detail" >
+                                    <div class="guwen-tit">
+                                        <span>顾问介绍</span>
                                     </div>
-                                    <span></span>
-                                    <div>
-                                        <p></p>
+                                    <span class="fg-line"></span>
+                                    <div class="guwen-detail">
+                                        <p>{{item.introduce}}</p>
                                     </div>
                                 </div>
                             </a>
@@ -160,7 +161,8 @@ export default {
             ],indexHotPlaceName:[],
             newPlace:[],
             listsHotPlaceImg:[],
-            indexConsultant:[] 
+            indexConsultant:[],
+            
         }
     },methods:{
         // 鼠标移入移出事件
@@ -212,7 +214,6 @@ export default {
                 this.indexConsultant = res.data.data;
                 for(var i=0;i<res.data.data.length;i++){
                     this.indexConsultant = res.data.data.slice(0,4);
-                    console.log(res.data.data.slice(0,4));
                 }
             }
         })
@@ -305,6 +306,7 @@ export default {
 .index-concept .concept-wrap .index-topic-list .topic-list .topic-list-item{
     list-style: none;
 }
+
 .index-concept .concept-wrap .index-topic-list{
     width: 230px;
     height: 75px;
@@ -369,10 +371,13 @@ export default {
 /* .index-concept .concept-wrap .index-topic-list a .icon-topic-3:hover{
     
 } */
+/* 需要修改 */
+/* -------------------------------------------------------------------------------- */
 .index-concept .concept-wrap .index-topic-list a .topic-link1 span:hover,
 .index-concept .concept-wrap .index-topic-list a .topic-link1 span span:hover{
     color:#b7cc03;
 }
+/* -------------------------------------------------------------------------------- */
 .index-concept .concept-wrap dl{
     background: none;
     padding-left: 0;
@@ -517,21 +522,23 @@ export default {
     margin-bottom: 1px;
     overflow: hidden;
     position: relative;
+    
 }
 .index-container-box>.index-container>.index-popular-box>.popular-right>.popu-list li a{
     display: block;
     position: relative;
     text-decoration: none;
+    
 }
 .index-container-box>.index-container>.index-popular-box>.popular-right>.popu-list li a img{
     display: inline;
     width: 100%;
     height: 100%;
+    transition:ALL .3s ease-in-out; 
 }
 /* 图片缩放 */
 .index-container-box>.index-container>.index-popular-box>.popular-right>.popu-list li a img:hover{
-    transform:scale(1.1,1.1);
-    transition:ALL .3s ease-in-out;  
+    transform:scale(1.1,1.1);  
 }
 .index-container-box>.index-container>.index-popular-box>.popular-right>.popu-list li a span{
     display: block;
@@ -626,6 +633,7 @@ export default {
     color: #333;
     text-decoration: none;
 }
+
 .guwen-wrp .swiper-container .swiper-wrapper .swiper-slide a .guwen-item{
     width: 100%;
     height: 100%;
@@ -633,6 +641,44 @@ export default {
     text-align: center;
     overflow: hidden;
     font-family: 'Microsoft Yahei';
+}
+
+.guwen-wrp .swiper-container .swiper-wrapper .swiper-slide a .guwen-item-detail{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 360px;
+    background: #fff;
+    text-align: center;
+    overflow: hidden;
+    transition: all linear 300ms;
+    font-family: 'Microsoft Yahei';
+}
+/* ---------------------------------------------------------------------------------- */
+.guwen-wrp .swiper-container .swiper-wrapper .swiper-slide a .guwenReplace{
+    top:0 !important;
+}
+/* ----------------------------------------------------------------------------------- */
+.guwen-wrp .swiper-container .swiper-wrapper .swiper-slide a .guwen-item-detail .guwen-tit{
+    padding: 30px 20px 15px 20px;
+    font-size: 18px;
+    color: #333;
+}
+.guwen-wrp .swiper-container .swiper-wrapper .swiper-slide a .guwen-item-detail .fg-line{
+    display: inline-block;
+    width: 46px;
+    height: 2px;
+    background: #b6b6b6;
+    font-size: 0;
+    line-height: 0;
+}
+.guwen-wrp .swiper-container .swiper-wrapper .swiper-slide a .guwen-item-detail .guwen-detail{
+    padding: 20px 25px;
+    font-size: 14px;
+    color: #454545;
+    line-height: 24px;
+    text-align: left;
 }
 .guwen-wrp .swiper-container .swiper-wrapper .swiper-slide a .guwen-item .guwen-img{
     width: 110px;
