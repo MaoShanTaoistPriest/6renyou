@@ -5,7 +5,7 @@
       <div class="login-block">
         <!-- 此处套用el标签页组件 -->
         <el-tabs v-model="activeName" type="card">
-          <el-tab-pane label="登录" name="first">
+          <el-tab-pane label="登录" name="loginPage">
             <ul>
               <li class="li_uname">
                 <div class="text">用户名</div>
@@ -29,7 +29,7 @@
               </li>
             </ul>
           </el-tab-pane>
-          <el-tab-pane label="注册" name="second">
+          <el-tab-pane label="注册" name="regPage">
             <ul>
               <li class="li_uname">
                 <div class="text">用户名</div>
@@ -79,7 +79,7 @@
 export default {
   data() {
     return {
-      activeName: "first", //默认选中登录标签页面
+      activeName: "loginPage", //默认选中登录标签页面
       uname: "",
       upwd: "",
       setUname: "", //注册用户名
@@ -94,6 +94,9 @@ export default {
       tip7: 0, //用户名已存在提示信息，默认隐藏，只有变成1时显示
       name: "" /*获取客户端的sessionStorage里的用户名*/
     };
+  },
+  created(){
+      this.activeName=this.$route.params.page;
   },
   methods: {
     // 以下是注册页面的事件
