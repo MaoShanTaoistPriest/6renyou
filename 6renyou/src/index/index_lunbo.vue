@@ -528,6 +528,9 @@ export default {
     width: 100%;
     height: 100%;
 }
+.index-container-box>.index-container>.index-popular-box>.popular-right>.popu-list li a img:hover{
+    transform:scale(1.1,1.1);  
+}
 .index-container-box>.index-container>.index-popular-box>.popular-right>.popu-list li a span{
     display: block;
     position: absolute;
