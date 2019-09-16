@@ -13,7 +13,7 @@
                 <img :src="imgUrl+item.img" alt="" class="lazy" style="display:inline;">
               </div>
               <div class="resdiv res1">
-                <i class="res-icon"></i>
+                <i class="res-icon" :style="'background-position:'+position[index][0]+'px '+position[index][1]+'px;'"></i>
                 <span></span>
                 <span class="res-title">
                   {{item.title}}
@@ -34,7 +34,8 @@ export default {
     return{
       title:["优势资源","甄选全球商务资源,满足您的企业需求"],
       resourceLists:[],
-      imgUrl:this.$imgUrl
+      imgUrl:this.$imgUrl,
+      position:[[0,0],[-81,0],[-162,0],[-243,0],[0,-81],[-81,-81],[-162,-81],[-243,-81]]
     }
   },
   methods:{
