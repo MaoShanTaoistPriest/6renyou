@@ -14,11 +14,12 @@
             <div class="concept-wrap">
                 <div class="index-topic-list">
                     <ul class="topic-list">
-                        <li class="topic-list-item"  v-for="items in listsConcept" :key="items.id">
+                        <li class="topic-list-item"  v-for="items in listsConcept" :key="items.id"
+                        @mouseenter="changeColor1($event)" @mouseleave="changeColor2($event)" :data-changeid="items.id">
                             <a href="">
-                                <i class="icon-topic-1" :style="'background:url'+'('+imgurl+items.normal+')'" @mouseenter="changeColor1($event,items.hover)" @mouseleave="changeColor2($event,items.normal)"></i>
+                                <i class="icon-topic-1" :style="'background:url'+'('+imgurl+(changeC==items.id?items.hover:items.normal)+')'" ></i>
                                 <!-- @mouseenter="changeColor1($event,items.hover)" @mouseleave="changeColor2($event,items.normal)" -->
-                                <span class="topic-link1">
+                                <span class="topic-link1" :style="changeC==items.id?'color:#b7cc03':''">
                                     <span>
                                         {{concept[items.id-1].top}}<br>
                                         <span>{{concept[items.id-1].bottom}}</span>
@@ -108,7 +109,7 @@
                                         <span>看看TA的介绍</span>
                                     </div>
                                 </div>
-                                <div class="guwen-item-detail" :style="choose-1==index?'top:0':''">
+                                <div class="guwen-item-detail" :style="(choose-1)==index?'top:0':''">
                                     <div class="guwen-tit">
                                         <span>顾问介绍</span>
                                     </div>
@@ -132,6 +133,24 @@
                     <span>来自用户的真实出游评价</span>
                     <i class="line-r"></i>
                 </p>
+            </div>
+            <!-- 客户评价内容 -->
+            <div class="comment-sty1-box">
+                <ul class="comment-sty1-list">
+                    <li class="comment-sty1-item">
+                        <div class="comment-img">
+                            <img src="" alt="" class="lazy">
+                        </div>
+                        <div class="comment-tit">
+                            <h2></h2>
+                            <p></p>
+                        </div>
+                        <div class="comment-txt">
+                            <i class="i-cmt-quote"></i>
+                            <p></p>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -162,19 +181,24 @@ export default {
             newPlace:[],
             listsHotPlaceImg:[],
             indexConsultant:[],
-            choose:""
+            // 控制旅行顾问部分效果开关
+            choose:"",
+            // 控制轮播图下面颜色变换开关
+            changeC:""
         }
     },methods:{
-        // 鼠标移入移出事件
-        changeColor1(e,hover){
-            e.target.style='background:url'+'('+this.imgurl+hover+')';
+        // 控制轮播图下鼠标移入移出事件
+        changeColor1(e){
+            this.changeC = e.target.dataset.changeid;
         },
-        // 鼠标移入移出事件
-        changeColor2(e,hover){
-            e.target.style='background:url'+'('+this.imgurl+hover+')';
+        // 控制轮播图下鼠标移入移出事件
+        changeColor2(e){
+            this.changeC = e.target.dataset.changeid-10;
+            // 控制旅行顾问部分移入移出事件
         },swiperEnter1(e){
             this.choose = e.target.dataset.guwenid;
         },swiperEnter2(e){
+            // 控制旅行顾问部分移入移出事件
             this.choose = e.target.dataset.guwenid-10;
         }
     },created(){
@@ -379,10 +403,7 @@ export default {
 } */
 /* 需要修改 */
 /* -------------------------------------------------------------------------------- */
-.index-concept .concept-wrap .index-topic-list a .topic-link1 span:hover,
-.index-concept .concept-wrap .index-topic-list a .topic-link1 span span:hover{
-    color:#b7cc03;
-}
+
 /* -------------------------------------------------------------------------------- */
 .index-concept .concept-wrap dl{
     background: none;
@@ -748,5 +769,44 @@ export default {
     border-radius: 2px;
 }
 /* 客户评价 */
-
+.index-container .comment-sty1-box{
+    width: 1180px;
+    overflow: hidden;
+    font-family: 'Microsoft Yahei';
+}
+.index-container .comment-sty1-box  .comment-sty1-list{
+    display: block;
+    width: 1220px;
+    overflow: visible;
+}
+.index-container .comment-sty1-box  .comment-sty1-list .comment-sty1-item{
+    display: block;
+    float: left;
+    width: 570px;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    list-style: none;
+}
+.index-container .comment-sty1-box  .comment-sty1-list .comment-sty1-item .comment-img{
+    width: 570px;
+    height: 380px;
+    overflow: hidden;
+}
+.index-container .comment-sty1-box  .comment-sty1-list .comment-sty1-item .comment-tit{
+    padding: 25px 0 10px;
+    text-align: center;
+}
+.index-container .comment-sty1-box  .comment-sty1-list .comment-sty1-item .comment-tit h2{
+    font-size: 18px;
+    color: #3eb166;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.index-container .comment-sty1-box  .comment-sty1-list .comment-sty1-item .comment-tit p{
+    font-size: 12px;
+    color: #333;
+    padding-top: 10px;
+    line-height: 18px;
+}
 </style>
