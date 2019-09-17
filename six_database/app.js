@@ -323,6 +323,26 @@ server.get("/villaTheme", (req, res) => {
   })
 });
 
+// 度假&别墅模块的具体内容的数据的获取
+server.get("/villaVilla", (req, res) => {
+  var sql = "SELECT id,bigImg,title,subTitle,Vname,place,manager,managerImg,introduce,price FROM six_villa_villa";
+  pool.query(sql, (err, result) => {
+    if (err) throw err;
+    if (result.length == 0) {
+      res.send({
+        code: "-1",
+        msg: "查询有误"
+      });
+    } else {
+      res.send({
+        code: "1",
+        msg: "查询成功",
+        data: result
+      });
+    }
+  })
+});
+
 // 商务考察模块的优质资源的数据的获取
 server.get("/businessResources", (req, res) => {
   var sql = "SELECT id,title,img FROM six_business_resources";
