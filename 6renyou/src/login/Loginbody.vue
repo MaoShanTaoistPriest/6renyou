@@ -10,19 +10,19 @@
               <li class="li_uname">
                 <div class="text">用户名</div>
                 <el-input v-model="uname" placeholder="请输入用户名" autofocus ref="unameInput" @blur="unameBlur"></el-input>
-                <span class="errtip" :class="tip1==1?'active':''">*用户名不能为空</span>
+                <span class="errtip" :class="tip1==1?'inputActive':''">*用户名不能为空</span>
               </li>
               <div style="clear:both;"></div>
               <!-- 清除浮动 -->
               <li class="li_upwd">
                 <div class="text">密码</div>
                 <el-input v-model="upwd" placeholder="请输入密码" show-password @blur="upwdBlur"></el-input>
-                <span class="errtip" :class="tip2==1?'active':''">*密码不能为空</span>
+                <span class="errtip" :class="tip2==1?'inputActive':''">*密码不能为空</span>
               </li>
               <div style="clear:both;"></div>
               <!-- 清除浮动 -->
               <li class="allerr">
-                <span class="errtip" :class="tip3==1?'active':''">*用户名或密码不正确</span>
+                <span class="errtip" :class="tip3==1?'inputActive':''">*用户名或密码不正确</span>
               </li>
               <li class="li_login">
                 <el-button type="primary" id="loginbtn" @click="login">登录</el-button>
@@ -34,7 +34,7 @@
               <li class="li_uname">
                 <div class="text">用户名</div>
                 <el-input v-model="setUname" placeholder="请设置3~12位字母、数字"  ref="setUnameInput" @blur="setUnameBlur"></el-input>
-                <span class="errtip" :class="tip4==1?'active':''">*用户名格式不正确</span>
+                <span class="errtip" :class="tip4==1?'inputActive':''">*用户名格式不正确</span>
               </li>
               <div style="clear:both;"></div>
               <!-- 清除浮动 -->
@@ -47,7 +47,7 @@
                   ref="setUpwdInput" 
                   @blur="setUpwdBlur"
                 ></el-input>
-                <span class="errtip" :class="tip5==1?'active':''">*密码格式不正确</span>
+                <span class="errtip" :class="tip5==1?'inputActive':''">*密码格式不正确</span>
               </li>
               <div style="clear:both;"></div>
               <!-- 清除浮动 -->
@@ -60,12 +60,12 @@
                   ref="confirmUpwdInput"
                   @blur="confirmUpwdBlur"
                 ></el-input>
-                <span class="errtip" :class="tip6==1?'active':''">*确认密码不正确</span>
+                <span class="errtip" :class="tip6==1?'inputActive':''">*确认密码不正确</span>
               </li>
               <div style="clear:both;"></div>
               <!-- 清除浮动 -->
               <li class="allerr">
-                <span class="errtip" :class="tip7==1?'active':''">*用户名已存在</span>
+                <span class="errtip" :class="tip7==1?'inputActive':''">*用户名已存在</span>
               </li>
               <li class="li_login">
                 <el-button type="primary" id="loginbtn" @click="reg">注册</el-button>
@@ -248,7 +248,7 @@ export default {
 </script>
 <style>
 /* 添加了active属性的显示 ---用户输入框提示信息效果*/
-.active {
+.inputActive {
   display: block !important;
 }
 .loginbody {
