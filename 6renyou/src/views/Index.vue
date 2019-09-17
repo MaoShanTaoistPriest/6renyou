@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="aaa">
     <myheader></myheader>
     <index-lunbo></index-lunbo>
     <my-footer></my-footer>
@@ -13,6 +13,8 @@ export default {
     }
 }
 </script>
-<style scoped>
-
+<style>
+.aaa{
+  background:#eee;
+}
 </style>
