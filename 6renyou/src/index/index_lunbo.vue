@@ -137,20 +137,26 @@
             <!-- 客户评价内容 -->
             <div class="comment-sty1-box">
                 <ul class="comment-sty1-list">
-                    <li class="comment-sty1-item">
+                    <li class="comment-sty1-item" v-for="(item,index) of userComment" :key="index">
                         <div class="comment-img">
-                            <img src="" alt="" class="lazy">
+                            <img :src="imgurl+item.img" alt="" class="lazy">
                         </div>
                         <div class="comment-tit">
-                            <h2></h2>
-                            <p></p>
+                            <h2>{{item.title}}</h2>
+                            <p>{{item.pName}}|{{item.pubDate}}</p>
                         </div>
                         <div class="comment-txt">
                             <i class="i-cmt-quote"></i>
-                            <p></p>
+                            <p>{{item.feeling}}</p>
                         </div>
                     </li>
+                    <!-- 解决高度坍塌 -->
+                    <div style="height:647px"></div>
                 </ul>
+                <!-- 查看更多按钮 -->
+                <div class="more-comment">
+                    <a href="" class="more-btn-comment">查看更多</a>
+                </div>
             </div>
         </div>
     </div>
@@ -184,7 +190,8 @@ export default {
             // 控制旅行顾问部分效果开关
             choose:"",
             // 控制轮播图下面颜色变换开关
-            changeC:""
+            changeC:"",
+            userComment:[]
         }
     },methods:{
         // 控制轮播图下鼠标移入移出事件
@@ -243,7 +250,17 @@ export default {
                 for(var i=0;i<res.data.data.length;i++){
                     this.indexConsultant = res.data.data.slice(0,4);
                 }
-                console.log(res.data.data.slice(0,4));
+            }
+        })
+        // userComment
+        var userComment = "userComment";
+        this.axios.get(userComment).then(res=>{
+            if(res.data.code==1){
+                this.userComment = res.data.data;
+                for(var i=0;i<res.data.data.length;i++){
+                    this.userComment = res.data.data.slice(0,2);
+                }
+                console.log(res.data.data.slice(0,2));
             }
         })
     }
@@ -251,7 +268,7 @@ export default {
 </script>
 <style>
 .index_carousel{
-    height:2400px;
+    height:3000px;
     background: #eee;
 }
 /* 490px 为修改原本轮播图高度 */
@@ -778,6 +795,7 @@ export default {
     display: block;
     width: 1220px;
     overflow: visible;
+    padding:0;
 }
 .index-container .comment-sty1-box  .comment-sty1-list .comment-sty1-item{
     display: block;
@@ -786,6 +804,7 @@ export default {
     margin-right: 40px;
     margin-bottom: 40px;
     list-style: none;
+    background:#fff;
 }
 .index-container .comment-sty1-box  .comment-sty1-list .comment-sty1-item .comment-img{
     width: 570px;
@@ -802,11 +821,49 @@ export default {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    padding:0;
+    margin:0;
 }
 .index-container .comment-sty1-box  .comment-sty1-list .comment-sty1-item .comment-tit p{
     font-size: 12px;
     color: #333;
     padding-top: 10px;
     line-height: 18px;
+}
+.index-container .comment-sty1-box  .comment-sty1-list .comment-sty1-item .comment-txt{
+    padding: 20px 10px 20px 60px;
+    border-top: 1px solid #ededed;
+    position: relative;
+    height: 96px;
+    font-size: 16px;
+    color: #666;
+}
+.index-container .comment-sty1-box  .comment-sty1-list .comment-sty1-item .comment-txt .i-cmt-quote{
+    display: inline-block;
+    width: 36px;
+    height: 30px;
+    position: absolute;
+    left: 10px;
+    top: 20px;
+    background:url(../../public/img/Index/cmmt-quote.png);
+}
+/* 查看更多按钮 */
+.index-container .comment-sty1-box .more-comment{
+    text-align: center;
+    padding: 30px;
+    font-family: 'Microsoft Yahei';
+}
+.index-container .comment-sty1-box .more-comment .more-btn-comment{
+    display: inline-block;
+    width: 210px;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    border: 1px solid #dfdfdf;
+    font-size: 16px;
+    color: #7c7c7c;
+}
+.index-container .comment-sty1-box .more-comment .more-btn-comment:hover{
+    color:#93c11b;
 }
 </style>
