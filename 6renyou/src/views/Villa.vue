@@ -2,24 +2,23 @@
 <!-- 度假别墅区 -->
   <div>
     <myheader></myheader>
-<<<<<<< HEAD
-   
-=======
     <!-- 轮播图 -->
     <villa-banner></villa-banner>
     <!-- 热门海岛、甄选主题 -->
     <villa-filter></villa-filter>
->>>>>>> 6395b09dd3f4ccdfff81521b898d14491f35b31e
+    <villa-wrap></villa-wrap>
     <my-footer></my-footer>
   </div>
 </template>
 <script>
 import villabanner from '../villa/villa-banner'
 import villafilter from '../villa/villa-filter'
+import villawrap from '../villa/villa-wrap'
 export default {
   components:{
     'villa-banner':villabanner,
-    'villa-filter':villafilter
+    'villa-filter':villafilter,
+    'villa-wrap':villawrap
   }
 }
 </script>
