@@ -153,7 +153,10 @@
                     <!-- 解决高度坍塌 -->
                     <div style="height:647px"></div>
                 </ul>
-                <div></div>
+                <!-- 查看更多按钮 -->
+                <div class="more-comment">
+                    <a href="" class="more-btn-comment">查看更多</a>
+                </div>
             </div>
         </div>
     </div>
@@ -843,5 +846,24 @@ export default {
     left: 10px;
     top: 20px;
     background:url(../../public/img/Index/cmmt-quote.png);
+}
+/* 查看更多按钮 */
+.index-container .comment-sty1-box .more-comment{
+    text-align: center;
+    padding: 30px;
+    font-family: 'Microsoft Yahei';
+}
+.index-container .comment-sty1-box .more-comment .more-btn-comment{
+    display: inline-block;
+    width: 210px;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    border: 1px solid #dfdfdf;
+    font-size: 16px;
+    color: #7c7c7c;
+}
+.index-container .comment-sty1-box .more-comment .more-btn-comment:hover{
+    color:#93c11b;
 }
 </style>
