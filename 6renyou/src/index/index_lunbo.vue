@@ -159,6 +159,19 @@
                 </div>
             </div>
         </div>
+        <!-- 为什么 -->
+        <div class="why-box">
+            <div class="why-box-inner">
+                <span class="why-tt-icon"></span>
+                <ul class="why-list">
+                    <li class="why-item">
+                        <span class="w-icon"></span>
+                        <p class="why-txt"></p>
+                    </li>
+                    <li class="line"></li>
+                </ul>
+            </div>
+        </div>
     </div>
 </template>
 <script>
@@ -268,7 +281,6 @@ export default {
 </script>
 <style>
 .index_carousel{
-    height:3000px;
     background: #eee;
 }
 /* 490px 为修改原本轮播图高度 */
@@ -865,5 +877,48 @@ export default {
 }
 .index-container .comment-sty1-box .more-comment .more-btn-comment:hover{
     color:#93c11b;
+}
+/* 为什么 */
+.index_carousel .why-box{
+    min-width: 1180px;
+    background: #ebebec;
+    margin-bottom: 40px;
+}
+.index_carousel .why-box .why-box-inner{
+    width: 1180px;
+    margin: 0 auto;
+    height: 160px;
+}
+.index_carousel .why-box .why-box-inner .why-tt-icon{
+    float: left;
+    width: 223px;
+    height: 160px;
+    display: inline-block;
+}
+.index_carousel .why-box .why-box-inner .why-list{
+    overflow: hidden;
+    zoom: 1;
+    padding: 30px 0 0 25px;
+    list-style: none;
+}
+.index_carousel .why-box .why-box-inner .why-list .why-item{
+    width: 190px;
+    text-align: center;
+    float: left;
+    display: inline-block;
+    transition: color 0.3s linear;
+    cursor: default;
+}
+.index_carousel .why-box .why-box-inner .why-list .why-item .w-icon{
+    transition: background 0.3s cubic-bezier(0.17, 0.67, 0.88, 1.25);
+    background-position: -242px 0;
+    display: inline-block;
+    width: 59px;
+    height: 78px;
+}
+.index_carousel .why-box .why-box-inner .why-list .why-item .why-txt{
+    font: 16px/24px "microsoft yahei";
+    color: #999;
+    padding-top: 5px;
 }
 </style>

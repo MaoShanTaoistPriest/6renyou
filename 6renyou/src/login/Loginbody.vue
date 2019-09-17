@@ -238,7 +238,7 @@ export default {
               message: "恭喜您，登录成功",
               type: "success"
             })
-            this.$router.push("/"); //跳转到首页
+            this.$router.push("/") //跳转到首页
           }
         });
       }
