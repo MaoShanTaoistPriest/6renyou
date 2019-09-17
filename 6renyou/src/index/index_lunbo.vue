@@ -615,7 +615,7 @@ export default {
     margin: 0 auto;
     position: relative;
     overflow: hidden;
-    z-index: 1;
+    z-index: 1;  
 }
 .guwen-wrp .swiper-container .swiper-wrapper{
     position: relative;
@@ -624,10 +624,11 @@ export default {
     z-index: 1;
     display: flex;
     box-sizing: content-box;
+    justify-content: space-between;
+ 
 }
 .guwen-wrp .swiper-container .swiper-wrapper .swiper-slide{
     width: 257.5px;
-    margin-right: 50px;
     height: 360px;
     text-align: center;
     position: relative;
@@ -663,9 +664,7 @@ export default {
     font-family: 'Microsoft Yahei';
 }
 /* ---------------------------------------------------------------------------------- */
-.guwen-wrp .swiper-container .swiper-wrapper .swiper-slide a .guwenReplace{
-    top:0 !important;
-}
+
 /* ----------------------------------------------------------------------------------- */
 .guwen-wrp .swiper-container .swiper-wrapper .swiper-slide a .guwen-item-detail .guwen-tit{
     padding: 30px 20px 15px 20px;
