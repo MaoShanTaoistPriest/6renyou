@@ -248,9 +248,9 @@ export default {
 </script>
 <style>
 /* 添加了active属性的显示 ---用户输入框提示信息效果*/
-.active {
+/* .active {
   display: block !important;
-}
+} */
 .loginbody {
   width: 100%;
   height: 550px;
