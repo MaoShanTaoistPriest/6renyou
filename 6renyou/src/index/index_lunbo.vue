@@ -159,6 +159,33 @@
                 </div>
             </div>
         </div>
+        <!-- 为什么 -->
+        <div class="why-box">
+            <div class="why-box-inner">
+                <span class="why-tt-icon"></span>
+                <ul class="why-list">
+                    <li class="why-item" @mouseenter="whyChange1" @mouseleave="whyChange2">
+                        <span class="w-icon" :style="whyChange_1==1?'background-position: -242px -83px !important;':'background-position: -242px 0 !important;'"></span>
+                        <p class="why-txt" :style="whyChange_1==1?'color:#93c11b':'color:#999'">不和陌生人拼团</p>
+                    </li>
+                    <li class="line"></li>
+                    <li class="why-item" @mouseenter="whyChange3" @mouseleave="whyChange4">
+                        <span class="w-icon" :style="whyChange_2==1?'background-position: -322px -83px !important;':'background-position: -322px 0 !important;'"></span>
+                        <p class="why-txt" :style="whyChange_2==1?'color:#93c11b':'color:#999'">零操心，何必自助</p>
+                    </li>
+                    <li class="line"></li>
+                    <li class="why-item" @mouseenter="whyChange5" @mouseleave="whyChange6">
+                        <span class="w-icon" :style="whyChange_3==1?'background-position: -402px -83px !important;':'background-position: -402px 0 !important;'"></span>
+                        <p class="why-txt" :style="whyChange_3==1?'color:#93c11b':'color:#999'">贴身管家，有问必答</p>
+                    </li>
+                    <li class="line"></li>
+                    <li class="why-item" @mouseenter="whyChange7" @mouseleave="whyChange8">
+                        <span class="w-icon" :style="whyChange_4==1?'background-position: -483px -83px !important;':'background-position: -483px 0 !important;'"></span>
+                        <p class="why-txt" :style="whyChange_4==1?'color:#93c11b':'color:#999'">独家资源，高性价比</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </template>
 <script>
@@ -191,7 +218,11 @@ export default {
             choose:"",
             // 控制轮播图下面颜色变换开关
             changeC:"",
-            userComment:[]
+            userComment:[],
+            whyChange_1:0,
+            whyChange_2:0,
+            whyChange_3:0,
+            whyChange_4:0
         }
     },methods:{
         // 控制轮播图下鼠标移入移出事件
@@ -207,6 +238,22 @@ export default {
         },swiperEnter2(e){
             // 控制旅行顾问部分移入移出事件
             this.choose = e.target.dataset.guwenid-10;
+        },whyChange1(){
+            this.whyChange_1=1;
+        },whyChange2(){
+            this.whyChange_1=0;
+        },whyChange3(){
+            this.whyChange_2=1;
+        },whyChange4(){
+            this.whyChange_2=0;
+        },whyChange5(){
+            this.whyChange_3=1;
+        },whyChange6(){
+            this.whyChange_3=0;
+        },whyChange7(){
+            this.whyChange_4=1;
+        },whyChange8(){
+            this.whyChange_4=0;
         }
     },created(){
         // 获取轮播图图片
@@ -268,7 +315,6 @@ export default {
 </script>
 <style>
 .index_carousel{
-    height:3000px;
     background: #eee;
 }
 /* 490px 为修改原本轮播图高度 */
@@ -865,5 +911,65 @@ export default {
 }
 .index-container .comment-sty1-box .more-comment .more-btn-comment:hover{
     color:#93c11b;
+}
+/* 为什么 */
+.index_carousel .why-box{
+    min-width: 1180px;
+    background: #ebebec;
+    margin-bottom: 40px;
+}
+.index_carousel .why-box .why-box-inner{
+    width: 1180px;
+    margin: 0 auto;
+    height: 160px;
+}
+.index_carousel .why-box .why-box-inner .why-tt-icon{
+    float: left;
+    width: 223px;
+    height: 160px;
+    display: inline-block;
+    background:url(../../public/img/Index/why-icon.png);
+}
+.index_carousel .why-box .why-box-inner .why-list{
+    overflow: hidden;
+    zoom: 1;
+    padding: 30px 0 0 25px;
+    list-style: none;
+}
+.index_carousel .why-box .why-box-inner .why-list .why-item{
+    width: 190px;
+    text-align: center;
+    float: left;
+    display: inline-block;
+    transition: color 0.3s linear;
+    cursor: default;
+}
+/* 为什么图片切换部分 */
+/* ----------------------------------------------------------------------------- */
+.index_carousel .why-box .why-box-inner .why-list .why-item .w-icon{
+    transition: background 0.3s cubic-bezier(0.17, 0.67, 0.88, 1.25);
+    background-position: -242px 0 !important;
+    display: inline-block;
+    width: 59px;
+    height: 78px;
+    background:url(../../public/img/Index/why-icon.png) no-repeat;
+}
+
+.index_carousel .why-box .why-box-inner .why-list .why-item .why-txt{
+    font: 16px/24px "microsoft yahei";
+    color: #999;
+    padding-top: 5px;
+}
+
+/* ------------------------------------------------------------------------------------------ */
+.index_carousel .why-box .why-box-inner .why-list .line{
+    background:url(../../public/img/Index/why-icon.png) -572px 0 no-repeat;
+    margin: 0 0 0 10px;
+    width: 40px;
+    height: 104px;
+    float: left;
+    display: inline-block;
+    transition: color 0.3s linear;
+    cursor: default;
 }
 </style>
