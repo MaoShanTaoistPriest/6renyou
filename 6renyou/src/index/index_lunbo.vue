@@ -14,11 +14,12 @@
             <div class="concept-wrap">
                 <div class="index-topic-list">
                     <ul class="topic-list">
-                        <li class="topic-list-item"  v-for="items in listsConcept" :key="items.id">
+                        <li class="topic-list-item"  v-for="items in listsConcept" :key="items.id"
+                        @mouseenter="changeColor1($event)" @mouseleave="changeColor2($event)" :data-changeid="items.id">
                             <a href="">
-                                <i class="icon-topic-1" :style="'background:url'+'('+imgurl+items.normal+')'" @mouseenter="changeColor1($event,items.hover)" @mouseleave="changeColor2($event,items.normal)"></i>
+                                <i class="icon-topic-1" :style="'background:url'+'('+imgurl+(changeC==items.id?items.hover:items.normal)+')'" ></i>
                                 <!-- @mouseenter="changeColor1($event,items.hover)" @mouseleave="changeColor2($event,items.normal)" -->
-                                <span class="topic-link1">
+                                <span class="topic-link1" :style="changeC==items.id?'color:#b7cc03':''">
                                     <span>
                                         {{concept[items.id-1].top}}<br>
                                         <span>{{concept[items.id-1].bottom}}</span>
@@ -108,7 +109,7 @@
                                         <span>看看TA的介绍</span>
                                     </div>
                                 </div>
-                                <div class="guwen-item-detail" :style="choose-1==index?'top:0':''">
+                                <div class="guwen-item-detail" :style="(choose-1)==index?'top:0':''">
                                     <div class="guwen-tit">
                                         <span>顾问介绍</span>
                                     </div>
@@ -132,6 +133,43 @@
                     <span>来自用户的真实出游评价</span>
                     <i class="line-r"></i>
                 </p>
+            </div>
+            <!-- 客户评价内容 -->
+            <div class="comment-sty1-box">
+                <ul class="comment-sty1-list">
+                    <li class="comment-sty1-item" v-for="(item,index) of userComment" :key="index">
+                        <div class="comment-img">
+                            <img :src="imgurl+item.img" alt="" class="lazy">
+                        </div>
+                        <div class="comment-tit">
+                            <h2>{{item.title}}</h2>
+                            <p>{{item.pName}}|{{item.pubDate}}</p>
+                        </div>
+                        <div class="comment-txt">
+                            <i class="i-cmt-quote"></i>
+                            <p>{{item.feeling}}</p>
+                        </div>
+                    </li>
+                    <!-- 解决高度坍塌 -->
+                    <div style="height:647px"></div>
+                </ul>
+                <!-- 查看更多按钮 -->
+                <div class="more-comment">
+                    <a href="" class="more-btn-comment">查看更多</a>
+                </div>
+            </div>
+        </div>
+        <!-- 为什么 -->
+        <div class="why-box">
+            <div class="why-box-inner">
+                <span class="why-tt-icon"></span>
+                <ul class="why-list">
+                    <li class="why-item">
+                        <span class="w-icon"></span>
+                        <p class="why-txt"></p>
+                    </li>
+                    <li class="line"></li>
+                </ul>
             </div>
         </div>
     </div>
@@ -162,19 +200,25 @@ export default {
             newPlace:[],
             listsHotPlaceImg:[],
             indexConsultant:[],
-            choose:""
+            // 控制旅行顾问部分效果开关
+            choose:"",
+            // 控制轮播图下面颜色变换开关
+            changeC:"",
+            userComment:[]
         }
     },methods:{
-        // 鼠标移入移出事件
-        changeColor1(e,hover){
-            e.target.style='background:url'+'('+this.imgurl+hover+')';
+        // 控制轮播图下鼠标移入移出事件
+        changeColor1(e){
+            this.changeC = e.target.dataset.changeid;
         },
-        // 鼠标移入移出事件
-        changeColor2(e,hover){
-            e.target.style='background:url'+'('+this.imgurl+hover+')';
+        // 控制轮播图下鼠标移入移出事件
+        changeColor2(e){
+            this.changeC = e.target.dataset.changeid-10;
+            // 控制旅行顾问部分移入移出事件
         },swiperEnter1(e){
             this.choose = e.target.dataset.guwenid;
         },swiperEnter2(e){
+            // 控制旅行顾问部分移入移出事件
             this.choose = e.target.dataset.guwenid-10;
         }
     },created(){
@@ -219,7 +263,17 @@ export default {
                 for(var i=0;i<res.data.data.length;i++){
                     this.indexConsultant = res.data.data.slice(0,4);
                 }
-                console.log(res.data.data.slice(0,4));
+            }
+        })
+        // userComment
+        var userComment = "userComment";
+        this.axios.get(userComment).then(res=>{
+            if(res.data.code==1){
+                this.userComment = res.data.data;
+                for(var i=0;i<res.data.data.length;i++){
+                    this.userComment = res.data.data.slice(0,2);
+                }
+                console.log(res.data.data.slice(0,2));
             }
         })
     }
@@ -227,7 +281,6 @@ export default {
 </script>
 <style>
 .index_carousel{
-    height:2400px;
     background: #eee;
 }
 /* 490px 为修改原本轮播图高度 */
@@ -379,10 +432,7 @@ export default {
 } */
 /* 需要修改 */
 /* -------------------------------------------------------------------------------- */
-.index-concept .concept-wrap .index-topic-list a .topic-link1 span:hover,
-.index-concept .concept-wrap .index-topic-list a .topic-link1 span span:hover{
-    color:#b7cc03;
-}
+
 /* -------------------------------------------------------------------------------- */
 .index-concept .concept-wrap dl{
     background: none;
@@ -748,5 +798,127 @@ export default {
     border-radius: 2px;
 }
 /* 客户评价 */
-
+.index-container .comment-sty1-box{
+    width: 1180px;
+    overflow: hidden;
+    font-family: 'Microsoft Yahei';
+}
+.index-container .comment-sty1-box  .comment-sty1-list{
+    display: block;
+    width: 1220px;
+    overflow: visible;
+    padding:0;
+}
+.index-container .comment-sty1-box  .comment-sty1-list .comment-sty1-item{
+    display: block;
+    float: left;
+    width: 570px;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    list-style: none;
+    background:#fff;
+}
+.index-container .comment-sty1-box  .comment-sty1-list .comment-sty1-item .comment-img{
+    width: 570px;
+    height: 380px;
+    overflow: hidden;
+}
+.index-container .comment-sty1-box  .comment-sty1-list .comment-sty1-item .comment-tit{
+    padding: 25px 0 10px;
+    text-align: center;
+}
+.index-container .comment-sty1-box  .comment-sty1-list .comment-sty1-item .comment-tit h2{
+    font-size: 18px;
+    color: #3eb166;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding:0;
+    margin:0;
+}
+.index-container .comment-sty1-box  .comment-sty1-list .comment-sty1-item .comment-tit p{
+    font-size: 12px;
+    color: #333;
+    padding-top: 10px;
+    line-height: 18px;
+}
+.index-container .comment-sty1-box  .comment-sty1-list .comment-sty1-item .comment-txt{
+    padding: 20px 10px 20px 60px;
+    border-top: 1px solid #ededed;
+    position: relative;
+    height: 96px;
+    font-size: 16px;
+    color: #666;
+}
+.index-container .comment-sty1-box  .comment-sty1-list .comment-sty1-item .comment-txt .i-cmt-quote{
+    display: inline-block;
+    width: 36px;
+    height: 30px;
+    position: absolute;
+    left: 10px;
+    top: 20px;
+    background:url(../../public/img/Index/cmmt-quote.png);
+}
+/* 查看更多按钮 */
+.index-container .comment-sty1-box .more-comment{
+    text-align: center;
+    padding: 30px;
+    font-family: 'Microsoft Yahei';
+}
+.index-container .comment-sty1-box .more-comment .more-btn-comment{
+    display: inline-block;
+    width: 210px;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    border: 1px solid #dfdfdf;
+    font-size: 16px;
+    color: #7c7c7c;
+}
+.index-container .comment-sty1-box .more-comment .more-btn-comment:hover{
+    color:#93c11b;
+}
+/* 为什么 */
+.index_carousel .why-box{
+    min-width: 1180px;
+    background: #ebebec;
+    margin-bottom: 40px;
+}
+.index_carousel .why-box .why-box-inner{
+    width: 1180px;
+    margin: 0 auto;
+    height: 160px;
+}
+.index_carousel .why-box .why-box-inner .why-tt-icon{
+    float: left;
+    width: 223px;
+    height: 160px;
+    display: inline-block;
+}
+.index_carousel .why-box .why-box-inner .why-list{
+    overflow: hidden;
+    zoom: 1;
+    padding: 30px 0 0 25px;
+    list-style: none;
+}
+.index_carousel .why-box .why-box-inner .why-list .why-item{
+    width: 190px;
+    text-align: center;
+    float: left;
+    display: inline-block;
+    transition: color 0.3s linear;
+    cursor: default;
+}
+.index_carousel .why-box .why-box-inner .why-list .why-item .w-icon{
+    transition: background 0.3s cubic-bezier(0.17, 0.67, 0.88, 1.25);
+    background-position: -242px 0;
+    display: inline-block;
+    width: 59px;
+    height: 78px;
+}
+.index_carousel .why-box .why-box-inner .why-list .why-item .why-txt{
+    font: 16px/24px "microsoft yahei";
+    color: #999;
+    padding-top: 5px;
+}
 </style>

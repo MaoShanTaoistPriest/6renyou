@@ -94,6 +94,7 @@ img.lazy {
 .bs-brand-box .brand-list li {
   display: block;
   overflow: hidden;
+  padding: 0.1px;
 }
 .bs-brand-box .brand-list {
   display:flex;
