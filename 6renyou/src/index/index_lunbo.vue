@@ -93,7 +93,7 @@
             <div class="guwen-wrp">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
-                        <div v-for="(item,index) of indexConsultant" :key="index"  class="swiper-slide" >
+                        <div v-for="(item,index) of indexConsultant" :key="index"  class="swiper-slide"  @mouseenter="swiperEnter1($event)" :data-guwenid="item.id" @mouseleave="swiperEnter2($event)">
                             <a href="" >
                                 <!-- 效果位置 -->
                                 <div class="guwen-item">
@@ -108,7 +108,7 @@
                                         <span>看看TA的介绍</span>
                                     </div>
                                 </div>
-                                <div class="guwen-item-detail" >
+                                <div class="guwen-item-detail" :style="choose-1==index?'top:0':''">
                                     <div class="guwen-tit">
                                         <span>顾问介绍</span>
                                     </div>
@@ -162,7 +162,7 @@ export default {
             newPlace:[],
             listsHotPlaceImg:[],
             indexConsultant:[],
-            
+            choose:""
         }
     },methods:{
         // 鼠标移入移出事件
@@ -172,6 +172,10 @@ export default {
         // 鼠标移入移出事件
         changeColor2(e,hover){
             e.target.style='background:url'+'('+this.imgurl+hover+')';
+        },swiperEnter1(e){
+            this.choose = e.target.dataset.guwenid;
+        },swiperEnter2(e){
+            this.choose = e.target.dataset.guwenid-10;
         }
     },created(){
         // 获取轮播图图片
@@ -215,6 +219,7 @@ export default {
                 for(var i=0;i<res.data.data.length;i++){
                     this.indexConsultant = res.data.data.slice(0,4);
                 }
+                console.log(res.data.data.slice(0,4));
             }
         })
     }
@@ -223,6 +228,7 @@ export default {
 <style>
 .index_carousel{
     height:2400px;
+    background: #eee;
 }
 /* 490px 为修改原本轮播图高度 */
 .el-carousel__container{
@@ -420,6 +426,7 @@ export default {
     color: #b7cc03;
     text-align: left;
 }
+
 /* index 最受欢迎的模块 */
 .index-container-box>.index-container{
     width: 1180px;
