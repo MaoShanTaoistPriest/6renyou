@@ -102,6 +102,11 @@ export default {
 };
 </script>
 <style scoped>
+ul,li{
+  list-style: none;
+  margin:0;
+  padding:0;
+}
 /* banner */
 .comment-banner {
   width: 100%;
