@@ -1,6 +1,7 @@
 <template>
   <div class="aaa">
-    <myheader></myheader>
+    <!-- 因为用了嵌套路由的方式，所以不需要写下面这个标签了 -->
+    <!-- <myheader></myheader> -->
     <index-lunbo></index-lunbo>
     <my-footer></my-footer>
   </div>

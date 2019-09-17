@@ -14,40 +14,52 @@ import Villa from './views/Villa.vue'
 import Business from './views/Business.vue'
 // 登录注册的组件的引入
 import Login from './views/Login.vue'
+// 引入嵌套路由父组件Home
+import Home from './views/Home.vue'
 
 Vue.use(Router)
 
 export default new Router({
-  routes: [{
+  routes: [
+    {
       path: '/',
-      name: 'Index',
-      component: Index
+      name: 'Home',
+      component: Home,
+      // 此处用的是嵌套路由，因为都有公用的组件
+      children:[
+        {
+          path: '/',
+          name: 'Index',
+          component: Index
+        },
+        {
+          path: '/UserComment',
+          name: 'UserComment',
+          component: UserComment
+        },
+        {
+          path: '/OrderTrip',
+          name: 'OrderTrip',
+          component: OrderTrip
+        },
+        {
+          path: '/Destination',
+          name: 'Destination',
+          component: Destination
+        },
+        {
+          path: '/Villa',
+          name: 'Villa',
+          component: Villa
+        },
+        {
+          path: '/Business',
+          name: 'Business',
+          component: Business
+        },
+      ]
     },
-    {
-      path: '/OrderTrip',
-      name: 'OrderTrip',
-      component: OrderTrip
-    },
-    {
-      path: '/Destination',
-      name: 'Destination',
-      component: Destination
-    },
-    {
-      path: '/UserComment',
-      name: 'UserComment',
-      component: UserComment
-    },
-    {
-      path: '/Villa',
-      name: 'Villa',
-      component: Villa
-    },
-    {
-      path: '/Business',
-      name: 'Business',
-      component: Business
-    },
+    // 因为登陆页没有公用的页头，所以不需嵌套
     {
       path: '/Login',
       name: 'Login',
