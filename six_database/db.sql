@@ -64,6 +64,18 @@ CREATE TABLE six_user_comment(
   pubDate VARCHAR(50),
   feeling VARCHAR(200)
 );
+#度假&别墅的轮播图的数据表搭建
+CREATE TABLE six_villa_banner(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  img VARCHAR(100),
+  title VARCHAR(50)
+);
+#度假&别墅的甄选主题的数据表搭建
+CREATE TABLE six_villa_theme(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  img VARCHAR(100),
+  title VARCHAR(50)
+);
 #度假别墅的别墅信息的数据表搭建
 CREATE TABLE six_villa_villa(
   id INT PRIMARY KEY AUTO_INCREMENT,
@@ -73,7 +85,7 @@ CREATE TABLE six_villa_villa(
   Vname VARCHAR(50),
   place VARCHAR(200),
   manager VARCHAR(50),
-  mg VARCHAR(100),
+  managerImg VARCHAR(100),
   introduce VARCHAR(250),
   price INT
 );
@@ -217,11 +229,22 @@ INSERT INTO six_user_comment VALUES(null,'img/UserComment/user27.jpg','马尔代
 INSERT INTO six_user_comment VALUES(null,'img/UserComment/user28.jpg','曼谷芭提雅6日','马先生','2019年08月','感谢顾问马昭一路上用心安排及服务，期待下次再见');
 INSERT INTO six_user_comment VALUES(null,'img/UserComment/user29.jpg','澳大利亚品质之旅','李先生','2019年08月','这次旅行特别愉快，感谢6人游的精心安排，顾问、地接导游也非常热情周到！');
 INSERT INTO six_user_comment VALUES(null,'img/UserComment/user30.jpg','亲临众神的国度','李女士','2019年08月','从顾问到地接人员都非常周到细心，尽职尽责，沟通交流无障碍，今后还会继续选择6人游出行。');
-#度假别墅的别墅信息的数据表插入
+#度假&别墅的轮播图的数据表插入
+INSERT INTO six_villa_banner VALUES(null,'img/Villa/villa_top_banner1.jpg','普吉岛Keemala度假酒店');
+INSERT INTO six_villa_banner VALUES(null,'img/Villa/villa_top_banner2.jpg','巴厘岛贝尔蒙德金巴兰普利酒店');
+INSERT INTO six_villa_banner VALUES(null,'img/Villa/villa_top_banner3.jpg','巴厘岛悦榕庄度假酒店');
+#度假&别墅的甄选主题的数据表插入
+INSERT INTO six_villa_theme VALUES(null,'img/Villa/villa_theme_icon1.jpg','亲子时光');
+INSERT INTO six_villa_theme VALUES(null,'img/Villa/villa_theme_icon2.jpg','蜜月度假');
+INSERT INTO six_villa_theme VALUES(null,'img/Villa/villa_theme_icon3.jpg','婚礼婚纱');
+INSERT INTO six_villa_theme VALUES(null,'img/Villa/villa_theme_icon4.jpg','美食购物');
+#度假&别墅的别墅信息的数据表插入
 INSERT INTO six_villa_villa VALUES(null,'img/Villa/Villa_img1.png','中国 秦皇岛 北戴河','北戴河黄金海岸度假村','Golden Coast ClubMed Joyview','河北省秦皇岛市昌黎县蒲河桥南一公里黄金海岸阿那亚社区','','img/Villa/manager1.png','','1142');
-INSERT INTO six_villa_villa VALUES(null,'img/Villa/Villa_img2.png','印度尼西亚 巴厘岛','乌玛COMO乌布酒店','Uma by COMO','Jl. Raya Sanggingan, Banjar Lungsiakan, Kedewatan, Ubud, Kedewatan, Ubud, Kabupaten Gianyar, Bali 80571印度尼西亚','Gede Suteja','img/Villa/Villa_manager2.png','设计、避世、艺术、时尚，是COMO的一贯宗旨。我们将用最精心的服务为每位客人提供最奢华的体验。','1520');
-INSERT INTO six_villa_villa VALUES(null,'img/Villa/Villa_img3.png','马尔代夫','都喜天阙度假村','Dusit Thani Maldives','Mudhdhoo Island, Baa Atoll, 马尔代夫','Reinhold Johann','img/Villa/Villa_manager3.png','在都喜天阙，顾客可以体验海潜和浮潜、在无边界海景泳池中畅游、在泰丽水疗馆的树顶水疗舱享受护理体验，或在一家精致优美的餐厅中品味美食，然后回到舒适的、富泰式设计创意的别墅或套房中休息放松。','4760');
-INSERT INTO six_villa_villa VALUES(null,'img/Villa/Villa_img4.png','泰国 普吉岛','盛泰乐别墅度假村','Centara Villas Phuket','701 Patak Rd, Tambon Karon, Amphoe Mueang Phuket, Chang Wat Phuket 83100泰国','Denis Thouvard','img/Villa/Villa_manager4.png','欢迎来到普吉岛。盛泰乐的全体员工将竭力为您缔造一个完美的假期体验。','580');
+INSERT INTO six_villa_villa VALUES(null,'img/Villa/Villa_img2.jpg','印度尼西亚 巴厘岛','乌玛COMO乌布酒店','Uma by COMO','Jl. Raya Sanggingan, Banjar Lungsiakan, Kedewatan, Ubud, Kedewatan, Ubud, Kabupaten Gianyar, Bali 80571印度尼西亚','Gede Suteja','img/Villa/Villa_manager2.jpg','设计、避世、艺术、时尚，是COMO的一贯宗旨。我们将用最精心的服务为每位客人提供最奢华的体验。','1520');
+INSERT INTO six_villa_villa VALUES(null,'img/Villa/Villa_img3.jpg','马尔代夫','都喜天阙度假村','Dusit Thani Maldives','Mudhdhoo Island, Baa Atoll, 马尔代夫','Reinhold Johann','img/Villa/Villa_manager3.jpg','在都喜天阙，顾客可以体验海潜和浮潜、在无边界海景泳池中畅游、在泰丽水疗馆的树顶水疗舱享受护理体验，或在一家精致优美的餐厅中品味美食，然后回到舒适的、富泰式设计创意的别墅或套房中休息放松。','4760');
+INSERT INTO six_villa_villa VALUES(null,'img/Villa/Villa_img4.jpg','泰国 普吉岛','盛泰乐别墅度假村','Centara Villas Phuket','701 Patak Rd, Tambon Karon, Amphoe Mueang Phuket, Chang Wat Phuket 83100泰国','Denis Thouvard','img/Villa/Villa_manager4.jpg','欢迎来到普吉岛。盛泰乐的全体员工将竭力为您缔造一个完美的假期体验。','580');
+INSERT INTO six_villa_villa VALUES(null,'img/Villa/Villa_img5.jpg','泰国 甲米','瑞亚维德酒店','Rayavadee','214 Tambon Ao Nang, อำเภอ เมือง Chang Wat Krabi 81000泰国','Dalin Snidvongs Na Ayudhya','img/Villa/Villa_manager5.png','甲米瑞亚维德酒店，时时关注入住客人的需求，处处体现用心和专注，带给您极佳的入住感受，能为您的假期增添更多欢乐。','3780');
+INSERT INTO six_villa_villa VALUES(null,'img/Villa/Villa_img6.jpg','泰国 苏梅岛','圣缇丽度假村','Santiburi Beach Resort & Spa','12/12 หมู่ 1 ตำบล หาดแม่น้ำ Amphoe Ko Samui, Chang Wat Surat Thani 84330泰国','Cedric Bonvin','img/Villa/Villa_manager6.jpg','入住苏梅岛圣塔布里度假村，这里高品质的住房、完善的设施、温馨的氛围和一流的服务，将带给您宾至如归的感受，成为您苏梅岛之行的一个难忘回忆。','1880');
 #商务考察的优质资源的数据表插入
 INSERT INTO six_business_resources VALUES(null,'创投孵化','img/Business/bs-resource-list1.jpg');
 INSERT INTO six_business_resources VALUES(null,'创新企业','img/Business/bs-resource-list2.jpg');
