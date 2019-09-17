@@ -10,24 +10,28 @@
           </div>
           <div class="item-bd">
             <ul class="filter-ds" id="islands">
-              <li v-for="i of 6" :key=i>
-                <a href="" class="ds-li">全部别墅</a>
+              <li v-for="i of lists" :key=i>
+                <a href="" class="ds-li">{{i}}</a>
               </li>
             </ul>
           </div>
         </div>
         <!-- 甄选主题 -->
-        <div class="item2">
-          <div class="hd"></div>
-          <div class="bd">
+        <div class="item-2">
+          <div class="item-hd">
+            <span>甄选主题</span>
+          </div>
+          <div class="item-bd">
             <div class="villa-topic">
               <ul class="v-tp-list" id="theme">
-                <a href="/bieshu/tag2.html">
-                  <span>
-                    <img src="../../public/img/Villa/v-tp-1.jpg" alt="亲子时光">
-                  </span>
-                  <hr class="horizontal">
-                </a>
+                <li v-for="i of 4" :key=i>
+                  <a href="/bieshu/tag2.html">
+                    <span>
+                      <img src="../../public/img/Villa/v-tp-1.jpg" alt="亲子时光">
+                    </span>
+                    <hr class="horizontal">
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
@@ -39,11 +43,24 @@
 
 <script>
 export default {
-
+  data(){
+    return{
+      lists:["全部别墅","巴厘岛","马尔代夫","普吉岛","毛里求斯","苏梅岛"]
+    }
+  },
+  methods:{
+    onLoad(){
+      console.log(1);
+    }
+  }
 }
 </script>
 
 <style>
+img {
+  border: 0 none;
+  vertical-align: middle;
+}
 /* 最外层div宽度和背景色的设置 */
 .filter-wrap {
   width: 100%;
@@ -54,7 +71,7 @@ export default {
   width: 1180px;
   margin: 0 auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
 /* 热门海岛 */
 .filter-box .item-hd span {
@@ -66,6 +83,7 @@ export default {
 .filter-ds {
   overflow: hidden;
   display: flex;
+  padding: 0;
 }
 /* 小框框的设置 */
 .filter-ds li {
@@ -86,5 +104,69 @@ export default {
   color: #333;
   white-space: nowrap;
   overflow: hidden;
+  font-family: "microsoft yahei";
+}
+.filter-box .item-hd {
+  overflow: hidden;
+  padding: 10px;
+  zoom: 1;
+}
+/* 甄选主题 */
+.filter-box .item-2 {
+  width: 390px;
+  padding: 8px 0 8px 28px;
+  border-left: 1px solid #eeeeee;
+  position: relative;
+  left: -1px;
+}
+
+/* 标题 */
+.filter-box .item-hd {
+  overflow: hidden;
+  padding: 10px;
+  zoom: 1;
+}
+.filter-box .item-hd span {
+  font-size: 18px;
+  color: #888888;
+  font-family: "microsoft yahei";
+}
+.filter-box .item-bd {
+  zoom: 1;
+}
+.v-tp-list {
+  padding: 0;
+  overflow: hidden;
+  zoom: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.v-tp-list li {
+  display: inline;
+  margin-right: 4px;
+}
+.v-tp-list li a {
+  border-bottom: 1px dotted #D4D4D4;
+  border-right: 1px dotted #D4D4D4;
+  color: #999;
+  display: block;
+  height: 50px;
+  overflow: hidden;
+  padding-right: 4px;
+  position: relative;
+  width: 186px;
+}
+.v-tp-list li a span{
+  padding: 0.1px;
+}
+/* 虚线分割线 */
+.v-tp-list .horizontal {
+  display: block;
+  width: 186px;
+  height: 0px;
+  border: none;
+  border-bottom: 1px dotted #d4d4d4;
+  margin: 1px 0;
 }
 </style>

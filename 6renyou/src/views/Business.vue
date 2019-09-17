@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="business">
     <myheader></myheader>
     <!-- 商务考察页 -->
     <!-- banner页 -->
@@ -31,6 +31,9 @@ export default {
 }
 </script>
 <style scoped>
+.business{
+  background: #eee;
+}
 a:hover, a > *:hover {
   color: #71b32b;
   text-decoration: underline;

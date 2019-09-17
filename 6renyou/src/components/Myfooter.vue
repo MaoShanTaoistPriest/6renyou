@@ -119,6 +119,9 @@ export default {
 </script>
 
 <style scoped>
+footer{
+  background-color: #eee;
+}
 /* 1.大家都在看那一栏 */
 .links-wrp {
   width: 1180px;

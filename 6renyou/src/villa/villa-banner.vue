@@ -45,17 +45,17 @@ export default {
     background-color: #d3dce6;
   }
   /* 滚动小图标改成小圆点 */
-  .el-carousel__button {
+  /* .el-carousel__button {
     width: 12px!important;
     height: 12px!important;
     border-radius: 6px!important;
-  }
+  } */
   .el-carousel__indicator--horizontal {
     display: inline-block;
     padding: 12px 8px!important;
   }
-  .el-carousel .el-carousel__indicators--horizontal {
+  /* .el-carousel .el-carousel__indicators--horizontal {
     bottom: 0;
     left:85%!important;
-  }
+  } */
 </style>
