@@ -1,6 +1,6 @@
 <template>
   <div>
-    <myheader></myheader>
+    <!-- <myheader></myheader> -->
     <my-footer></my-footer>
   </div>
 </template>
