@@ -8,7 +8,7 @@
                     <div class="err-tips">
                         <div class="dis-box">
                             <em class="icon-err"></em>
-                            <span v-show="flase">请输入手机号码</span>
+                            <span v-show="false">请输入手机号码</span>
                         </div>
                     </div>
                     <div class="ctz-form">
@@ -31,7 +31,7 @@
                             </li>
                         </ul>
                         <div>
-                            <a href="" class="helpmeDZXC">帮我定制行程</a>
+                            <a href="" class="helpmeDZXC">请帮我定制行程</a>
                         </div>
                         <p>
                             <a href="">法律声明</a>
@@ -189,6 +189,7 @@ export default {
     color: #fff;
     border-radius: 4px;
     line-height:48px;
+    font-family: 'Microsoft Yahei';
 }
 .OrderTrip-container-box>.ctz-wrp>.ctz-area>.ctz-box>.ctz-form div a:hover{
     color:#71b32b;
