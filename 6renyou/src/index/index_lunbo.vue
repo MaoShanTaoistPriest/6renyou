@@ -916,7 +916,6 @@ export default {
 .index_carousel .why-box{
     min-width: 1180px;
     background: #ebebec;
-    margin-bottom: 40px;
 }
 .index_carousel .why-box .why-box-inner{
     width: 1180px;

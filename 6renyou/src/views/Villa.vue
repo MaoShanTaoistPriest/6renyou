@@ -1,13 +1,14 @@
 <template>
 <!-- 度假别墅区 -->
   <div>
-    <myheader></myheader>
+    <!-- <myheader></myheader> -->
+    <!-- <myheader></myheader> -->
     <!-- 轮播图 -->
     <villa-banner></villa-banner>
     <!-- 热门海岛、甄选主题 -->
     <villa-filter></villa-filter>
     <villa-wrap></villa-wrap>
-    <my-footer></my-footer>
+    <!-- <my-footer></my-footer> -->
   </div>
 </template>
 <script>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <myheader></myheader>
+    <!-- <myheader></myheader> -->
     <!-- banner -->
     <div class="comment-banner">
       <div class="comment-banner-inner">
