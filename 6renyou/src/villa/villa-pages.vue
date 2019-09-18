@@ -38,9 +38,5 @@ export default {
 </script>
 
 <style>
-.villa-pages .el-pagination.is-background .el-pager li:not(.disabled).active {
-    background-color: #2ba165!important;
-    color: #FFF;
-    border: 1px solid #2ba165!important;
-}
+
 </style>
