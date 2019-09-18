@@ -1,11 +1,12 @@
 <template>
-  <div>
+  <div class="villa-pages">
     <!-- 分页查询 -->
     <el-pagination
       background
       layout="prev, pager, next"
       page-size="5"
       @current-change="handlecurrentchange"
+      :current-page.sync="currentPage"
       :total="total">
     </el-pagination>
   </div>
@@ -25,13 +26,21 @@ export default {
   },
   methods:{
     handlecurrentchange(){
-      this.axios.get('')
-      .then(result=>{})
+      // this.axios.get('')
+      // .then(result=>{})
+      console.log(1);
     }
   }
+  // created(){
+  //   this.handlecurrentchange();
+  // }
 }
 </script>
 
 <style>
-
+.villa-pages .el-pagination.is-background .el-pager li:not(.disabled).active {
+    background-color: #2ba165!important;
+    color: #FFF;
+    border: 1px solid #2ba165!important;
+}
 </style>
