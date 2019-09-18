@@ -88,9 +88,9 @@ export default {
     }
   },
   watch:{
-    keys(newValue,oldValue){
+    keys(newValue,oldVal){
       console.log(this.key);
-      console.log(newValue,oldValue)
+      console.log(newValue,oldVal)
       this.handlecurrentchange();
     }
   },
