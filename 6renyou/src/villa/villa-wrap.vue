@@ -41,10 +41,13 @@
         </li>
       </ul>
     </div>
+    <villa-page class="middle"></villa-page>
   </div>
+  <!-- 分页查询 -->
 </template>
 
 <script>
+import villapage from './villa-pages'
 export default {
   data(){
     return{
@@ -62,11 +65,17 @@ export default {
   },
   created(){
     this.onLoad();
+  },
+  components:{
+    'villa-page':villapage
   }
 }
 </script>
 
 <style>
+.middle{
+  text-align: center;
+}
 .villa-wrap {
   width: 100%;
   background: #f0c092 url("../../public/img/Villa/villa-bg.jpg") top center no-repeat;
