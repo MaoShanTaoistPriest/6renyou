@@ -8,7 +8,7 @@
     <!-- 热门海岛、甄选主题 -->
     <villa-filter></villa-filter>
     <villa-wrap></villa-wrap>
-    <!-- <my-footer></my-footer> -->
+    <my-footer></my-footer>
   </div>
 </template>
 <script>
