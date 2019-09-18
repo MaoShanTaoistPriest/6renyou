@@ -7,6 +7,7 @@
     <villa-banner></villa-banner>
     <!-- 热门海岛、甄选主题 -->
     <villa-filter></villa-filter>
+    <!-- 全部别墅 -->
     <villa-wrap></villa-wrap>
     <my-footer></my-footer>
   </div>
@@ -19,7 +20,7 @@ export default {
   components:{
     'villa-banner':villabanner,
     'villa-filter':villafilter,
-    'villa-wrap':villawrap
+    'villa-wrap':villawrap,
   }
 }
 </script>

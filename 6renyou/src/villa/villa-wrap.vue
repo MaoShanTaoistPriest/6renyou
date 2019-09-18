@@ -41,10 +41,13 @@
         </li>
       </ul>
     </div>
+  <!-- 分页查询 -->
+    <villa-page class="middle" :total="villas.length"></villa-page>
   </div>
 </template>
 
 <script>
+import villapage from './villa-pages'
 export default {
   data(){
     return{
@@ -57,16 +60,23 @@ export default {
      this.axios.get("villaVilla").then(result=>{
        console.log(result.data.data);
        this.villas=result.data.data;
+       console.log(this.villas.length)
      })
     }
   },
   created(){
     this.onLoad();
+  },
+  components:{
+    'villa-page':villapage
   }
 }
 </script>
 
 <style>
+.middle{
+  text-align: center;
+}
 .villa-wrap {
   width: 100%;
   background: #f0c092 url("../../public/img/Villa/villa-bg.jpg") top center no-repeat;
