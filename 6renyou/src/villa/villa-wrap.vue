@@ -41,9 +41,9 @@
         </li>
       </ul>
     </div>
-    <villa-page class="middle"></villa-page>
-  </div>
   <!-- 分页查询 -->
+    <villa-page class="middle" :total="villas.length"></villa-page>
+  </div>
 </template>
 
 <script>
@@ -60,6 +60,7 @@ export default {
      this.axios.get("villaVilla").then(result=>{
        console.log(result.data.data);
        this.villas=result.data.data;
+       console.log(this.villas.length)
      })
     }
   },
