@@ -1,6 +1,6 @@
 <template>
   <div class="business">
-    <myheader></myheader>
+    <!-- <myheader></myheader> -->
     <!-- 商务考察页 -->
     <!-- banner页 -->
     <bs-banner></bs-banner>

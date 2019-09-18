@@ -1,7 +1,7 @@
 <template>
   <div>
-    <myheader></myheader>
     <Order-Trip></Order-Trip>
+    <!-- <myheader></myheader> -->
     <my-footer></my-footer>
   </div>
 </template>
@@ -13,6 +13,6 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style>
 
 </style>
