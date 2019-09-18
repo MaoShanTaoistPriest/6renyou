@@ -10,8 +10,8 @@
           </div>
           <div class="item-bd">
             <ul class="filter-ds" id="islands">
-              <li v-for="i of lists" :key=i>
-                <a href="" class="ds-li">{{i}}</a>
+              <li v-for="i of lists" :key="i">
+                <a href class="ds-li">{{i}}</a>
               </li>
             </ul>
           </div>
@@ -24,12 +24,12 @@
           <div class="item-bd">
             <div class="villa-topic">
               <ul class="v-tp-list" id="theme">
-                <li v-for="i of 4" :key=i>
+                <li v-for="(item,index) of pics" :key="index">
                   <a href="/bieshu/tag2.html">
                     <span>
-                      <img src="../../public/img/Villa/v-tp-1.jpg" alt="亲子时光">
+                      <img :src="imgUrl+item.img" :alt="item.title" />
                     </span>
-                    <hr class="horizontal">
+                    <hr class="horizontal" />
                   </a>
                 </li>
               </ul>
@@ -43,17 +43,26 @@
 
 <script>
 export default {
-  data(){
-    return{
-      lists:["全部别墅","巴厘岛","马尔代夫","普吉岛","毛里求斯","苏梅岛"]
+  data() {
+    return {
+      lists: ["全部别墅", "巴厘岛", "马尔代夫", "普吉岛", "毛里求斯", "苏梅岛"],
+      pics:[],
+      imgUrl:this.$imgUrl
+    };
+  },
+  methods: {
+    onLoad() {
+      this.axios.get("villaTheme")
+      .then(result => {
+        console.log(result.data.data);
+        this.pics = result.data.data;
+      });
     }
   },
-  methods:{
-    onLoad(){
-      console.log(1);
-    }
+  created(){
+    this.onLoad();
   }
-}
+};
 </script>
 
 <style>
@@ -64,7 +73,7 @@ img {
 /* 最外层div宽度和背景色的设置 */
 .filter-wrap {
   width: 100%;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 /* 宽度居中 */
 .filter-box {
@@ -78,6 +87,14 @@ img {
   float: left;
   font-size: 18px;
   color: #888888;
+}
+/* 悬停效果 */
+.filter-ds li .ds-li:hover,
+.filter-ds li.on .ds-li {
+  background-color: #3eb166;
+  text-decoration: none;
+  color: #fff;
+  border-color: #3eb166;
 }
 /* 各种海岛 */
 .filter-ds {
@@ -147,8 +164,8 @@ img {
   margin-right: 4px;
 }
 .v-tp-list li a {
-  border-bottom: 1px dotted #D4D4D4;
-  border-right: 1px dotted #D4D4D4;
+  border-bottom: 1px dotted #d4d4d4;
+  border-right: 1px dotted #d4d4d4;
   color: #999;
   display: block;
   height: 50px;
@@ -157,7 +174,7 @@ img {
   position: relative;
   width: 186px;
 }
-.v-tp-list li a span{
+.v-tp-list li a span {
   padding: 0.1px;
 }
 /* 虚线分割线 */

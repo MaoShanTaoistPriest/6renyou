@@ -4,36 +4,36 @@
     <div class="villa-bd">
       <ul class="villa-list">
         <!-- 各个别墅 -->
-        <li class="villa-hot rmmd">
+        <li class="villa-hot rmmd" v-for="(item,index) of villas" :key=index>
           <a href="" class="villa-link">
             <!-- 左边图片 -->
             <div class="villa-hot-pic">
-              <img src="../../public/img/Villa/5a5d6f7a1b3bb.jpg" alt="" class="lazy" style="display:inline;">
+              <img :src="imgUrl+item.bigImg" alt="" class="lazy" style="display:inline;">
             </div>
             <!-- 右边别墅信息 -->
             <div class="villa-hot-inf">
               <div class="villa-info-box">
                 <h2 class="villa-tt">
-                  <strong class="tt1">泰国 苏梅岛</strong>
-                  <span class="tt2">圣体力度假村</span>    
+                  <strong class="tt1">{{item.title}}</strong>
+                  <span class="tt2">{{item.subTitle}}</span>    
                 </h2>
-                <p class="villa-eng">Santiburi Beach Resort &amp; Spa</p>
-                <p class="villa-addr">12/12 หมู่ 1 ตำบล หาดแม่น้ำ Amphoe Ko Samui, Chang Wat Surat Thani 84330泰国</p>
+                <p class="villa-eng">{{item.Vname}}</p>
+                <p class="villa-addr">{{item.place}}</p>
               </div>
               <div class="manager-box">
                 <!-- 别墅经理的姓名 -->
-                <p class="manager-name">别墅经理：Cedric Bonvin</p>
+                <p class="manager-name">别墅经理：{{item.manager}}</p>
                 <!-- 别墅经理的评价 -->
                 <div class="manager-msg">
                   <span class="manager-pic">
-                      <img original="/uploads/other/201801/5a5da2703ae76.jpg" class="lazy" src="../../public/img/Villa/person.jpg" width="40" height="40" style="display: inline;">
+                      <img original="/uploads/other/201801/5a5da2703ae76.jpg" class="lazy" :src="imgUrl+item.managerImg" width="40" height="40" style="display: inline;">
                   </span>
-                  <p class="manager-text">“ 入住苏梅岛圣塔布里度假村，这里高品质的住房、完善的设施、温馨的氛围和一流的服务，将带给您宾至如归的感受，成为您苏梅岛之行的一个难忘回忆。 ”</p>
+                  <p class="manager-text">“ {{item.introduce}} ”</p>
                 </div>
               </div>
               <!-- 价格 -->
               <div class="v-sale-box">
-                <p class="v-price"><i>¥</i><span>1880</span>/晚起</p>
+                <p class="v-price"><i>¥</i><span>{{item.price}}</span>/晚起</p>
                 <span class="go-detail">查看详情</span>
               </div>
             </div>
@@ -46,7 +46,23 @@
 
 <script>
 export default {
-
+  data(){
+    return{
+      villas:[],
+      imgUrl:this.$imgUrl
+    }
+  },
+  methods:{
+    onLoad(){
+     this.axios.get("villaVilla").then(result=>{
+       console.log(result.data.data);
+       this.villas=result.data.data;
+     })
+    }
+  },
+  created(){
+    this.onLoad();
+  }
 }
 </script>
 
@@ -185,5 +201,35 @@ strong {
   color: #999;
   overflow: hidden;
   padding-top: 3px;
+}
+/* 价格设置 */
+.v-sale-box {
+  width: 390px;
+  position: absolute;
+  right: 0;
+  bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+.v-price {
+  font-size: 14px;
+  color: #333;
+  margin:0;
+}
+.go-detail {
+  text-indent: -9999px;
+  display: block;
+  width: 138px;
+  height: 44px;
+  background: url("../../public/img/Villa/villa-icons.png") 0 -86px no-repeat;
+}
+.v-price i {
+  font-size: 22px;
+}
+.v-price span {
+  font-size: 36px;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 46px;
+  font-weight: 700;
 }
 </style>
