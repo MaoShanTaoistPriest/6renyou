@@ -24,13 +24,13 @@
           <div class="item-bd">
             <div class="villa-topic">
               <ul class="v-tp-list" id="theme">
-                <li v-for="(item,i) of pics" :key="i">
-                  <a href="">
-                    <span>
+                <li v-for="(item,index) of pics" :key="index">
+                  <div>
+                    <span @click="change(item.title)">
                       <img :src="imgUrl+item.img" :alt="item.title" />
                     </span>
                     <hr class="horizontal" />
-                  </a>
+                  </div>
                 </li>
               </ul>
             </div>
@@ -174,7 +174,7 @@ img {
   display: inline;
   margin-right: 4px;
 }
-.v-tp-list li a {
+.v-tp-list li div {
   border-bottom: 1px dotted #d4d4d4;
   border-right: 1px dotted #d4d4d4;
   color: #999;
