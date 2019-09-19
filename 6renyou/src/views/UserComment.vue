@@ -40,14 +40,17 @@
         </ul>
       </div>
       <!-- 分页查询 -->
-      <el-pagination
-      background
-      @current-change="handleCurrentChange"
-      :current-page.sync="currentPage"
-      :page-size="6"
-      layout="total, prev, pager, next"
-      :total="clength">
-    </el-pagination>
+      <div class="pagediv">
+        <el-pagination
+          background
+          @current-change="handleCurrentChange"
+          :current-page.sync="currentPage"
+          :page-size="6"
+          layout="total, prev, pager, next"
+          :total="clength">
+        </el-pagination>
+      </div>
+      
     </div>
     <my-footer></my-footer>
   </div>
@@ -272,5 +275,9 @@ ul,li{
   overflow: hidden;
   visibility: hidden;
   content: ".";
+}
+/* 分页按钮 */
+.comment-wrp div.pagediv{
+  text-align: center;
 }
 </style>
