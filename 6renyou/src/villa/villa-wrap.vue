@@ -1,7 +1,7 @@
 <template>
 <!-- content -->
   <div class="villa-wrap">
-  <span>{{getKeys()}}</span>
+  <span style="display:none;" >{{getKeys()}}</span>
 
     <div class="villa-bd">
       <ul class="villa-list">
@@ -45,9 +45,8 @@
     </div>
   <!-- 分页查询 -->
     <el-pagination class="middle"
-      :data-keys="keys"
       background
-      layout="prev, pager, next"
+      layout="prev, pager, next ,jumper,->"
       :page-size="size"
       @current-change="handlecurrentchange(currentPage)"
       :current-page.sync="currentPage"
@@ -72,13 +71,16 @@ export default {
   },
   methods:{
     getKeys(){
-      return this.$store.getters.getKeys;
       this.keys=this.$store.getters.getKeys;
+      // return this.$store.getters.getKeys;
     },
     handlecurrentchange(pno){
       // pno=1;
       var key=this.keys;
-      console.log(key);
+      if(key=="全部别墅"){
+        key=undefined;
+      }
+      // console.log(key);
       var pcount=5;
       this.axios.get("villaVilla",{params:{pno,key}}).then(result=>{
         this.length=result.data.length;
@@ -88,9 +90,10 @@ export default {
     }
   },
   watch:{
-    keys(newValue,oldVal){
+      keys(newValue,oldVal){
       console.log(this.key);
-      console.log(newValue,oldVal)
+      console.log(newValue,oldVal
+      )
       this.handlecurrentchange();
     }
   },
