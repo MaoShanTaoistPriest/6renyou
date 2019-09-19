@@ -56,7 +56,7 @@ export default new Router({
           path: '/Business',
           name: 'Business',
           component: Business
-        },
+        }
       ]
     },
     // 因为登陆页没有公用的页头，所以不需嵌套

@@ -325,22 +325,78 @@ server.get("/villaTheme", (req, res) => {
 
 // 度假&别墅模块的具体内容的数据的获取
 server.get("/villaVilla", (req, res) => {
-  var sql = "SELECT id,bigImg,title,subTitle,Vname,place,manager,managerImg,introduce,price FROM six_villa_villa";
-  pool.query(sql, (err, result) => {
-    if (err) throw err;
-    if (result.length == 0) {
-      res.send({
-        code: "-1",
-        msg: "查询有误"
-      });
-    } else {
-      res.send({
-        code: "1",
-        msg: "查询成功",
-        data: result
-      });
-    }
-  })
+  // 现获取到pno，pcount两个重要数据，并计算出start
+  var pno = req.query.pno;
+  var pcount = req.query.pcount;
+  var key = req.query.key;
+  if (!pno) {
+    pno = 1;
+  };
+  if (!pcount) {
+    pcount = 5;
+  };
+  var start = (pno - 1) * pcount;
+  if (!key) {
+    var sql1 = `SELECT id FROM six_villa_villa`;
+    pool.query(sql1, (err, result) => {
+      if (err) throw err;
+      if (result.length == 0) {
+        res.send({
+          code: "-1",
+          msg: "查询有误"
+        });
+      } else {
+        var pnum = result.length;
+        var sql2 = `SELECT id,bigImg,title,subTitle,Vname,place,manager,managerImg,introduce,price FROM six_villa_villa limit ${start},${pcount}`;
+        pool.query(sql2, (err, result) => {
+          if (err) throw err;
+          if (result.length == 0) {
+            res.send({
+              code: "-1",
+              msg: "查询有误"
+            });
+          } else {
+            res.send({
+              code: "1",
+              msg: "查询成功",
+              length: pnum,
+              data: result
+            });
+          }
+        })
+      }
+    })
+  } else {
+    var sql3 = `SELECT id FROM six_villa_villa WHERE keyWords LIKE '%${key}%'`;
+    pool.query(sql3, (err, result) => {
+      if (err) throw err;
+      if (result.length == 0) {
+        res.send({
+          code: "-1",
+          msg: "查询有误"
+        });
+      } else {
+        var pnum = result.length;
+        var sql4 = `SELECT id,bigImg,title,subTitle,Vname,place,manager,managerImg,introduce,price FROM six_villa_villa WHERE keyWords LIKE '%${key}%' limit ${start},${pcount}`;
+        pool.query(sql4, (err, result) => {
+          if (err) throw err;
+          if (result.length == 0) {
+            res.send({
+              code: "-1",
+              msg: "查询有误"
+            });
+          } else {
+            res.send({
+              code: "1",
+              msg: "查询成功",
+              length: pnum,
+              data: result
+            });
+          }
+        })
+      }
+    })
+  }
 });
 
 // 商务考察模块的优质资源的数据的获取
