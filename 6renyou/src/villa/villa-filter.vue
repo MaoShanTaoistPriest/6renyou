@@ -24,7 +24,7 @@
           <div class="item-bd">
             <div class="villa-topic">
               <ul class="v-tp-list" id="theme">
-                <li v-for="(item,index) of pics" :key="index">
+                <li v-for="(item,i) of pics" :key="i">
                   <a href="">
                     <span>
                       <img :src="imgUrl+item.img" :alt="item.title" />
