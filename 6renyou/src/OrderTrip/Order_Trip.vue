@@ -75,18 +75,6 @@
         </div>
       </div>
     </div>
-    <el-row class="demo-autocomplete">
-      <el-col :span="12">
-        <el-autocomplete
-          class="inline-input"
-          v-model="state2"
-          :fetch-suggestions="querySearch"
-          placeholder="请输入内容"
-          :trigger-on-focus="false"
-          @select="handleSelect"
-        ></el-autocomplete>
-      </el-col>
-    </el-row>
   </div>
 </template>
 <script>
