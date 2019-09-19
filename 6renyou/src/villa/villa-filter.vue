@@ -11,7 +11,7 @@
           <div class="item-bd">
             <ul class="filter-ds" id="islands">
               <li v-for="i of lists" :key="i">
-                <a href class="ds-li">{{i}}</a>
+                <button href class="ds-li" @click="change(i)">{{i}}</button>
               </li>
             </ul>
           </div>
@@ -25,7 +25,7 @@
             <div class="villa-topic">
               <ul class="v-tp-list" id="theme">
                 <li v-for="(item,index) of pics" :key="index">
-                  <a href="/bieshu/tag2.html">
+                  <a href="">
                     <span>
                       <img :src="imgUrl+item.img" :alt="item.title" />
                     </span>
@@ -54,9 +54,13 @@ export default {
     onLoad() {
       this.axios.get("villaTheme")
       .then(result => {
-        console.log(result.data.data);
+        // console.log(result.data.data);
         this.pics = result.data.data;
       });
+    },
+    change(i){
+      this.$store.commit("updateKeys",i);
+      
     }
   },
   created(){

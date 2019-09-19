@@ -1,6 +1,8 @@
 <template>
 <!-- content -->
   <div class="villa-wrap">
+  <span>{{getKeys()}}</span>
+
     <div class="villa-bd">
       <ul class="villa-list">
         <!-- 各个别墅 -->
@@ -42,38 +44,71 @@
       </ul>
     </div>
   <!-- 分页查询 -->
-    <villa-page class="middle" :total="villas.length"></villa-page>
+    <el-pagination class="middle"
+      :data-keys="keys"
+      background
+      layout="prev, pager, next"
+      :page-size="size"
+      @current-change="handlecurrentchange(currentPage)"
+      :current-page.sync="currentPage"
+      :total="length"
+      >
+    </el-pagination>
   </div>
 </template>
 
 <script>
-import villapage from './villa-pages'
+// import villapage from './villa-pages'
 export default {
   data(){
     return{
+      size:5,
       villas:[],
-      imgUrl:this.$imgUrl
+      imgUrl:this.$imgUrl,
+      currentPage:1,
+      keys:"",
+      length:1
     }
   },
   methods:{
-    onLoad(){
-     this.axios.get("villaVilla").then(result=>{
-       console.log(result.data.data);
-       this.villas=result.data.data;
-       console.log(this.villas.length)
+    getKeys(){
+      return this.$store.getters.getKeys;
+      this.keys=this.$store.getters.getKeys;
+    },
+    handlecurrentchange(pno){
+      // pno=1;
+      var key=this.keys;
+      console.log(key);
+      var pcount=5;
+      this.axios.get("villaVilla",{params:{pno,key}}).then(result=>{
+        this.length=result.data.length;
+        this.villas=result.data.data;
+        console.log(result.data.data);
      })
     }
   },
+  watch:{
+    keys(newValue,oldVal){
+      console.log(this.key);
+      console.log(newValue,oldVal)
+      this.handlecurrentchange();
+    }
+  },
   created(){
-    this.onLoad();
+    this.handlecurrentchange();
   },
   components:{
-    'villa-page':villapage
+    // 'villa-page':villapage
   }
 }
 </script>
 
 <style>
+.villa-wrap .el-pagination.is-background .el-pager li:not(.disabled).active {
+  background-color: #2ba165!important;
+  color: #FFF;
+  border: 1px solid #2ba165!important;
+}
 .middle{
   text-align: center;
 }
