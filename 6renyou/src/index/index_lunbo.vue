@@ -337,9 +337,19 @@ export default {
     z-index: 100;
     text-indent: -9999px;
 }
+/* ----------------------------------------------------- */
+.index_carousel .el-carousel--horizontal{
+    overflow-x: visible; 
+}
+.index_carousel .el-carousel__item{
+     overflow: hidden;
+}
+.index_carousel .el-carousel__item img{
+    width:100%;
+    height:100%;
+}
 .index_carousel .el-carousel__item .is-animating{
     height:490px;
-    
 }
 /* 复原原网站样式 两边按钮清空 */
  .index_carousel .el-carousel__arrow{
