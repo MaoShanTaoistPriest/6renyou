@@ -8,10 +8,10 @@
           <div class="item-hd">
             <span>热门海岛</span>
           </div>
-          <div class="item-bd">
+          <div class="item-bd mt-1">
             <ul class="filter-ds" id="islands">
               <li v-for="i of lists" :key="i">
-                <button href class="ds-li" @click="change(i)">{{i}}</button>
+                <button href @click="change(i)" :class="val==i?'ds-li toGreen':'ds-li'">{{i}}</button>
               </li>
             </ul>
           </div>
@@ -25,12 +25,12 @@
             <div class="villa-topic">
               <ul class="v-tp-list" id="theme">
                 <li v-for="(item,index) of pics" :key="index">
-                  <a href="">
-                    <span>
+                  <div>
+                    <span @click="change(item.title)">
                       <img :src="imgUrl+item.img" :alt="item.title" />
                     </span>
                     <hr class="horizontal" />
-                  </a>
+                  </div>
                 </li>
               </ul>
             </div>
@@ -47,7 +47,10 @@ export default {
     return {
       lists: ["全部别墅", "巴厘岛", "马尔代夫", "普吉岛", "毛里求斯", "苏梅岛"],
       pics:[],
-      imgUrl:this.$imgUrl
+      imgUrl:this.$imgUrl,
+      toGreen:"",
+      isNone:"ds-li toGreen",
+      val:-1
     };
   },
   methods: {
@@ -59,8 +62,9 @@ export default {
       });
     },
     change(i){
+      // console.log(e);
       this.$store.commit("updateKeys",i);
-      
+      this.val=i;
     }
   },
   created(){
@@ -70,6 +74,9 @@ export default {
 </script>
 
 <style>
+.mt-1{
+  margin-top:1.3rem;
+}
 img {
   border: 0 none;
   vertical-align: middle;
@@ -94,7 +101,7 @@ img {
 }
 /* 悬停效果 */
 .filter-ds li .ds-li:hover,
-.filter-ds li.on .ds-li {
+.filter-ds li.on .ds-li ,.item-bd .filter-ds .toGreen{
   background-color: #3eb166;
   text-decoration: none;
   color: #fff;
@@ -110,7 +117,7 @@ img {
 .filter-ds li {
   padding: 0 10px 10px 0;
 }
-.filter-ds li .ds-li {
+.filter-ds li .ds-li{
   display: inline-block;
   width: 112px;
   height: 44px;
@@ -167,7 +174,7 @@ img {
   display: inline;
   margin-right: 4px;
 }
-.v-tp-list li a {
+.v-tp-list li div {
   border-bottom: 1px dotted #d4d4d4;
   border-right: 1px dotted #d4d4d4;
   color: #999;
