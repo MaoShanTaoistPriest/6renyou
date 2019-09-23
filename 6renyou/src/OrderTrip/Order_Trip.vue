@@ -1,4 +1,9 @@
 <template>
+<!-- height: 100%;
+    width: 1120px;
+    min-width: 1120px;
+    margin: 0 auto;
+    position: relative; -->
   <div class="OrderTrip-container-box">
     <div class="ctz-wrp">
       <div class="ctz-area">
@@ -441,7 +446,7 @@ export default {
   > .customized-wrp
   > .section
   > .fp-tableCell
-  > .session-inner {
+  > .section-inner {
   height: 100%;
   width: 1120px;
   min-width: 1120px;
@@ -458,8 +463,8 @@ export default {
   width: 340px;
   height: 340px;
   position: absolute;
-  top: 124px;
-  right: 438px;
+  top: 50px;
+  right: 50px;
   background: url("../../public/img/OrderTrip/ctz-liucheng.png") no-repeat;
 }
 /* 更改 */
