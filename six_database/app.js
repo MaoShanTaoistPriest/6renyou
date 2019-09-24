@@ -74,7 +74,7 @@ server.post("/userReg", (req, res) => {
   pool.query(sql1, [uname], (err, result) => {
     if (err) throw err;
     if (result.length == 0) {
-      var sql2 = `INSERT INTO six_user_login VALUES(null,'${uname}',md5('${upwd}'))`;
+      var sql2 = `INSERT INTO six_user_login VALUES(null,'${uname}',md5('${upwd}'),1)`;
       pool.query(sql2, function (err, result) {
         if (err) throw err;
         // console.log(result);

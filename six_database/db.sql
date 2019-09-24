@@ -6,11 +6,15 @@ USE six;
 CREATE TABLE six_user_login(
   id INT PRIMARY KEY AUTO_INCREMENT,
   uname VARCHAR(50),
-  upwd  VARCHAR(32)
+  upwd  VARCHAR(32),
+  permission INT
 );
 #功能二:添加二条测试数据 
-INSERT INTO six_user_login VALUES(null,'tom',md5('123'));
-INSERT INTO six_user_login VALUES(null,'jerry',md5('123'));
+#模拟客户的账号
+INSERT INTO six_user_login VALUES(null,'tom',md5('123'),1);
+#模拟管理员的账号
+INSERT INTO six_user_login VALUES(null,'jerry',md5('123'),0);
+
 #头部的目的地的数据表搭建
 CREATE TABLE six_header_destination(
   id INT PRIMARY KEY AUTO_INCREMENT,
