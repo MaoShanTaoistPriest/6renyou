@@ -1,5 +1,7 @@
 <template>
     <div class="index_carousel">
+        <el-row>
+            <el-col :span="24"><div class="grid-content bg-purple-dark">
         <el-carousel height="200px"   :interval="4000">
             <el-carousel-item v-for="item in listsBanner" :key="item.id" >
                 <img :src="imgurl+item.img" alt="">
@@ -9,6 +11,8 @@
             </el-carousel-item> 
             <a href="" class="banner-hlink">帮我定制行程</a>
         </el-carousel>
+        </div></el-col>
+        </el-row>
         
         <div class="index-concept">
             <div class="concept-wrap">
