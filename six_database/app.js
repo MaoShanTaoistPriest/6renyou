@@ -64,7 +64,7 @@ server.post("/userLogin", (req, res) => {
   })
 });
 
-// reg模块的用户的账号密码的添加
+// reg模块的用户的账号密码的添加,默认添加权限为1，普通用户
 server.post("/userReg", (req, res) => {
   //获取get请求的数据
   var uname = req.body.uname;
