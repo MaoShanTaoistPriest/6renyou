@@ -58,7 +58,8 @@ server.post("/userLogin", (req, res) => {
       req.session.uid = uid;
       res.send({
         code: "1",
-        msg: "登陆成功"
+        msg: "登陆成功",
+        data: result
       });
     }
   })
@@ -397,6 +398,26 @@ server.get("/villaVilla", (req, res) => {
       }
     })
   }
+});
+
+// 度假&别墅模块的别墅详情的数据的获取
+server.get("/villaDetail", (req, res) => {
+  var sql = "SELECT id,img,title FROM six_villa_detail";
+  pool.query(sql, (err, result) => {
+    if (err) throw err;
+    if (result.length == 0) {
+      res.send({
+        code: "-1",
+        msg: "查询有误"
+      });
+    } else {
+      res.send({
+        code: "1",
+        msg: "查询成功",
+        data: result
+      });
+    }
+  })
 });
 
 // 商务考察模块的优质资源的数据的获取
