@@ -9,6 +9,7 @@ const originalPush = Router.prototype.push
 Router.prototype.push = function push(location) {
   return originalPush.call(this, location).catch(err => err)
 }
+console.log("测试分支");
 // post请求必须要引入的模块 
 // 先下载 npm i qs -S
 import qs from 'qs'
